@@ -28,7 +28,7 @@ const FamousFacilitiesSection = () => {
   ];
 
   return (
-    <section className='relative px-6 py-20'>
+    <section className='relative'>
       <Image
         width={500}
         height={500}

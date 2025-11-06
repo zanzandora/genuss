@@ -1,6 +1,6 @@
 import HeaderSection from '@/components/sections/(maketing)/home/HeaderSection';
-import FamousFacilitiesSection from '@/components/sections/(maketing)/home/main-content/facilities/FamousFacilitiesSection';
-import HotelFacilitiesSection from '@/components/sections/(maketing)/home/main-content/facilities/HotelFacilitiesSection';
+import FamousFacilitiesSection from '@/components/sections/(maketing)/facilities/FamousFacilitiesSection';
+import HotelFacilitiesSection from '@/components/sections/(maketing)/facilities/HotelFacilitiesSection';
 import NewLetterSection from '@/components/sections/(maketing)/home/main-content/NewLetterSection';
 import OurRoomSection from '@/components/sections/(maketing)/home/main-content/OurRoomSection';
 import { SummarySection } from '@/components/sections/(maketing)/home/main-content/SummarySection';
