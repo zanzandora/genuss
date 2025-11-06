@@ -6,18 +6,45 @@ import { ArrowRightIcon, BedDoubleIcon, Users2Icon } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { BLUR_DATA_URL } from '@/constants';
 
+type SizeCard = 'normal' | 'medium' | 'large';
+
 type Props = {
   className?: string;
+  sizeCard?: SizeCard;
+  shouldUseHover?: boolean;
 };
 
-const RoomCard = ({ className }: Props) => {
+const RoomCard = ({
+  className,
+  sizeCard = 'normal',
+  shouldUseHover = false,
+}: Props) => {
+  const gridClasses = {
+    normal: 'md:col-span-1 ',
+    medium: 'md:col-span-2 ',
+    large: 'md:col-span-3',
+  };
+
+  const panelClasses = shouldUseHover
+    ? 'translate-y-full transform transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'
+    : 'translate-y-0 transform';
+
+  const infoClasses = shouldUseHover
+    ? 'opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'
+    : 'opacity-100';
+
   return (
-    <div className={cn('group relative cursor-pointer', className)}>
-      {/* Room Image Container */}
-      <div className='relative mb-4 aspect-[3/4] overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
-        <div className='block h-full w-full'>
+    <div
+      className={cn(
+        'group relative h-full cursor-pointer',
+        gridClasses[sizeCard],
+        className,
+      )}
+    >
+      {/* Room  Container */}
+      <div className='relative mb-4 aspect-[3/4] max-h-[490px] min-w-full overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
+        <div className='h-full w-full'>
           <div className='relative h-full w-full'>
-            {/* Image: lớn hơn khung mặc định (scale-110), hover/focus sẽ scale về 100 */}
             <Image
               src='/images/room/room-1.jpg'
               alt='Room image'
@@ -30,7 +57,7 @@ const RoomCard = ({ className }: Props) => {
           </div>
 
           {/* Price */}
-          <div className='absolute top-3 right-3 z-10 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'>
+          <div className={cn('absolute top-3 right-3 z-10', infoClasses)}>
             <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
               From $35 / Night
             </Badge>
@@ -38,7 +65,12 @@ const RoomCard = ({ className }: Props) => {
         </div>
 
         {/* Hover Panel - sẽ được translate lên trên khi hover */}
-        <div className='absolute right-0 bottom-0 left-0 translate-y-full transform rounded-t-xl border-t border-secondary bg-white p-4 shadow-xl backdrop-blur-sm transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'>
+        <div
+          className={cn(
+            'absolute right-0 bottom-0 left-0 rounded-t-xl border-t border-secondary bg-white p-4 shadow-xl backdrop-blur-sm',
+            panelClasses,
+          )}
+        >
           <div className='mb-3 w-full py-3 text-sm font-medium'>
             <p className='font-semibold'>SUPERIOR DOUBLE ROOM</p>
             <p className='mt-2 flex items-center gap-2'>

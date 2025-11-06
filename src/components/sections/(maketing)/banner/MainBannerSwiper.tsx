@@ -6,7 +6,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import { PhoneIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { BLUR_DATA_URL } from '@/constants';
@@ -41,8 +40,6 @@ export default function MainBannerSwiper({
 
   return (
     <div className='relative'>
-      {/* <NavBar /> */}
-
       {/* Booking Title */}
       <div className='absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2'>
         <div className='size-26 w-full text-6xl perspective-dramatic'>

@@ -8,7 +8,7 @@ import TestimonialsSectino from '@/components/sections/(maketing)/home/main-cont
 
 export default function Home() {
   return (
-    <main className='p-4'>
+    <div>
       <HeaderSection />
 
       <SummarySection />
@@ -22,6 +22,6 @@ export default function Home() {
       <TestimonialsSectino />
 
       <NewLetterSection />
-    </main>
+    </div>
   );
 }

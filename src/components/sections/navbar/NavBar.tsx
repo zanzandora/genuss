@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const NavBar = () => {
   return (
@@ -15,31 +16,31 @@ const NavBar = () => {
             priority
           />
         </div>
-        <Button
-          size='lg'
-          className='relative cursor-pointer bg-transparent text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-1/2 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
+        <Link
+          href={'/'}
+          className='relative cursor-pointer bg-transparent py-2 text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-3/4 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
         >
           home
-        </Button>
+        </Link>
 
-        <Button
-          size={'lg'}
-          className='relative cursor-pointer bg-transparent text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-1/2 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
+        <Link
+          href={'/rooms'}
+          className='relative cursor-pointer bg-transparent py-2 text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-3/4 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
         >
-          room
-        </Button>
-        <Button
-          size={'lg'}
-          className='relative cursor-pointer bg-transparent text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-1/2 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
+          rooms
+        </Link>
+        <Link
+          href={'/services'}
+          className='relative cursor-pointer bg-transparent py-2 text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-3/4 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
         >
           services
-        </Button>
-        <Button
-          size={'lg'}
-          className='relative cursor-pointer bg-transparent text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-1/2 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
+        </Link>
+        <Link
+          href={'/contact'}
+          className='relative cursor-pointer bg-transparent py-2 text-xl font-bold text-primary-foreground/70 uppercase transition-colors before:absolute before:right-0 before:bottom-[-4px] before:left-0 before:mx-auto before:h-[2px] before:w-3/4 before:translate-y-0 before:bg-primary-foreground before:opacity-0 before:transition-all before:duration-500 before:ease-out hover:bg-transparent hover:text-primary-foreground hover:before:-translate-y-2 hover:before:opacity-100'
         >
           contact
-        </Button>
+        </Link>
         <Button
           size={'lg'}
           className='cursor-pointer border-2 border-border bg-transparent text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground'
