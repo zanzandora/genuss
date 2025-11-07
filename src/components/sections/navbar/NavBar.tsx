@@ -45,7 +45,7 @@ const NavBar = () => {
           size={'lg'}
           className='cursor-pointer border-2 border-border bg-transparent text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground'
         >
-          book now
+          <Link href={'/booking'}>Book Now</Link>
         </Button>
       </nav>
     </div>

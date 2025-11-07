@@ -1,0 +1,23 @@
+import BookingList from '@/components/common/BookingList';
+import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
+import { BookingPanel } from '@/components/sections/(maketing)/room/booking-panel/BookingPanel';
+
+const BookingPage = () => {
+  return (
+    <section>
+      <NormalBanner title='booking' />
+
+      <div className='mx-auto mb-16 max-w-6xl'>
+        <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
+          <div className='lg:col-span-2'>
+            <BookingList />
+          </div>
+
+          <BookingPanel useTabsTwo={false} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BookingPage;

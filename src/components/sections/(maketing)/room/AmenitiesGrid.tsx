@@ -20,7 +20,7 @@ export function AmenitiesGrid({ amenities, title }: AmenitiesGridProps) {
           <Item
             key={amenity.label}
             variant={'outline'}
-            className='flex cursor-pointer items-center gap-6 rounded-2xl p-4 transition-transform duration-300 ease-out will-change-transform hover:-translate-y-1 hover:scale-[1.04] hover:shadow-xl'
+            className='flex cursor-pointer items-center gap-6 rounded-2xl p-4 transition-transform duration-300 ease-out will-change-transform hover:-translate-y-1 hover:scale-[1.04] hover:bg-primary-foreground hover:shadow-2xl'
           >
             <ItemMedia className='my-auto border-none bg-transparent'>
               <Image

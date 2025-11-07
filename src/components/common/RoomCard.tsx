@@ -1,10 +1,10 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../ui/button';
 import { ArrowRightIcon, BedDoubleIcon, Users2Icon } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { BLUR_DATA_URL } from '@/constants';
+import { BookNowButton } from './BookNowButton';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 
@@ -12,12 +12,14 @@ type Props = {
   className?: string;
   sizeCard?: SizeCard;
   shouldUseHover?: boolean;
+  action?: React.ReactNode;
 };
 
 const RoomCard = ({
   className,
   sizeCard = 'normal',
   shouldUseHover = false,
+  action,
 }: Props) => {
   const gridClasses = {
     normal: 'md:col-span-1 ',
@@ -92,14 +94,7 @@ const RoomCard = ({
               View details <ArrowRightIcon />
             </Link>
 
-            <Button
-              size='sm'
-              className={cn(
-                'h-8 min-w-[2.5rem] rounded-full border border-border bg-primary px-4 py-6 text-paragraph-m text-lg font-medium text-muted transition-all hover:scale-110 hover:border-secondary hover:bg-accent hover:text-muted-foreground',
-              )}
-            >
-              Book Now
-            </Button>
+            {action || <BookNowButton />}
           </div>
         </div>
       </div>

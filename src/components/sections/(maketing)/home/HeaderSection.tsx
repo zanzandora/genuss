@@ -1,5 +1,5 @@
 import MainBannerSwiper from '../banner/MainBannerSwiper';
-import BookingRoomForm from '../booking-form/BookingRoomForm';
+import BookingRoomForm from '../../../common/BookingRoomForm';
 
 const bannerImages = [
   'slide-banner-1.png',
