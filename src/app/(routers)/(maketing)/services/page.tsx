@@ -1,10 +1,10 @@
-import NomalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
+import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import FamousFacilitiesSection from '@/components/sections/(maketing)/facilities/FamousFacilitiesSection';
 
 const ServicesPage = () => {
   return (
     <div>
-      <NomalBanner title='Service' />
+      <NormalBanner title='Service' />
 
       <FamousFacilitiesSection />
     </div>

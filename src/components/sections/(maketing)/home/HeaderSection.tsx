@@ -1,5 +1,5 @@
 import MainBannerSwiper from '../banner/MainBannerSwiper';
-import BookingForm from './booking-form/BookingForm';
+import BookingRoomForm from '../booking-form/BookingRoomForm';
 
 const bannerImages = [
   'slide-banner-1.png',
@@ -19,9 +19,7 @@ export default function HeaderSection() {
     >
       <MainBannerSwiper heroSlides={heroSlides} />
 
-      <div className='relative'>
-        <BookingForm />
-      </div>
+      <BookingRoomForm />
     </header>
   );
 }

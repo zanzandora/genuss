@@ -2,7 +2,7 @@ import { BLUR_DATA_URL } from '@/constants';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
-const NomalBanner = ({
+const NormalBanner = ({
   title,
   className,
 }: {
@@ -36,4 +36,4 @@ const NomalBanner = ({
   );
 };
 
-export default NomalBanner;
+export default NormalBanner;

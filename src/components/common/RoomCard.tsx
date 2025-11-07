@@ -85,7 +85,7 @@ const RoomCard = ({
           {/* Action Content */}
           <div className='flex items-center justify-between'>
             <Link
-              href={`/room/1`}
+              href={`/room-detail/1`}
               className='flex items-center gap-2 font-semibold'
               aria-description='Link into room detailt'
             >

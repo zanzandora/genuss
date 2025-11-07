@@ -18,13 +18,32 @@ import {
 import { format } from 'date-fns';
 import { TriangleIcon } from 'lucide-react';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
-export const BookingForm = () => {
+type Orientation = 'horizontal' | 'vertical';
+
+type Props = {
+  orientation?: Orientation;
+  buttonClass?: string;
+  className?: string;
+};
+
+export const BookingRoomForm = ({
+  orientation = 'horizontal',
+  className,
+  buttonClass,
+}: Props) => {
   const [date, setDate] = useState<Date>(new Date());
+
+  const containerClasses =
+    orientation === 'vertical'
+      ? 'absolute bottom-0 my-20 flex w-full flex-col items-center justify-center gap-6'
+      : 'absolute bottom-0 my-20 flex w-full items-center justify-center gap-6';
+
   return (
-    <div className='absolute bottom-0 my-20 flex w-full items-center justify-center gap-6'>
+    <form className={cn(containerClasses, className)}>
       {/* Check in */}
-      <Card className='max-w-fit gap-0 py-4'>
+      <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Check in</CardHeader>
         <CardContent>
           <Popover>
@@ -51,7 +70,7 @@ export const BookingForm = () => {
       </Card>
 
       {/* Check out */}
-      <Card className='max-w-fit gap-0 py-4'>
+      <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Check out</CardHeader>
         <CardContent>
           <Popover>
@@ -78,12 +97,12 @@ export const BookingForm = () => {
       </Card>
 
       {/* Adult */}
-      <Card className='max-w-fit gap-0 py-4'>
+      <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Adult</CardHeader>
         <CardContent>
           <Select>
             <SelectTrigger
-              className='w-[180px] border-none font-bold shadow-none'
+              className='w-full border-none font-bold shadow-none'
               aria-label='Adult Select'
             >
               <SelectValue placeholder='1' />
@@ -102,12 +121,12 @@ export const BookingForm = () => {
       </Card>
 
       {/* Child */}
-      <Card className='max-w-fit gap-0 py-4'>
+      <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Child</CardHeader>
         <CardContent>
           <Select>
             <SelectTrigger
-              className='w-[180px] border-none font-bold text-primary shadow-none'
+              className='w-full border-none font-bold text-primary shadow-none'
               aria-label='Child Select'
             >
               <SelectValue placeholder='1' className='font-black' />
@@ -128,12 +147,15 @@ export const BookingForm = () => {
       {/* Book button */}
       <Button
         size={'lg'}
-        className='cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-12 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground'
+        className={cn(
+          'cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground',
+          buttonClass,
+        )}
       >
         book rooms
       </Button>
-    </div>
+    </form>
   );
 };
 
-export default BookingForm;
+export default BookingRoomForm;
