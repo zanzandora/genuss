@@ -19,6 +19,7 @@ import { format } from 'date-fns';
 import { TriangleIcon } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -152,7 +153,7 @@ export const BookingRoomForm = ({
           buttonClass,
         )}
       >
-        book rooms
+        <Link href={'/booking-detail'}>book rooms</Link>
       </Button>
     </form>
   );
