@@ -1,3 +1,4 @@
+import { BackToTopButton } from '@/components/common/BackToTopButton';
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import RoomCards from '@/components/sections/(maketing)/rooms/RoomCards';
 
@@ -7,6 +8,8 @@ const RoomsPage = () => {
       <NormalBanner title='Rooms' />
 
       <RoomCards />
+
+      <BackToTopButton />
     </div>
   );
 };

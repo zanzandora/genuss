@@ -1,3 +1,4 @@
+import { BackToTopButton } from '@/components/common/BackToTopButton';
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import { AmenitiesGrid } from '@/components/sections/(maketing)/room/AmenitiesGrid';
 import { BookingPanel } from '@/components/sections/(maketing)/room/booking-panel/BookingPanel';
@@ -49,6 +50,8 @@ const page = () => {
       <RoomGallery />
 
       <RoomRecommends />
+
+      <BackToTopButton />
     </section>
   );
 };

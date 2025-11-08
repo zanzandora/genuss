@@ -5,6 +5,7 @@ import NewLetterSection from '@/components/sections/(maketing)/home/main-content
 import OurRoomSection from '@/components/sections/(maketing)/home/main-content/OurRoomSection';
 import { SummarySection } from '@/components/sections/(maketing)/home/main-content/SummarySection';
 import TestimonialsSectino from '@/components/sections/(maketing)/home/main-content/TestimonialsSectino';
+import { BackToTopButton } from '@/components/common/BackToTopButton';
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
       <TestimonialsSectino />
 
       <NewLetterSection />
+
+      <BackToTopButton />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { BackToTopButton } from '@/components/common/BackToTopButton';
 import BookingList from '@/components/common/BookingList';
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import { BookingPanel } from '@/components/sections/(maketing)/room/booking-panel/BookingPanel';
@@ -16,6 +17,8 @@ const BookingPage = () => {
           <BookingPanel useTabsTwo={false} />
         </div>
       </div>
+
+      <BackToTopButton />
     </section>
   );
 };

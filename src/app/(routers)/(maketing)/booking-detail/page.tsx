@@ -1,3 +1,4 @@
+import { BackToTopButton } from '@/components/common/BackToTopButton';
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import ContactForm from '@/components/sections/(maketing)/contact/ContactForm';
 import { BookingPanel } from '@/components/sections/(maketing)/room/booking-panel/BookingPanel';
@@ -25,6 +26,8 @@ const BookingDetailsPage = async () => {
 
         <ContactForm />
       </div>
+
+      <BackToTopButton />
     </div>
   );
 };

@@ -42,7 +42,7 @@ export function BookingDetailsDataTable<TData, TValue>({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
-    pageSize: 5,
+    pageSize: 6,
   });
 
   const memoData = useMemo(() => data ?? [], [data]);
