@@ -14,7 +14,7 @@ const BookingPage = () => {
             <BookingList />
           </div>
 
-          <BookingPanel useTabsTwo={false} />
+          <BookingPanel />
         </div>
       </div>
 

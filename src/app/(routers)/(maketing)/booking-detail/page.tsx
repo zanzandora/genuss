@@ -21,7 +21,7 @@ const BookingDetailsPage = async () => {
             />
           </div>
 
-          <BookingPanel useTabsTwo={false} />
+          <BookingPanel />
         </div>
 
         <ContactForm />

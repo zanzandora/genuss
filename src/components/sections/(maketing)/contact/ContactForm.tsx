@@ -58,6 +58,13 @@ const ContactForm = () => {
             className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
           />
 
+          <Input
+            type='text'
+            name='phone'
+            placeholder='Phone'
+            className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
+          />
+
           <Textarea
             name='message'
             placeholder='Message'

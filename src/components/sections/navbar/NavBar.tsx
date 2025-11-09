@@ -7,14 +7,16 @@ const NavBar = () => {
     <div className='absolute z-10 my-6 w-full'>
       <nav className='mx-20 flex items-center justify-around rounded-full border border-white/15 bg-black/25 shadow-[0_8px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg'>
         <div className='relative h-18 w-18 md:h-30 md:w-30'>
-          <Image
-            src='/images/genuss-logo.png'
-            alt='Genuss Hotel'
-            fill
-            sizes='(max-width: 768px) 112px, 120px'
-            className='object-contain'
-            priority
-          />
+          <Link href={'/'} className='size-fit'>
+            <Image
+              src='/images/genuss-logo.png'
+              alt='Genuss Hotel'
+              fill
+              sizes='(max-width: 768px) 112px, 120px'
+              className='object-contain'
+              priority
+            />
+          </Link>
         </div>
         <Link
           href={'/'}

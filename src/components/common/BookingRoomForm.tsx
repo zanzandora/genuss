@@ -146,15 +146,17 @@ export const BookingRoomForm = ({
       </Card>
 
       {/* Book button */}
-      <Button
-        size={'lg'}
-        className={cn(
-          'cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground',
-          buttonClass,
-        )}
-      >
-        <Link href={'/booking-detail'}>book rooms</Link>
-      </Button>
+      <Link href={'/booking-detail'}>
+        <Button
+          size={'lg'}
+          className={cn(
+            'cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground',
+            buttonClass,
+          )}
+        >
+          book rooms
+        </Button>
+      </Link>
     </form>
   );
 };
