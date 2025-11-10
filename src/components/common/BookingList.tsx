@@ -3,15 +3,21 @@
 import RoomCard from './RoomCard';
 import QuantityBooking from './QuantityBooking';
 import { rooms } from '@/lib/data/rooms';
+import { TRoom } from '@/types/room.type';
 
-export default function BookingList() {
+interface BookingListProps {
+  rooms: TRoom[];
+  action?: React.ReactNode;
+}
+
+export default function BookingList({ rooms, action }: BookingListProps) {
   return (
     <div>
-      {Array.from({ length: 6 }).map((_, i) => (
+      {rooms.map((room) => (
         <RoomCard
-          key={i}
-          room={rooms[0]}
-          sizeCard='large'
+          key={room.id}
+          room={room}
+          sizeCard='medium'
           action={
             <QuantityBooking
               min={1}
