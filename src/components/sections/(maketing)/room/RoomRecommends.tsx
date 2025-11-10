@@ -1,10 +1,19 @@
+'use client';
+
 import RoomCard from '@/components/common/RoomCard';
-import { getRooms } from '@/lib/action/getRooms';
+import { useRecommendation } from '@/hooks/useRecommendation';
 import { ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
+import { TRoom } from '@/types/room.type';
 
-const RoomRecommends = async () => {
-  const rooms = await getRooms();
+interface RoomRecommendsProps {
+  rooms: TRoom[];
+  currentSlug: string;
+}
+
+const RoomRecommends = ({ rooms, currentSlug }: RoomRecommendsProps) => {
+  const recommendedRooms = useRecommendation(rooms, currentSlug, 3);
+
   return (
     <section className='relative px-6 py-20'>
       <div className='relative mx-auto max-w-6xl'>
@@ -13,9 +22,9 @@ const RoomRecommends = async () => {
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
-          <RoomCard shouldUseHover={true} room={rooms[0]} />
-          <RoomCard shouldUseHover={true} room={rooms[1]} />
-          <RoomCard shouldUseHover={true} room={rooms[2]} />
+          {recommendedRooms.map((room) => (
+            <RoomCard key={room.id} shouldUseHover={true} room={room} />
+          ))}
         </div>
 
         <div className='text-right'>

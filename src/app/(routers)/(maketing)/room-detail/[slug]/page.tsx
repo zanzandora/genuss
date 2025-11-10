@@ -9,8 +9,26 @@ import RoomRecommends from '@/components/sections/(maketing)/room/RoomRecommends
 import RoomTitleSection from '@/components/sections/(maketing)/room/RoomTitleSection';
 import { Separator } from '@/components/ui/separator';
 import { hotelAmenities, hotelRules, roomAmenities } from '@/lib/mock';
+import { getRoomBySlugWithImages, getRooms } from '@/lib/action/getRooms';
+import { notFound } from 'next/navigation';
 
-const page = () => {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const RoomDetailsPage = async ({ params }: PageProps) => {
+  const { slug } = await params;
+
+  const [room, allRooms] = await Promise.all([
+    getRoomBySlugWithImages(slug),
+    getRooms(),
+  ]);
+
+  if (!room) {
+    notFound();
+  }
   return (
     <section>
       <NormalBanner title='Room Details' />
@@ -19,7 +37,7 @@ const page = () => {
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <main className='space-y-8 lg:col-span-2'>
             <RoomTitleSection
-              title='Superior Double Room'
+              title={room.name}
               subtitle='Room Features'
               price={35}
             />
@@ -47,13 +65,13 @@ const page = () => {
           <BookingPanel />
         </div>
       </div>
-      <RoomGallery />
+      <RoomGallery room={room} />
 
-      <RoomRecommends />
+      <RoomRecommends rooms={allRooms} currentSlug={slug} />
 
       <BackToTopButton />
     </section>
   );
 };
 
-export default page;
+export default RoomDetailsPage;
