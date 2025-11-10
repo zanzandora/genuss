@@ -23,8 +23,9 @@ export function SummarySection() {
             </div>
 
             <article className='text-lg leading-tight font-normal tracking-wider md:text-3xl'>
-              Our hotel is located at an altitude of 1,000 meters, offering full
-              amenities to help you enjoy a perfect vacation.
+              Khách sạn trung tâm Tam Đảo ở độ cao hơn 1.000m, khí hậu mát mẻ
+              quanh năm. Quy mô gần 100 phòng, 3 hội trường, nhà hàng, bể bơi,
+              phòng gym và bãi đỗ xe — phù hợp nghỉ dưỡng và tổ chức sự kiện
             </article>
           </div>
 

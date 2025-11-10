@@ -31,12 +31,14 @@ function stringHash(str: string): number {
  */
 export const useRecommendation = (
   rooms: TRoom[],
-  currentSlug: string,
+  currentSlug?: string,
   count: number = 3,
 ): TRoom[] => {
   return useMemo(() => {
     // Filter out the current room
-    const availableRooms = rooms.filter((room) => room.slug !== currentSlug);
+    const availableRooms = currentSlug
+      ? rooms.filter((room) => room.slug !== currentSlug)
+      : [...rooms];
 
     // If there are no available rooms, return empty array
     if (availableRooms.length === 0) {
@@ -48,12 +50,24 @@ export const useRecommendation = (
       return availableRooms;
     }
 
+    let shuffled: { room: TRoom; sortKey: number }[] = [];
+
     // Create a deterministic but pseudo-random selection based on currentSlug
-    const seed = stringHash(currentSlug);
-    const shuffled = [...availableRooms].map((room, index) => ({
-      room,
-      sortKey: seededRandom(seed + index),
-    }));
+    if (currentSlug) {
+      // Deterministic pseudo-random based on slug
+      const seed = stringHash(currentSlug);
+      shuffled = availableRooms.map((room, index) => ({
+        room,
+        sortKey: seededRandom(seed + index),
+      }));
+    } else {
+      // Use a constant seed for consistent results
+      const defaultSeed = 12345;
+      shuffled = availableRooms.map((room, index) => ({
+        room,
+        sortKey: seededRandom(defaultSeed + index),
+      }));
+    }
 
     // Sort by the generated random keys and take the first 'count' items
     return shuffled

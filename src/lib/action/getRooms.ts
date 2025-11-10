@@ -9,7 +9,7 @@ const IMAGE_EXT_RE = /\.(jpe?g|png|webp|avif|gif)$/i;
 
 let _cache: {
   ts: number;
-  data: (TRoom & { images: string[]; mainImage?: string })[];
+  data: TRoom[];
 } | null = null;
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24; // 24h
 

@@ -1,11 +1,13 @@
 import RoomCard from '@/components/common/RoomCard';
-import { getRooms } from '@/lib/action/getRooms';
+import { useRecommendation } from '@/hooks/useRecommendation';
+import { TRoom } from '@/types/room.type';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const OurRoomSection = async () => {
-  const rooms = await getRooms();
+const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
+  const recommendedRooms = useRecommendation(rooms, undefined, 3);
+
   return (
     <section className='relative px-6 py-20'>
       <Image
@@ -19,17 +21,16 @@ const OurRoomSection = async () => {
         <div className='mb-12 text-center'>
           <h2 className='mb-4 text-h1'>Our room</h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
-            A wonderful serenity has taken possession of my entire soul, like
-            these sweet mornings of spring which I enjoy with my whole heart. I
-            am alone, and feel the charm of existence in this spot, which was
-            created for the bliss of soul.
+            Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của
+            khách hàng. Nội thất được lựa chọn tinh tế, trang thiết bị đầy đủ,
+            đảm bảo sự thoải mái và riêng tư tối đa.
           </p>
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
-          <RoomCard shouldUseHover={true} room={rooms[0]} />
-          <RoomCard shouldUseHover={true} room={rooms[1]} />
-          <RoomCard shouldUseHover={true} room={rooms[2]} />
+          {recommendedRooms.map((room) => (
+            <RoomCard key={room.id} shouldUseHover={true} room={room} />
+          ))}
         </div>
 
         <div className='text-right'>

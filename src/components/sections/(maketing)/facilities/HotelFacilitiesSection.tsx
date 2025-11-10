@@ -1,12 +1,11 @@
-import { BLUR_DATA_URL } from '@/constants';
 import Image from 'next/image';
 
 const HotelFacilitiesSection = () => {
   const facilities = [
-    { icon: '/icons/icon-parking.svg', name: 'Parking' },
-    { icon: '/icons/icon-swimming-pool.svg', name: 'Swimming Pool' },
-    { icon: '/icons/icon-safe.svg', name: 'Safe' },
-    { icon: '/icons/icon-breakfast.svg', name: 'Have Breakfast' },
+    { icon: '/icons/icon-parking.svg', name: 'Bãi Đỗ Xe' },
+    { icon: '/icons/icon-swimming-pool.svg', name: 'Bể Bơi' },
+    { icon: '/icons/icon-safe.svg', name: 'An Toàn' },
+    { icon: '/icons/icon-breakfast.svg', name: 'Bữa Sáng' },
     { icon: '/icons/icon-gym.svg', name: 'Gym' },
     { icon: '/icons/icon-spa.svg', name: 'Spa' },
     { icon: '/icons/icon-wifi.svg', name: 'Wi-Fi' },

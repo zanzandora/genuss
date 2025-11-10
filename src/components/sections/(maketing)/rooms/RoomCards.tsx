@@ -19,10 +19,9 @@ const RoomCards = async () => {
         <div className='mb-12 text-center'>
           <h2 className='mb-4 text-h1'>Our room</h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
-            A wonderful serenity has taken possession of my entire soul, like
-            these sweet mornings of spring which I enjoy with my whole heart. I
-            am alone, and feel the charm of existence in this spot, which was
-            created for the bliss of soul.
+            Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của
+            khách hàng. Nội thất được lựa chọn tinh tế, trang thiết bị đầy đủ,
+            đảm bảo sự thoải mái và riêng tư tối đa..
           </p>
         </div>
 

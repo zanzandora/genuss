@@ -7,21 +7,21 @@ const FamousFacilitiesSection = () => {
     {
       title: 'Restaurant & Dining Service',
       description:
-        'Enjoy a rich culinary experience with buffet breakfast and a delightful Asian-European menu.',
+        'Tận hưởng trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á-Âu hấp dẫn.',
       image: '/images/facilities/restaurant-and-dining-service.jpg',
       position: 'left',
     },
     {
       title: 'Conference & Event Service',
       description:
-        'Elegant spaces for meetings, weddings, and professional events with full amenities.',
+        'Không gian sang trọng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp với đầy đủ tiện nghi.',
       image: '/images/facilities/conference-and-event-service.jpg',
       position: 'right',
     },
     {
       title: 'Recreation & Wellness Service',
       description:
-        'Relax and rejuvenate with our spa, swimming pool, and recreation facilities designed for your wellbeing.',
+        'Thư giãn tại hồ bơi, trung tâm thể dục, và các tiện nghi giải trí khác, phù hợp cho kỳ nghỉ bên gia đình, cặp đôi, hoặc du khách tìm sự riêng tư và thanh bình.',
       image: '/images/facilities/recreation-and-wellness-service.jpg',
       position: 'left',
     },

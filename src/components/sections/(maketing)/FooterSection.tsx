@@ -29,7 +29,7 @@ const FooterSection = () => {
               +84 978 552 968
             </p>
             <p className='text-paragraph-m font-normal'>
-              Email: info@genusstamdao.com
+              Email: sale01.td@genuss.vn
             </p>
           </div>
         </div>
@@ -38,7 +38,8 @@ const FooterSection = () => {
           <div>
             <h4 className='mb-6 text-h4 uppercase'>hotel address</h4>
             <p className='text-paragraph-m font-normal'>
-              No 1, Tam Dao, Phu Tho, Viet Nam
+              Khu 1 Thị Trấn Tam Đảo, Tam Dao Township, Tỉnh Vĩnh Phúc, Tỉnh Phú
+              Thọ, Việt Nam
             </p>
           </div>
           <Image

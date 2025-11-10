@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn, formatCurrency } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, BedDoubleIcon, Users2Icon } from 'lucide-react';
@@ -66,7 +66,7 @@ const RoomCard = ({
           {/* Price */}
           <div className={cn('absolute top-3 right-3 z-10', infoClasses)}>
             <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
-              From $35 / Night
+              From {formatCurrency(+room.price)} / Night
             </Badge>
           </div>
         </div>

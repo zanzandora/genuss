@@ -3,6 +3,7 @@ export interface TRoom {
   name: string;
   slug: string;
   quantity: number;
+  price: string;
   images?: string[];
   mainImage?: string;
   area: number; // diện tích phòng (m2)
