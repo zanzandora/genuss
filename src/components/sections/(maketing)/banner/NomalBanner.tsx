@@ -23,7 +23,7 @@ const NormalBanner = ({
 
       <div className='relative h-[350px] w-full md:h-[410px] lg:h-[510px]'>
         <Image
-          src={'/images/normal-banner.jpg'}
+          src={'/images/normal-banner-2.webp'}
           alt={'Nomal banner'}
           fill
           sizes='(min-width: 1580px) 100vw, (min-width: 1040px) calc(15.58vw + 1317px), (min-width: 780px) 1236px, 995px'

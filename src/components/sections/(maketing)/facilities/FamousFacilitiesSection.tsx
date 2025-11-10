@@ -8,21 +8,21 @@ const FamousFacilitiesSection = () => {
       title: 'Restaurant & Dining Service',
       description:
         'Enjoy a rich culinary experience with buffet breakfast and a delightful Asian-European menu.',
-      image: '/images/service-1.png',
+      image: '/images/facilities/restaurant-and-dining-service.jpg',
       position: 'left',
     },
     {
       title: 'Conference & Event Service',
       description:
         'Elegant spaces for meetings, weddings, and professional events with full amenities.',
-      image: '/images/service-2.jpg',
+      image: '/images/facilities/conference-and-event-service.jpg',
       position: 'right',
     },
     {
       title: 'Recreation & Wellness Service',
       description:
         'Relax and rejuvenate with our spa, swimming pool, and recreation facilities designed for your wellbeing.',
-      image: '/images/service-3.jpg',
+      image: '/images/facilities/recreation-and-wellness-service.jpg',
       position: 'left',
     },
   ];

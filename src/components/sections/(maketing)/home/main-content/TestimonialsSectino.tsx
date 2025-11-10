@@ -10,46 +10,10 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import { testimonials } from '@/lib/data/testimonials';
+import { maskEmailPretty } from '@/lib/utils';
 
 const TestimonialsSectino = () => {
-  const testimonials = [
-    {
-      name: 'Sarah B',
-      avatar: '/images/person-1.jpg',
-      text: 'Outstanding service and breathtaking views. Our stay was absolutely perfect. The staff went above and beyond to make our vacation memorable.',
-    },
-    {
-      name: 'Jeremy C',
-      avatar: '/images/person-1.jpg',
-      text: 'The hotel exceeded all expectations. Wonderful location, excellent amenities, and truly hospitable team. We will definitely return.',
-    },
-    {
-      name: 'Carmen R',
-      avatar: '/images/person-1.jpg',
-      text: 'One of the best hotel experiences I have had. Everything was immaculate and the attention to detail was remarkable. Highly recommended.',
-    },
-    {
-      name: 'Alex P',
-      avatar: '/images/person-1.jpg',
-      text: 'Perfect getaway with stunning mountain views. The rooms are spacious and comfortable. Looking forward to our next visit.',
-    },
-    {
-      name: 'Join lolo',
-      avatar: '/images/person-1.jpg',
-      text: 'Perfect getaway with stunning mountain views. The rooms are spacious and comfortable. Looking forward to our next visit.',
-    },
-    {
-      name: 'Join king',
-      avatar: '/images/person-1.jpg',
-      text: 'Perfect getaway with stunning mountain views. The rooms are spacious and comfortable. Looking forward to our next visit.',
-    },
-    {
-      name: 'Join ewsf',
-      avatar: '/images/person-1.jpg',
-      text: 'Perfect getaway with stunning mountain views. The rooms are spacious and comfortable. Looking forward to our next visit.',
-    },
-  ];
-
   return (
     <section className='-mx-4 py-20'>
       <div className='h-full'>
@@ -79,12 +43,12 @@ const TestimonialsSectino = () => {
                       </Avatar>
                     </CardHeader>
                     <CardContent className='h-full'>
-                      <p className='text-paragraph-m'>{testimonial.text}</p>
+                      <p className='text-paragraph-m'>{testimonial.commends}</p>
                     </CardContent>
                     <CardFooter className='flex flex-col gap-2'>
                       <h4 className='text-h4'>{testimonial.name}</h4>
                       <p className='text-paragraph-m text-muted-foreground'>
-                        maiminhtu@gmail.com
+                        {maskEmailPretty(testimonial.email)}
                       </p>
                     </CardFooter>
                   </Card>

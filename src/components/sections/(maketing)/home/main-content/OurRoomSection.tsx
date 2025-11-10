@@ -1,9 +1,11 @@
 import RoomCard from '@/components/common/RoomCard';
+import { getRooms } from '@/lib/action/getRooms';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const OurRoomSection = () => {
+const OurRoomSection = async () => {
+  const rooms = await getRooms();
   return (
     <section className='relative px-6 py-20'>
       <Image
@@ -25,9 +27,9 @@ const OurRoomSection = () => {
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
-          <RoomCard shouldUseHover={true} />
-          <RoomCard shouldUseHover={true} />
-          <RoomCard shouldUseHover={true} />
+          <RoomCard shouldUseHover={true} room={rooms[0]} />
+          <RoomCard shouldUseHover={true} room={rooms[1]} />
+          <RoomCard shouldUseHover={true} room={rooms[2]} />
         </div>
 
         <div className='text-right'>

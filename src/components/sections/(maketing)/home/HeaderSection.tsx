@@ -2,9 +2,9 @@ import MainBannerSwiper from '../banner/MainBannerSwiper';
 import BookingRoomForm from '../../../common/BookingRoomForm';
 
 const bannerImages = [
-  'slide-banner-1.png',
-  'slide-banner-2.png',
-  'slide-banner-3.png',
+  'slide-banner-4.webp',
+  'slide-banner-8.webp',
+  'slide-banner-9.webp',
 ];
 const heroSlides = bannerImages.map((filename, idx) => ({
   src: `/images/banner/${filename}`,

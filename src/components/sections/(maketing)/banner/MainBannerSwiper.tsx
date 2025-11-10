@@ -43,7 +43,7 @@ export default function MainBannerSwiper({
       {/* Booking Title */}
       <div className='absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2'>
         <div className='size-26 w-full text-6xl perspective-dramatic'>
-          <div className='font-allison translate-z-16 -rotate-[7.28deg] text-white'>
+          <div className='font-allison translate-z-16 -rotate-[7.28deg] text-white text-shadow-lg'>
             Book your vacation
           </div>
         </div>

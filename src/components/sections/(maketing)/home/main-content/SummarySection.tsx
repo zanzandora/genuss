@@ -32,7 +32,7 @@ export function SummarySection() {
           <figure className='mx-auto w-[200px] overflow-hidden rounded-tl-4xl rounded-br-4xl md:w-[300px] lg:w-[450px]'>
             <AspectRatio ratio={1 / 1}>
               <Image
-                src='/images/summary.jpg'
+                src='/images/summary.webp'
                 alt='Mountain view hotel exterior'
                 fill
                 sizes='(min-width: 1580px) 100vw, (min-width: 1040px) calc(15.58vw + 1317px), (min-width: 780px) 1236px, 995px'

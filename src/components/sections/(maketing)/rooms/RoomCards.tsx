@@ -1,7 +1,10 @@
 import RoomCard from '@/components/common/RoomCard';
+import { getRooms } from '@/lib/action/getRooms';
+// import { rooms } from '@/lib/data/rooms';
 import Image from 'next/image';
 
-const RoomCards = () => {
+const RoomCards = async () => {
+  const rooms = await getRooms();
   return (
     <div className='relative'>
       <Image
@@ -24,11 +27,11 @@ const RoomCards = () => {
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <RoomCard key={i} />
+          {rooms.map((room) => (
+            <RoomCard shouldUseHover={true} key={room.id} room={room} />
           ))}
 
-          <RoomCard sizeCard='large' />
+          {/* <RoomCard shouldUseHover={true} sizeCard='medium' room={rooms[0]} /> */}
         </div>
       </section>
     </div>

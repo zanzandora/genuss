@@ -2,6 +2,7 @@
 
 import RoomCard from './RoomCard';
 import QuantityBooking from './QuantityBooking';
+import { rooms } from '@/lib/data/rooms';
 
 export default function BookingList() {
   return (
@@ -9,6 +10,7 @@ export default function BookingList() {
       {Array.from({ length: 6 }).map((_, i) => (
         <RoomCard
           key={i}
+          room={rooms[0]}
           sizeCard='large'
           action={
             <QuantityBooking
