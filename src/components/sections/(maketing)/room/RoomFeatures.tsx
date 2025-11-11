@@ -1,4 +1,3 @@
-import { Card } from '@/components/ui/card';
 import {
   Item,
   ItemContent,
@@ -6,6 +5,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from '@/components/ui/item';
+import { TRoom } from '@/types/room.type';
 import {
   BedDoubleIcon,
   ExpandIcon,
@@ -13,7 +13,11 @@ import {
   Users2Icon,
 } from 'lucide-react';
 
-export function RoomFeatures() {
+interface RoomFeaturesProps {
+  room: TRoom;
+}
+
+export function RoomFeatures({ room }: RoomFeaturesProps) {
   return (
     <section>
       <div className='grid grid-cols-1 gap-4 pb-8 md:grid-cols-2 md:grid-rows-2'>
@@ -28,7 +32,7 @@ export function RoomFeatures() {
           <ItemContent>
             <ItemTitle className='text-h4 font-bold'>Bed</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              2 Double Bed
+              {room.bed.join(', ')}
             </ItemDescription>
           </ItemContent>
         </Item>
@@ -44,7 +48,7 @@ export function RoomFeatures() {
           <ItemContent>
             <ItemTitle className='text-h4 font-bold'>Room Space</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              22 <span className='ordinal'>m2</span>
+              {room.area} <span className='ordinal'>m2</span>
             </ItemDescription>
           </ItemContent>
         </Item>
@@ -60,7 +64,7 @@ export function RoomFeatures() {
           <ItemContent>
             <ItemTitle className='text-h4 font-bold'>Max Guesst</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              2 Guest
+              {room.maxOccupancy} Guest
             </ItemDescription>
           </ItemContent>
         </Item>
@@ -76,7 +80,7 @@ export function RoomFeatures() {
           <ItemContent>
             <ItemTitle className='text-h4 font-bold'>Room View</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              City View
+              {room.view}
             </ItemDescription>
           </ItemContent>
         </Item>

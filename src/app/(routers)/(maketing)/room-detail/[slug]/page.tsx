@@ -11,6 +11,7 @@ import { Separator } from '@/components/ui/separator';
 import { hotelAmenities, hotelRules, roomAmenities } from '@/lib/mock';
 import { getRoomBySlugWithImages, getRooms } from '@/lib/action/getRooms';
 import { notFound } from 'next/navigation';
+import { formatCurrency } from '@/lib/utils';
 
 interface PageProps {
   params: {
@@ -38,13 +39,13 @@ const RoomDetailsPage = async ({ params }: PageProps) => {
           <main className='space-y-8 lg:col-span-2'>
             <RoomTitleSection
               title={room.name}
-              subtitle='Room Features'
-              price={35}
+              subtitle={room.features?.join(', ') || ''}
+              price={formatCurrency(+room.price)}
             />
 
             <Separator className='bg-gray-500' />
 
-            <RoomFeatures />
+            <RoomFeatures room={room} />
 
             <Separator className='bg-gray-500' />
 
