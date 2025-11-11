@@ -6,10 +6,10 @@ import OurRoomSection from '@/components/sections/(maketing)/home/main-content/O
 import { SummarySection } from '@/components/sections/(maketing)/home/main-content/SummarySection';
 import TestimonialsSectino from '@/components/sections/(maketing)/home/main-content/TestimonialsSectino';
 import { BackToTopButton } from '@/components/common/BackToTopButton';
-import { getRooms } from '@/lib/action/getRooms';
+import { getRoomDatas } from '@/lib/action/getRooms';
 
 export default async function Home() {
-  const rooms = await getRooms();
+  const rooms = await getRoomDatas();
 
   return (
     <div>

@@ -19,7 +19,7 @@ export default function HeaderSection() {
     >
       <MainBannerSwiper heroSlides={heroSlides} />
 
-      <BookingRoomForm />
+      <BookingRoomForm className='hidden flex-wrap px-2 lg:flex' />
     </header>
   );
 }

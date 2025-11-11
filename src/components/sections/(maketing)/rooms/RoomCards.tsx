@@ -1,10 +1,10 @@
 import RoomCard from '@/components/common/RoomCard';
-import { getRooms } from '@/lib/action/getRooms';
+import { getRoomDatas } from '@/lib/action/getRooms';
 // import { rooms } from '@/lib/data/rooms';
 import Image from 'next/image';
 
 const RoomCards = async () => {
-  const rooms = await getRooms();
+  const rooms = await getRoomDatas();
   return (
     <div className='relative'>
       <Image

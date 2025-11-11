@@ -5,6 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 const RoomDetailsSkeleton = () => {
   return (
     <section>
+      <Skeleton className='relative mb-4 h-[350px] w-full rounded-4xl bg-secondary sm:mb-16 md:mb-24 md:h-[410px] lg:h-[510px]' />
       <div className='mx-auto mb-16 max-w-6xl'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <main className='space-y-8 lg:col-span-2'>

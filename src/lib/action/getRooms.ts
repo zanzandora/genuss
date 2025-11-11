@@ -63,7 +63,7 @@ async function readMainImageForSlug(slug: string) {
  * Trả về mảng rooms kèm images: string[]
  * Chạy server-side (Server Component). Có cache in-memory TTL.
  */
-export async function getRooms(forceRefresh = false) {
+export async function getRoomDatas(forceRefresh = false) {
   const now = Date.now();
   if (!forceRefresh && _cache && now - _cache.ts < CACHE_TTL_MS) {
     return _cache.data;
@@ -90,6 +90,6 @@ export async function getRooms(forceRefresh = false) {
  * Lấy 1 room theo slug kèm images
  */
 export async function getRoomBySlugWithImages(slug: string) {
-  const rooms = await getRooms();
+  const rooms = await getRoomDatas();
   return rooms.find((r) => r.slug === slug) ?? null;
 }

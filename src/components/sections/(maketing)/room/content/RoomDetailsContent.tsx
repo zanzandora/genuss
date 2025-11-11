@@ -4,7 +4,7 @@ import { RoomFeatures } from '../RoomFeatures';
 import RoomTitleSection from '../RoomTitleSection';
 import { Separator } from '@/components/ui/separator';
 import { hotelAmenities, hotelRules, roomAmenities } from '@/lib/mock';
-import { getRoomBySlugWithImages, getRooms } from '@/lib/action/getRooms';
+import { getRoomBySlugWithImages, getRoomDatas } from '@/lib/action/getRooms';
 import { formatCurrency } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import { RoomGallery } from '../RoomGallery';
@@ -15,7 +15,7 @@ import { BookingPanel } from '../booking-panel/BookingPanel';
 export default async function RoomDetailsContent({ slug }: { slug: string }) {
   const [room, allRooms] = await Promise.all([
     getRoomBySlugWithImages(slug),
-    getRooms(),
+    getRoomDatas(),
   ]);
 
   if (!room) {

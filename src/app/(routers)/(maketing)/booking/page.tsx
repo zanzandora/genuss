@@ -2,10 +2,10 @@ import { BackToTopButton } from '@/components/common/BackToTopButton';
 import BookingList from '@/components/common/BookingList';
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import { BookingPanel } from '@/components/sections/(maketing)/room/booking-panel/BookingPanel';
-import { getRooms } from '@/lib/action/getRooms';
+import { getRoomDatas } from '@/lib/action/getRooms';
 
 const BookingPage = async () => {
-  const rooms = await getRooms();
+  const rooms = await getRoomDatas();
 
   return (
     <section>

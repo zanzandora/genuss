@@ -1,6 +1,4 @@
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
-import { Suspense } from 'react';
-import RoomDetailsSkeleton from '@/components/common/skeleton/RoomDetailsSkeleton';
 import RoomDetailsContent from '@/components/sections/(maketing)/room/content/RoomDetailsContent';
 
 interface PageProps {
@@ -16,9 +14,7 @@ const RoomDetailsPage = async ({ params }: PageProps) => {
     <section>
       <NormalBanner title='Room Details' />
 
-      <Suspense fallback={<RoomDetailsSkeleton />}>
-        <RoomDetailsContent slug={slug} />
-      </Suspense>
+      <RoomDetailsContent slug={slug} />
     </section>
   );
 };
