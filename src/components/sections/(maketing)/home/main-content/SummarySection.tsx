@@ -10,7 +10,7 @@ export function SummarySection() {
         <div className='grid items-center gap-16 md:grid-cols-2'>
           {/* Text / Summary */}
           <div className='flex flex-col justify-center'>
-            <div className='mb-6 flex items-center justify-start'>
+            <div className='mb-6 flex items-center justify-between'>
               <div className='flex items-center gap-3 text-sm font-medium'>
                 <span className='flex items-center gap-2' aria-hidden='false'>
                   <span>8/10</span>
@@ -19,10 +19,10 @@ export function SummarySection() {
                 </span>
               </div>
 
-              <div className='ml-36 text-sm font-medium'>94 rooms</div>
+              <div className='mr-10 text-sm font-medium'>94 rooms</div>
             </div>
 
-            <article className='text-lg leading-tight font-normal tracking-wider md:text-3xl'>
+            <article className='text-lg leading-tight font-normal tracking-wider md:text-xl lg:text-3xl'>
               Khách sạn trung tâm Tam Đảo ở độ cao hơn 1.000m, khí hậu mát mẻ
               quanh năm. Quy mô gần 100 phòng, 3 hội trường, nhà hàng, bể bơi,
               phòng gym và bãi đỗ xe — phù hợp nghỉ dưỡng và tổ chức sự kiện
@@ -30,7 +30,7 @@ export function SummarySection() {
           </div>
 
           {/* Image */}
-          <figure className='mx-auto w-[200px] overflow-hidden rounded-tl-4xl rounded-br-4xl md:w-[300px] lg:w-[450px]'>
+          <figure className='xl:[450px] mx-auto w-[350px] overflow-hidden rounded-tl-4xl rounded-br-4xl drop-shadow-xl md:w-[300px] lg:w-[400px]'>
             <AspectRatio ratio={1 / 1}>
               <Image
                 src='/images/summary.webp'

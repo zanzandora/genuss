@@ -47,7 +47,7 @@ const FooterSection = () => {
             alt='Genuss Location map'
             width={241}
             height={241}
-            className='mx-auto h-60 w-60 rounded border-2 border-gray-700 bg-cover bg-center'
+            className='mx-auto h-60 w-60 rounded border-2 border-gray-700 object-cover'
             placeholder='blur'
             blurDataURL={BLUR_DATA_URL}
           />
