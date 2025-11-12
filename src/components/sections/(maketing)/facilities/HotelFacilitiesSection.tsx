@@ -4,7 +4,7 @@ const HotelFacilitiesSection = () => {
   const facilities = [
     { icon: '/icons/icon-parking.svg', name: 'Bãi Đỗ Xe' },
     { icon: '/icons/icon-swimming-pool.svg', name: 'Bể Bơi' },
-    { icon: '/icons/icon-safe.svg', name: 'An Toàn' },
+    { icon: '/icons/icon-safe.svg', name: 'Két an Toàn' },
     { icon: '/icons/icon-breakfast.svg', name: 'Bữa Sáng' },
     { icon: '/icons/icon-gym.svg', name: 'Gym' },
     { icon: '/icons/icon-spa.svg', name: 'Spa' },

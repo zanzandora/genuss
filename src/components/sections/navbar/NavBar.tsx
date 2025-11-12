@@ -56,9 +56,9 @@ const NavBar = () => {
     <div className='absolute z-10 my-6 w-full'>
       <nav className='mx-8 flex items-center justify-between rounded-full border border-white/15 bg-black/25 px-4 py-2 shadow-[0_8px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg lg:mx-20 lg:px-8'>
         {/* Logo */}
-        <Link href={'/'} className='relative h-16 w-16 lg:h-30 lg:w-30'>
+        <Link href={'/'} className='relative h-12 w-12 lg:h-20 lg:w-20'>
           <Image
-            src='/images/genuss-logo.png'
+            src='/logo/genuss-logo.svg'
             alt='Genuss Hotel'
             fill
             sizes='(max-width: 768px) 112px, 120px'
@@ -115,7 +115,7 @@ const NavBar = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex w-fit items-center gap-3 rounded-4xl px-4 py-4 text-xl font-bold uppercase transition-colors ${
+                  className={`flex w-fit items-center gap-3 rounded-4xl px-4 py-4 text-sm font-bold uppercase transition-colors ${
                     isActiveLink(item.href)
                       ? 'bg-purple-200 text-primary'
                       : 'text-primary/70 hover:text-primary'

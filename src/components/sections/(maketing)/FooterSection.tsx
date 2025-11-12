@@ -22,11 +22,11 @@ const FooterSection = () => {
             <p className='mb-4 text-paragraph-m font-normal'>
               Tel:
               <br />
-              +84 978 352 968
+              0978 352 968
               <br />
-              +84 978 452 968
+              0978 452 968
               <br />
-              +84 978 552 968
+              0978 552 968
             </p>
             <p className='text-paragraph-m font-normal'>
               Email: sale01.td@genuss.vn

@@ -1,5 +1,3 @@
-'use client';
-
 import { cn, formatCurrency } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,17 +30,17 @@ const RoomCard = ({
     large: 'md:col-span-3',
   };
 
-  // Use Tailwind responsive classes instead of JavaScript logic
-  // Mobile: always visible (opacity-100, translate-y-0)
-  // Desktop: hidden by default, show on hover (opacity-0 -> opacity-100, translate-y-full -> translate-y-0)
-  // If shouldUseHover is true, always use hover behavior regardless of screen size
   const panelClasses = shouldUseHover
-    ? 'translate-y-full transform transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'
-    : 'translate-y-0 transform md:translate-y-full md:transform md:transition-transform md:duration-300 md:ease-out md:group-focus-within:-translate-y-0 md:group-hover:-translate-y-0';
+    ? // ✅ shouldUseHover = true → chỉ bật animation ở desktop
+      'translate-y-0 transform md:translate-y-full md:transform md:transition-transform md:duration-300 md:ease-out md:group-focus-within:-translate-y-0 md:group-hover:-translate-y-0'
+    : // 🚫 shouldUseHover = false → không animation (chỉ giữ trạng thái y-0)
+      'translate-y-0 transform';
 
   const infoClasses = shouldUseHover
-    ? 'opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'
-    : 'opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:ease-out md:group-hover:opacity-100';
+    ? // ✅ shouldUseHover = true → chỉ bật animation ở desktop
+      'opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:ease-out md:group-hover:opacity-100'
+    : // 🚫 shouldUseHover = false → giữ nguyên, không animation
+      'opacity-100';
 
   return (
     <div
@@ -60,9 +58,10 @@ const RoomCard = ({
               src={
                 room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg'
               }
+              // src={'/images/rooms/559286083.jpg'}
               alt={`${room.name} room image`}
               fill
-              sizes='(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 286px'
+              sizes='100vw'
               className='object-cover transition-transform duration-500 ease-out group-hover:scale-110'
               placeholder='blur'
               blurDataURL={BLUR_DATA_URL}
@@ -72,7 +71,7 @@ const RoomCard = ({
           {/* Price */}
           <div className={cn('absolute top-3 right-3 z-10', infoClasses)}>
             <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
-              From {formatCurrency(+room.price)} / Night
+              Từ {formatCurrency(+room.price)} / Đêm
             </Badge>
           </div>
         </div>
@@ -84,7 +83,7 @@ const RoomCard = ({
             panelClasses,
           )}
         >
-          <div className='mb-3 w-full space-y-2 py-3 text-sm font-medium'>
+          <div className='w-full space-y-2 py-3 text-sm font-medium'>
             <p className='font-semibold uppercase'>{room.name}</p>
             <div className='mt-2 flex items-center gap-2'>
               <BedDoubleIcon />{' '}
@@ -96,7 +95,7 @@ const RoomCard = ({
             </div>
             <p className='mt-1 flex items-center gap-2'>
               <Users2Icon />
-              maximum {room.maxOccupancy} people
+              tối đa {room.maxOccupancy} người
             </p>
           </div>
 
@@ -107,7 +106,7 @@ const RoomCard = ({
               className='flex items-center gap-2 font-semibold'
               aria-description='Link into room detailt'
             >
-              View details <ArrowRightIcon />
+              Thông tin chi tiết <ArrowRightIcon />
             </Link>
 
             {action || <BookNowButton />}

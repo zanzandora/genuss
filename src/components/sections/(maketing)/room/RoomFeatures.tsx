@@ -30,7 +30,7 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <BedDoubleIcon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Bed</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>Giường</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
               {room.bed.join(', ')}
             </ItemDescription>
@@ -46,7 +46,7 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <ExpandIcon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Room Space</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>Không gian</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
               {room.area} <span className='ordinal'>m2</span>
             </ItemDescription>
@@ -62,9 +62,9 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <Users2Icon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Max Guesst</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>Tối đa</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              {room.maxOccupancy} Guest
+              {room.maxOccupancy} Người
             </ItemDescription>
           </ItemContent>
         </Item>
@@ -78,7 +78,7 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <TreePineIcon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Room View</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>Cảnh quan </ItemTitle>
             <ItemDescription className='text-xl font-bold'>
               {room.view}
             </ItemDescription>
@@ -89,14 +89,15 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
       {/* Description */}
       <div className='space-y-4'>
         <p className='text-paragraph-m leading-relaxed text-muted-foreground'>
-          The Superior Double Room at Genest Inn Bao hotel offers a cozy and
-          elegant retreat inspired by modern European style. Boasting a spacious
-          32 m² area, the room features a comfortable queen-size bed (1 m x 2
-          m), LED TV, air conditioning and a private bathroom with hot and cold
-          shower and premium toiletries. Large windows open to a charming view
-          of Tao Bao. Located in the heart of Bao, the Superior Double Room is
-          an ideal choice for couples or travelers seeking a peaceful and
-          comfortable stay in an atmospheric atmosphere.
+          Phòng Superior Double tại khách sạn Genest Inn Bao mang đến một không
+          gian nghỉ dưỡng ấm cúng và thanh lịch lấy cảm hứng từ phong cách châu
+          Âu hiện đại. Với diện tích rộng rãi 32 m², phòng được trang bị giường
+          cỡ Queen thoải mái (1 m x 2 m), TV LED, máy lạnh và phòng tắm riêng
+          với vòi sen nước nóng lạnh cùng đồ vệ sinh cá nhân cao cấp. Cửa sổ lớn
+          mở ra quang cảnh quyến rũ của Tao Bao. Tọa lạc tại trung tâm Bao,
+          Phòng Đôi Cao Cấp là lựa chọn lý tưởng cho các cặp đôi hoặc du khách
+          tìm kiếm một kỳ nghỉ yên bình và thoải mái trong bầu không khí ấm
+          cúng.
         </p>
       </div>
     </section>

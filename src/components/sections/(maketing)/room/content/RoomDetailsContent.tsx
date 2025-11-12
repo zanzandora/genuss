@@ -40,12 +40,15 @@ export default async function RoomDetailsContent({ slug }: { slug: string }) {
             <Separator className='bg-gray-500' />
 
             {/* Room Amenities */}
-            <AmenitiesGrid amenities={roomAmenities} title='Room amenities' />
+            <AmenitiesGrid amenities={roomAmenities} title='Tiện nghi phòng' />
 
             <br />
 
             {/* Hotel Amenities */}
-            <AmenitiesGrid amenities={hotelAmenities} title='Hotel amenities' />
+            <AmenitiesGrid
+              amenities={hotelAmenities}
+              title='Tiện nghi khách sạn'
+            />
 
             <Separator className='bg-gray-500' />
 

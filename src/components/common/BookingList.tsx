@@ -2,7 +2,6 @@
 
 import RoomCard from './RoomCard';
 import QuantityBooking from './QuantityBooking';
-import { rooms } from '@/lib/data/rooms';
 import { TRoom } from '@/types/room.type';
 
 interface BookingListProps {

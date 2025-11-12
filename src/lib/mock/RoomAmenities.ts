@@ -1,8 +1,8 @@
 export const roomAmenities = [
-  { icon: '/icons/icon-parking.svg', label: 'Parking' },
-  { icon: '/icons/icon-no-smooking.svg', label: 'No Smoking' },
-  { icon: '/icons/icon-phone.svg', label: 'Phone' },
-  { icon: '/icons/icon-swimming-pool.svg', label: 'Swimming Pool' },
-  { icon: '/icons/icon-safe.svg', label: 'Safe' },
-  { icon: '/icons/icon-shower.svg', label: 'Shower' },
+  { icon: '/icons/icon-parking.svg', label: 'Bãi đỗ xe' },
+  { icon: '/icons/icon-no-smooking.svg', label: 'Không thuốc lá' },
+  { icon: '/icons/icon-phone.svg', label: 'Điện thoại' },
+  { icon: '/icons/icon-swimming-pool.svg', label: 'Bể bơi' },
+  { icon: '/icons/icon-safe.svg', label: 'Két an toàn' },
+  { icon: '/icons/icon-shower.svg', label: 'Bồn tắm' },
 ];
