@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const ContactInfo = () => {
   return (
-    <section className='-mx-4 -mt-12 mb-4 bg-primary py-12 sm:mb-16 md:mb-24 md:py-20'>
+    <section className='-mx-4 mb-4 bg-primary py-12 sm:-mt-12 sm:mb-16 md:mb-24 md:py-20'>
       <div className='mx-auto max-w-7xl px-4'>
         <div className='grid grid-cols-1 gap-12 md:grid-cols-3'>
           {/* Phone */}

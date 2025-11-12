@@ -23,7 +23,7 @@ const RoomRecommends = ({ rooms, currentSlug }: RoomRecommendsProps) => {
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {recommendedRooms.map((room) => (
-            <RoomCard key={room.id} shouldUseHover={true} room={room} />
+            <RoomCard key={room.id} room={room} />
           ))}
         </div>
 

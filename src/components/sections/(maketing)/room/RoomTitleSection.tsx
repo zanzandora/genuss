@@ -6,12 +6,12 @@ type Props = {
 
 const RoomTitleSection = ({ title, subtitle, price }: Props) => {
   return (
-    <div className='flex justify-between'>
+    <div className='flex items-start justify-between'>
       <div className='space-y-8'>
         <h1 className='text-h3'>{title}</h1>
         <p className='text-paragraph-m'>Room Features: {subtitle}</p>
       </div>
-      <div className='pt-2 text-h3 font-normal text-primary'>
+      <div className='text-h3 font-normal text-primary'>
         From{' '}
         <span className='text-paragraph-b text-primary'>{price} / Night</span>
       </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import { cn, formatCurrency } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,6 +8,7 @@ import { Badge } from '../ui/badge';
 import { BLUR_DATA_URL } from '@/constants';
 import { BookNowButton } from './BookNowButton';
 import { TRoom } from '@/types/room.type';
+import { useMediaQuery } from 'usehooks-ts';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 
@@ -30,13 +33,17 @@ const RoomCard = ({
     large: 'md:col-span-3',
   };
 
-  const panelClasses = shouldUseHover
-    ? 'translate-y-full transform transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'
-    : 'translate-y-0 transform';
+  const matches = useMediaQuery('(min-width: 768px)');
 
-  const infoClasses = shouldUseHover
-    ? 'opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'
-    : 'opacity-100';
+  const panelClasses =
+    shouldUseHover || matches
+      ? 'translate-y-full transform transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'
+      : 'translate-y-0 transform';
+
+  const infoClasses =
+    shouldUseHover || matches
+      ? 'opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'
+      : 'opacity-100';
 
   return (
     <div

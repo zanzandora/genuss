@@ -1,10 +1,11 @@
 import RoomCard from '@/components/common/RoomCard';
 import { getRoomDatas } from '@/lib/action/getRooms';
-// import { rooms } from '@/lib/data/rooms';
 import Image from 'next/image';
+import { useMediaQuery } from 'usehooks-ts';
 
 const RoomCards = async () => {
   const rooms = await getRoomDatas();
+
   return (
     <div className='relative'>
       <Image
@@ -27,10 +28,8 @@ const RoomCards = async () => {
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {rooms.map((room) => (
-            <RoomCard shouldUseHover={true} key={room.id} room={room} />
+            <RoomCard key={room.id} room={room} />
           ))}
-
-          {/* <RoomCard shouldUseHover={true} sizeCard='medium' room={rooms[0]} /> */}
         </div>
       </section>
     </div>
