@@ -11,6 +11,7 @@ import { RoomGallery } from '../RoomGallery';
 import RoomRecommends from '../RoomRecommends';
 import { BackToTopButton } from '@/components/common/BackToTopButton';
 import { BookingPanel } from '../booking-panel/BookingPanel';
+import ScrollToTop from '@/components/common/ScrollToTop';
 
 export default async function RoomDetailsContent({ slug }: { slug: string }) {
   const [room, allRooms] = await Promise.all([
@@ -24,6 +25,8 @@ export default async function RoomDetailsContent({ slug }: { slug: string }) {
 
   return (
     <div>
+      <ScrollToTop behavior='smooth' />
+
       <div className='mx-auto mb-16 max-w-6xl'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <main className='space-y-8 lg:col-span-2'>
