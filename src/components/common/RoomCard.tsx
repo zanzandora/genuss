@@ -36,13 +36,12 @@ const RoomCard = ({
       className={cn('group relative h-full', gridClasses[sizeCard], className)}
     >
       {/* Image Section (now standalone, occupies full container area) */}
-      <div className='aspect-[3/2] max-h-[490px] min-w-full overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
+      <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
         <div className='relative h-full w-full'>
           <Image
-            // src={
-            //   room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg'
-            // }
-            src={'/images/rooms/559286083.jpg'}
+            src={
+              room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg'
+            }
             alt={`${room.name} room image`}
             fill
             sizes='100vw'
@@ -51,15 +50,18 @@ const RoomCard = ({
             blurDataURL={BLUR_DATA_URL}
           />
         </div>
+        {/* Price */}
+        <div className={cn('absolute top-3 right-3 z-10')}>
+          <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
+            Từ {formatCurrency(+room.price)} / Đêm
+          </Badge>
+        </div>
       </div>
 
       {/* Info Panel (separate block under image; no overlay) */}
       <div className='w-full rounded-xl border border-secondary bg-white p-4 shadow-sm'>
         <div className='flex items-start justify-between gap-4'>
           <p className='text-sm font-semibold uppercase'>{room.name}</p>
-          <Badge className='h-6 min-w-[5rem] rounded-sm px-3 py-1 font-mono text-sm'>
-            Từ {formatCurrency(+room.price)} / Đêm
-          </Badge>
         </div>
 
         <div className='mt-3 space-y-2 text-sm font-medium'>

@@ -11,7 +11,7 @@ const BookingPage = async () => {
     <section>
       <NormalBanner title='booking' />
 
-      <div className='mx-auto mb-16 max-w-6xl'>
+      <div className='mx-auto mb-16 max-w-4xl'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <div className='lg:col-span-2'>
             <BookingList rooms={rooms} />
