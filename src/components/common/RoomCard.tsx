@@ -8,7 +8,6 @@ import { Badge } from '../ui/badge';
 import { BLUR_DATA_URL } from '@/constants';
 import { BookNowButton } from './BookNowButton';
 import { TRoom } from '@/types/room.type';
-import { useMediaQuery } from 'usehooks-ts';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 
@@ -33,17 +32,17 @@ const RoomCard = ({
     large: 'md:col-span-3',
   };
 
-  const matches = useMediaQuery('(min-width: 768px)');
+  // Use Tailwind responsive classes instead of JavaScript logic
+  // Mobile: always visible (opacity-100, translate-y-0)
+  // Desktop: hidden by default, show on hover (opacity-0 -> opacity-100, translate-y-full -> translate-y-0)
+  // If shouldUseHover is true, always use hover behavior regardless of screen size
+  const panelClasses = shouldUseHover
+    ? 'translate-y-full transform transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'
+    : 'translate-y-0 transform md:translate-y-full md:transform md:transition-transform md:duration-300 md:ease-out md:group-focus-within:-translate-y-0 md:group-hover:-translate-y-0';
 
-  const panelClasses =
-    shouldUseHover || matches
-      ? 'translate-y-full transform transition-transform duration-300 ease-out group-focus-within:-translate-y-0 group-hover:-translate-y-0'
-      : 'translate-y-0 transform';
-
-  const infoClasses =
-    shouldUseHover || matches
-      ? 'opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'
-      : 'opacity-100';
+  const infoClasses = shouldUseHover
+    ? 'opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100'
+    : 'opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:ease-out md:group-hover:opacity-100';
 
   return (
     <div

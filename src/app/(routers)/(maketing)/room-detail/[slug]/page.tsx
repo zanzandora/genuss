@@ -1,14 +1,8 @@
 import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import RoomDetailsContent from '@/components/sections/(maketing)/room/content/RoomDetailsContent';
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const RoomDetailsPage = async ({ params }: PageProps) => {
-  const { slug } = await params;
+const RoomDetailsPage = async (props: PageProps<'/room-detail/[slug]'>) => {
+  const { slug } = await props.params;
 
   return (
     <section>
