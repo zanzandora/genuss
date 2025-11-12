@@ -21,7 +21,7 @@ export function maskEmailPretty(email: string): string {
 }
 
 // format Price
-export function formatCurrency(value: number, locale: string = 'en'): string {
+export function formatCurrency(value: number, locale: string = 'vi'): string {
   if (locale === 'vi') {
     return new Intl.NumberFormat('vi-VN').format(value) + ' VNĐ';
   } else {

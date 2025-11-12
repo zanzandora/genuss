@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
-  const recommendedRooms = useRecommendation(rooms, undefined, 3);
+  // const recommendedRooms = useRecommendation(rooms, undefined, 3);
 
   return (
     <section className='relative px-6 py-20'>
@@ -28,7 +28,7 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
-          {recommendedRooms.map((room) => (
+          {rooms.slice(0, 3).map((room) => (
             <RoomCard key={room.id} shouldUseHover={true} room={room} />
           ))}
         </div>

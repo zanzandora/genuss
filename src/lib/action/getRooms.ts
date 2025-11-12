@@ -70,17 +70,19 @@ export async function getRoomDatas(forceRefresh = false) {
   }
 
   // đọc đồng thời cho tất cả rooms
-  const result = await Promise.all(
-    baseRooms.map(async (r) => {
-      const imgs = await readImagesForSlug(r.slug);
-      const mainImgs = await readMainImageForSlug(r.slug);
-      return {
-        ...r,
-        images: imgs,
-        mainImage: mainImgs.length > 0 ? mainImgs[0] : undefined,
-      };
-    }),
-  );
+  const result = (
+    await Promise.all(
+      baseRooms.map(async (r) => {
+        const imgs = await readImagesForSlug(r.slug);
+        const mainImgs = await readMainImageForSlug(r.slug);
+        return {
+          ...r,
+          images: imgs,
+          mainImage: mainImgs.length > 0 ? mainImgs[0] : undefined,
+        };
+      }),
+    )
+  ).sort((a, b) => a.id - b.id);
 
   _cache = { ts: now, data: result };
   return result;

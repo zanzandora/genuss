@@ -1,7 +1,6 @@
 import RoomCard from '@/components/common/RoomCard';
 import { getRoomDatas } from '@/lib/action/getRooms';
 import Image from 'next/image';
-import { useMediaQuery } from 'usehooks-ts';
 
 const RoomCards = async () => {
   const rooms = await getRoomDatas();
@@ -22,14 +21,16 @@ const RoomCards = async () => {
           <p className='mx-auto max-w-2xl text-paragraph-m'>
             Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của
             khách hàng. Nội thất được lựa chọn tinh tế, trang thiết bị đầy đủ,
-            đảm bảo sự thoải mái và riêng tư tối đa..
+            đảm bảo sự thoải mái và riêng tư tối đa.
           </p>
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} />
+            <RoomCard key={room.id} room={room} shouldUseHover={true} />
           ))}
+
+          {/* <RoomCard key={rooms[0].id} room={rooms[0]} sizeCard='large' /> */}
         </div>
       </section>
     </div>
