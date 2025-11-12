@@ -1,11 +1,9 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-inter: 'Inter', sans-serif;
-  --font-merri: 'Merriweather', serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -15,7 +13,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(0.9881 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -38,6 +36,38 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --font-h1-size: 48px;
+  --font-h1-height: 1.05;
+  --font-h1-tracking: 0em;
+
+  --font-h2-size: 34px;
+  --font-h2-height: 1.05;
+  --font-h2-tracking: 0em;
+
+  --font-h3-size: 24px;
+  --font-h3-height: 1.05;
+  --font-h3-tracking: 0em;
+
+  --font-h4-size: 20px;
+  --font-h4-height: 1.05;
+  --font-h4-tracking: 0em;
+
+  --font-text-18-size: 18px;
+  --font-text-18-height: 1.05;
+  --font-text-18-tracking: 0em;
+
+  --font-paragraph-m-size: 16px;
+  --font-paragraph-m-height: 1.3;
+  --font-paragraph-m-tracking: -0.02em;
+
+  --font-paragraph-b-size: 16px;
+  --font-paragraph-b-height: 1.2;
+  --font-paragraph-b-tracking: -0.02em;
+
+  --font-label-size: 14px;
+  --font-label-height: 1.3;
+  --font-label-tracking: 0.02em;
 }
 
 @theme inline {
@@ -78,6 +108,27 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --text-h1: var(--font-h1-size);
+  --text-h2: var(--font-h2-size);
+  --text-h3: var(--font-h3-size);
+  --text-h4: var(--font-h4-size);
+  --text-text-18: var(--font-text-18-size) / var(--font-text-18-height);
+
+  --text-paragraph-m: var(--font-paragraph-m-size) /
+    var(--font-paragraph-m-height);
+  --text-paragraph-b: var(--font-paragraph-b-size) /
+    var(--font-paragraph-b-height);
+  --text-label: var(--font-label-size) / var(--font-label-height);
+
+  --tracking-h1: var(--font-h1-tracking);
+  --tracking-h2: var(--font-h2-tracking);
+  --tracking-h3: var(--font-h3-tracking);
+  --tracking-h4: var(--font-h4-tracking);
+  --tracking-text-18: var(--font-text-18-tracking);
+  --tracking-paragraph-m: var(--font-paragraph-m-tracking);
+  --tracking-paragraph-b: var(--font-paragraph-b-tracking);
+  --tracking-label: var(--font-label-tracking);
 }
 
 .dark {
@@ -117,8 +168,67 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: var(--font-noto_sans), sans-serif;
   }
   body {
     @apply bg-background text-foreground;
   }
+  .font-allison {
+    font-family: var(--font-allison), sans-serif;
+  }
+}
+
+@utility text-h1 {
+  font-size: var(--font-h1-size);
+  font-weight: 700;
+  line-height: var(--font-h1-height);
+  letter-spacing: var(--font-h1-tracking);
+}
+
+@utility text-h2 {
+  font-size: var(--font-h2-size);
+  font-weight: 700;
+  line-height: var(--font-h2-height);
+  letter-spacing: var(--font-h2-tracking);
+}
+
+@utility text-h3 {
+  font-size: var(--font-h3-size);
+  font-weight: 700;
+  line-height: var(--font-h3-height);
+  letter-spacing: var(--font-h3-tracking);
+}
+
+@utility text-h4 {
+  font-size: var(--font-h4-size);
+  font-weight: 700;
+  line-height: var(--font-h4-height);
+  letter-spacing: var(--font-h4-tracking);
+}
+
+/* Body & paragraph */
+@utility text-18 {
+  font-size: var(--font-text-18-size);
+  line-height: var(--font-text-18-height);
+  letter-spacing: var(--font-text-18-tracking);
+}
+
+@utility text-paragraph-m {
+  font-size: var(--font-paragraph-m-size);
+  font-weight: 500;
+  line-height: var(--font-paragraph-m-height);
+  letter-spacing: var(--font-paragraph-m-tracking);
+}
+
+@utility text-paragraph-b {
+  font-size: var(--font-paragraph-b-size);
+  line-height: var(--font-paragraph-b-height);
+  letter-spacing: var(--font-paragraph-b-tracking);
+  font-weight: 700;
+}
+
+@utility text-label {
+  font-size: var(--font-label-size);
+  line-height: var(--font-label-height);
+  letter-spacing: var(--font-label-tracking);
 }
