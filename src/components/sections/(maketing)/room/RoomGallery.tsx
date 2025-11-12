@@ -26,7 +26,7 @@ export function RoomGallery({ room }: RoomGalleryProps) {
                 key={idx}
                 className='basis-full sm:basis-1/2 md:basis-1/3 md:pl-6 lg:basis-1/4'
               >
-                <div className='relative aspect-square overflow-hidden rounded-lg'>
+                <div className='relative aspect-[3/2] overflow-hidden rounded-lg'>
                   <Image
                     src={image}
                     alt={`${room.name} image ${idx + 1}`}
