@@ -11,7 +11,7 @@ interface BookingListProps {
 
 export default function BookingList({ rooms, action }: BookingListProps) {
   return (
-    <div>
+    <div className='space-y-5'>
       {rooms.map((room) => (
         <RoomCard
           key={room.id}
