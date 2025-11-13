@@ -3,23 +3,38 @@
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
+import { useRoomStore } from '@/stores/useRoomStore';
+import { TRoom } from '@/types/room.type';
+import { toast } from 'sonner';
 
 type Props = {
   className?: string;
   onClick?: () => void;
   children?: React.ReactNode;
+  room?: TRoom;
+  checkIn?: string;
+  checkOut?: string;
 };
 
 export const BookNowButton = ({
   className,
   onClick,
   children = 'Book Now',
+  room,
+  checkIn,
+  checkOut,
 }: Props) => {
   const router = useRouter();
+  const addItem = useRoomStore((state) => state.addItem);
 
   function handleClickDefault() {
+    if (room) {
+      addItem(room, checkIn, checkOut);
+      toast.success('Room added to booking!');
+    }
     router.push('/booking-detail');
   }
+
   return (
     <Button
       size='sm'

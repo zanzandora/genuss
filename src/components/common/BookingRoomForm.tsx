@@ -17,9 +17,11 @@ import {
 } from '@/components/ui/select';
 import { format } from 'date-fns';
 import { TriangleIcon } from 'lucide-react';
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { useBookingDataStore } from '@/stores/useBookingDataStore';
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -34,7 +36,16 @@ export const BookingRoomForm = ({
   className,
   buttonClass,
 }: Props) => {
-  const [date, setDate] = useState<Date>(new Date());
+  const bookingData = useBookingDataStore((state) => state.bookingData);
+  const setCheckIn = useBookingDataStore((state) => state.setCheckIn);
+  const setCheckOut = useBookingDataStore((state) => state.setCheckOut);
+  const setAdultCount = useBookingDataStore((state) => state.setAdultCount);
+  const setChildCount = useBookingDataStore((state) => state.setChildCount);
+
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isBookingDetail = pathname === '/booking-detail';
 
   const containerClasses =
     orientation === 'vertical'
@@ -47,14 +58,17 @@ export const BookingRoomForm = ({
       <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Check in</CardHeader>
         <CardContent>
-          <Popover>
+          <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <Button
+                type='button'
                 variant='outline'
-                data-empty={!date}
+                data-empty={!bookingData.checkIn}
                 className='w-50 justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
               >
-                {format(date, 'd/MM/yyyy')}
+                {bookingData.checkIn
+                  ? format(bookingData.checkIn, 'd/MM/yyyy')
+                  : 'Select date'}
                 <TriangleIcon fill='#111111' className='rotate-180' />
               </Button>
             </PopoverTrigger>
@@ -62,8 +76,12 @@ export const BookingRoomForm = ({
               <Calendar
                 mode='single'
                 required
-                selected={date}
-                onSelect={setDate}
+                selected={bookingData.checkIn || undefined}
+                onSelect={(date) => {
+                  setCheckIn(date || null);
+                  setOpen(false);
+                }}
+                disabled={(date) => date < new Date()}
               />
             </PopoverContent>
           </Popover>
@@ -78,10 +96,12 @@ export const BookingRoomForm = ({
             <PopoverTrigger asChild>
               <Button
                 variant='outline'
-                data-empty={!date}
+                data-empty={!bookingData.checkOut}
                 className='w-50 justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
               >
-                {format(date, 'd/MM/yyyy')}
+                {bookingData.checkOut
+                  ? format(bookingData.checkOut, 'd/MM/yyyy')
+                  : 'Select date'}
                 <TriangleIcon fill='#111111' className='rotate-180' />
               </Button>
             </PopoverTrigger>
@@ -89,8 +109,12 @@ export const BookingRoomForm = ({
               <Calendar
                 mode='single'
                 required
-                selected={date}
-                onSelect={setDate}
+                selected={bookingData.checkOut || undefined}
+                onSelect={(date) => {
+                  setCheckOut(date || null);
+                  setOpen(false);
+                }}
+                disabled={(date) => date < (bookingData.checkIn || new Date())}
               />
             </PopoverContent>
           </Popover>
@@ -101,21 +125,22 @@ export const BookingRoomForm = ({
       <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Adult</CardHeader>
         <CardContent>
-          <Select>
+          <Select
+            value={bookingData.adultCount || '1'}
+            onValueChange={(value) => setAdultCount(value)}
+          >
             <SelectTrigger
               className='w-full border-none font-bold shadow-none'
               aria-label='Adult Select'
             >
-              <SelectValue placeholder='1' />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {Array.from({ length: 10 }, (_, i) => i + 1).map(
-                (value, index) => (
-                  <SelectItem key={value} value={index.toString()}>
-                    {value}
-                  </SelectItem>
-                ),
-              )}
+              {Array.from({ length: 10 }, (_, i) => i + 1).map((value) => (
+                <SelectItem key={value} value={value.toString()}>
+                  {value.toString()}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </CardContent>
@@ -125,38 +150,53 @@ export const BookingRoomForm = ({
       <Card className='w-3xs gap-0 py-2'>
         <CardHeader className='mx-3'>Child</CardHeader>
         <CardContent>
-          <Select>
+          <Select
+            value={bookingData.childCount !== '' ? bookingData.childCount : '0'}
+            onValueChange={(value) => setChildCount(value)}
+          >
             <SelectTrigger
               className='w-full border-none font-bold text-primary shadow-none'
               aria-label='Child Select'
             >
-              <SelectValue placeholder='1' className='font-black' />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent className='relative'>
-              {Array.from({ length: 10 }, (_, i) => i + 1).map(
-                (value, index) => (
-                  <SelectItem key={value} value={index.toString()}>
-                    {value}
-                  </SelectItem>
-                ),
-              )}
+              {Array.from({ length: 10 }, (_, i) => i).map((value) => (
+                <SelectItem key={value} value={value.toString()}>
+                  {value.toString()}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </CardContent>
       </Card>
 
-      {/* Book button */}
-      <Link href={'/booking-detail'}>
-        <Button
-          size={'lg'}
-          className={cn(
-            'cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground',
-            buttonClass,
-          )}
-        >
-          book rooms
-        </Button>
-      </Link>
+      {/* Book / Complete button */}
+      {isBookingDetail ? (
+        <Link href={'/booking-detail/#Contact'}>
+          <Button
+            size='lg'
+            className={cn(
+              'cursor-pointer rounded-xl border-4 border-border bg-primary px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary hover:bg-primary/80 hover:text-primary-foreground',
+            )}
+          >
+            Complete Book Now
+          </Button>
+        </Link>
+      ) : (
+        <Link href={pathname === '/booking' ? '/booking-detail' : '/booking'}>
+          <Button
+            size='lg'
+            type='button'
+            className={cn(
+              'cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground',
+              buttonClass,
+            )}
+          >
+            Book Rooms
+          </Button>
+        </Link>
+      )}
     </form>
   );
 };

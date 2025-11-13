@@ -27,10 +27,8 @@ const RoomCards = async () => {
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} shouldUseHover={true} />
+            <RoomCard key={room.id} room={room} />
           ))}
-
-          {/* <RoomCard key={rooms[0].id} room={rooms[0]} sizeCard='large' /> */}
         </div>
       </section>
     </div>

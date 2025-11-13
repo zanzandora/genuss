@@ -1,3 +1,8 @@
+'use client';
+
+import { useForm, useWatch } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -8,21 +13,181 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { useRoomStore } from '@/stores/useRoomStore';
+import { useBookingDataStore } from '@/stores/useBookingDataStore';
+import { toast } from 'sonner';
+import { v4 as uuidv4 } from 'uuid';
+import { format } from 'date-fns';
+import axios from 'axios';
+import { formatCurrency } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 
-const ContactForm = () => {
+// Zod schema for contact form
+const contactSchema = z.object({
+  title: z.string().optional(),
+  fullName: z.string().min(1, 'Full name is required'),
+  email: z.email('Invalid email address'),
+  country: z.string().min(1, 'Country is required'),
+  phone: z.string().min(1, 'Phone number is required'),
+  message: z.string().optional(),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
+type Props = {
+  requireBookingData?: boolean;
+  hotelEmail?: string;
+};
+
+const ContactForm = ({
+  requireBookingData = false,
+  hotelEmail = 'maiminhtu130803@gmail.com',
+}: Props) => {
+  const items = useRoomStore((state) => state.items);
+  const getTotalPrice = useRoomStore((state) => state.getTotalPrice);
+  const clearStore = useRoomStore((state) => state.clearStore);
+
+  const bookingData = useBookingDataStore((state) => state.bookingData);
+  const clearBookingData = useBookingDataStore(
+    (state) => state.clearBookingData,
+  );
+
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setValue,
+    control,
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      title: '',
+      fullName: '',
+      email: '',
+      country: '',
+      phone: '',
+      message: '',
+    },
+  });
+
+  const title = useWatch({ control, name: 'title', defaultValue: '' });
+
+  const onSubmit = async (data: ContactFormData) => {
+    if (requireBookingData) {
+      if (items.length === 0) {
+        toast.error('Please add at least one room to your booking');
+        return;
+      }
+      if (!bookingData.checkIn) {
+        toast.error('Please select check-in date');
+        return;
+      }
+      if (!bookingData.checkOut) {
+        toast.error('Please select check-out date');
+        return;
+      }
+      if (bookingData.checkOut <= bookingData.checkIn) {
+        toast.error('Check-out date must be after check-in date');
+        return;
+      }
+    }
+
+    try {
+      // Generate idempotency key
+      const idempotencyKey = uuidv4();
+      localStorage.setItem('bookingIdempotencyKey', idempotencyKey);
+
+      // Prepare payload
+      const payload = {
+        user: {
+          fullName: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          country: data.country,
+          message: data.message,
+        },
+        booking_data: requireBookingData
+          ? {
+              hotelEmail,
+              checkIn: bookingData.checkIn
+                ? format(bookingData.checkIn, 'yyyy-MM-dd')
+                : '',
+              checkOut: bookingData.checkOut
+                ? format(bookingData.checkOut, 'yyyy-MM-dd')
+                : '',
+              adultCount: parseInt(bookingData.adultCount),
+              childCount: parseInt(bookingData.childCount),
+              currency: 'USD',
+              totalPrice: getTotalPrice(),
+            }
+          : undefined,
+        rooms: requireBookingData
+          ? items.map((item) => ({
+              name: item.name,
+              quantity: item.quantity,
+              pricePerNight: item.pricePerNight,
+            }))
+          : [],
+      };
+
+      // Send to API using axios
+      const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+      await axios.post(`${apiBaseUrl}/api/bookings/send-emails`, payload, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Idempotency-Key': idempotencyKey,
+        },
+      });
+
+      toast.success(
+        requireBookingData
+          ? 'Booking submitted successfully! We will contact you soon.'
+          : 'Message sent successfully! We will get back to you.',
+      );
+
+      // Reset form
+      reset();
+
+      if (requireBookingData) {
+        clearStore();
+        clearBookingData();
+      }
+
+      // Clear idempotency key
+      localStorage.removeItem('bookingIdempotencyKey');
+
+      router.push('/');
+    } catch (error) {
+      console.error('Submission error:', error);
+      toast.error('Failed to submit. Please try again.');
+    }
+  };
+
   return (
-    <section className='w-full'>
+    <section id={'Contact'} className='w-full'>
       <div className='mx-auto max-w-2xl px-4'>
         <div className='mb-12 text-center'>
-          <h2 className='mb-4 text-h2'>Leave us your info</h2>
+          <h2 className='mb-4 text-h2'>
+            {requireBookingData
+              ? 'Complete Your Booking'
+              : 'Leave us your info'}
+          </h2>
           <p className='text-paragraph-m text-muted-foreground'>
-            and we will get back to you
+            {requireBookingData
+              ? 'Fill in your details to complete the booking'
+              : 'and we will get back to you'}
           </p>
         </div>
 
-        <form className='space-y-6'>
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
           <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
-            <Select>
+            <Select
+              value={title}
+              onValueChange={(value) => setValue('title', value)}
+            >
               <SelectTrigger
                 className='w-32 rounded-none border-0 bg-muted'
                 aria-label='Select Mr/Mrs'
@@ -36,48 +201,115 @@ const ContactForm = () => {
               </SelectContent>
             </Select>
 
+            <div className='col-span-2'>
+              <Input
+                {...register('fullName')}
+                type='text'
+                placeholder='Full Name'
+                className='w-full rounded-none border-0 bg-muted placeholder:text-paragraph-m'
+              />
+              {errors.fullName && (
+                <p className='mt-1 text-sm text-red-600'>
+                  {errors.fullName.message}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div>
             <Input
+              {...register('email')}
+              type='email'
+              placeholder='Email'
+              className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
+            />
+            {errors.email && (
+              <p className='mt-1 text-sm text-red-600'>
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <Input
+              {...register('country')}
               type='text'
-              name='fullName'
-              placeholder='Full Name'
-              className='col-span-2 w-full rounded-none border-0 bg-muted placeholder:text-paragraph-m'
+              placeholder='Country'
+              className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
+            />
+            {errors.country && (
+              <p className='mt-1 text-sm text-red-600'>
+                {errors.country.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <Input
+              {...register('phone')}
+              type='text'
+              placeholder='Phone'
+              className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
+            />
+            {errors.phone && (
+              <p className='mt-1 text-sm text-red-600'>
+                {errors.phone.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <Textarea
+              {...register('message')}
+              placeholder='Message (optional)'
+              className='min-h-32 rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
           </div>
 
-          <Input
-            type='email'
-            name='email'
-            placeholder='Email'
-            className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
-          />
-
-          <Input
-            type='text'
-            name='country'
-            placeholder='Country'
-            className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
-          />
-
-          <Input
-            type='text'
-            name='phone'
-            placeholder='Phone'
-            className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
-          />
-
-          <Textarea
-            name='message'
-            placeholder='Message'
-            className='min-h-32 rounded-none border-0 bg-muted placeholder:text-paragraph-m'
-          />
+          {/* Show booking summary */}
+          {requireBookingData && items.length > 0 && (
+            <div className='rounded-lg border bg-muted p-4'>
+              <h4 className='mb-2 font-semibold'>Booking Summary</h4>
+              <div className='space-y-1 text-sm'>
+                {items.map((item) => (
+                  <div key={item.id} className='flex justify-between'>
+                    <span>
+                      {item.name} x {item.quantity}
+                    </span>
+                    <span>
+                      {formatCurrency(item.pricePerNight * item.quantity)}/night
+                    </span>
+                  </div>
+                ))}
+                <div className='mt-2 border-t pt-2 font-semibold'>
+                  Total: {formatCurrency(getTotalPrice())}
+                </div>
+                {bookingData.checkIn && bookingData.checkOut && (
+                  <div className='mt-2 text-sm'>
+                    <div>
+                      Check-in: {format(bookingData.checkIn, 'd/MM/yyyy')}
+                    </div>
+                    <div>
+                      Check-out: {format(bookingData.checkOut, 'd/MM/yyyy')}
+                    </div>
+                    <div>
+                      Adults: {bookingData.adultCount}, Children:{' '}
+                      {bookingData.childCount}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div>
             <Button
               type='submit'
               size={'lg'}
-              className='cursor-pointer border-2 border-border bg-transparent text-xl font-bold text-primary uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground'
+              disabled={isSubmitting}
+              className='cursor-pointer border-2 border-border bg-transparent text-xl font-bold text-primary uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground disabled:opacity-50'
             >
-              SEND
+              {isSubmitting ? 'Submitting...' : 'SEND'}
             </Button>
           </div>
         </form>

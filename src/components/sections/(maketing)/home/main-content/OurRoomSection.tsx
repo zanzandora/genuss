@@ -1,5 +1,4 @@
 import RoomCard from '@/components/common/RoomCard';
-import { useRecommendation } from '@/hooks/useRecommendation';
 import { TRoom } from '@/types/room.type';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -29,7 +28,7 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {rooms.slice(0, 3).map((room) => (
-            <RoomCard key={room.id} shouldUseHover={true} room={room} />
+            <RoomCard key={room.id} room={room} />
           ))}
         </div>
 

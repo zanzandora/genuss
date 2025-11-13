@@ -13,18 +13,10 @@ type Props = {
   className?: string;
   sizeCard?: SizeCard;
   room: TRoom;
-  shouldUseHover?: boolean; // kept for compatibility (no-op)
   action?: React.ReactNode;
 };
 
-const RoomCard = ({
-  className,
-  room,
-  sizeCard = 'normal',
-  // keep prop to avoid breaking consumers, but we no longer use it
-  shouldUseHover = false,
-  action,
-}: Props) => {
+const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
   const gridClasses = {
     normal: 'md:col-span-1 ',
     medium: 'md:col-span-2 ',
@@ -89,7 +81,7 @@ const RoomCard = ({
             Thông tin chi tiết <ArrowRightIcon />
           </Link>
 
-          {action || <BookNowButton />}
+          {action || <BookNowButton room={room} />}
         </div>
       </div>
     </div>
