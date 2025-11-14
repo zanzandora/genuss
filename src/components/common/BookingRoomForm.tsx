@@ -21,6 +21,7 @@ import { cn } from '@/lib/utils';
 import { useBookingDataStore } from '@/stores/useBookingDataStore';
 import { useState } from 'react';
 import { Link, usePathname } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -35,6 +36,9 @@ export const BookingRoomForm = ({
   className,
   buttonClass,
 }: Props) => {
+  const tBookingRoomForm = useTranslations('common.forms.bookingForm');
+  const tButtons = useTranslations('common.buttons');
+
   const bookingData = useBookingDataStore((state) => state.bookingData);
   const setCheckIn = useBookingDataStore((state) => state.setCheckIn);
   const setCheckOut = useBookingDataStore((state) => state.setCheckOut);
@@ -55,7 +59,7 @@ export const BookingRoomForm = ({
     <form className={cn(containerClasses, className)}>
       {/* Check in */}
       <Card className='w-3xs gap-0 py-2'>
-        <CardHeader className='mx-3'>Check in</CardHeader>
+        <CardHeader className='mx-3'>{tBookingRoomForm('checkIn')}</CardHeader>
         <CardContent>
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
@@ -89,7 +93,7 @@ export const BookingRoomForm = ({
 
       {/* Check out */}
       <Card className='w-3xs gap-0 py-2'>
-        <CardHeader className='mx-3'>Check out</CardHeader>
+        <CardHeader className='mx-3'>{tBookingRoomForm('checkOut')}</CardHeader>
         <CardContent>
           <Popover>
             <PopoverTrigger asChild>
@@ -122,7 +126,7 @@ export const BookingRoomForm = ({
 
       {/* Adult */}
       <Card className='w-3xs gap-0 py-2'>
-        <CardHeader className='mx-3'>Adult</CardHeader>
+        <CardHeader className='mx-3'>{tBookingRoomForm('adult')}</CardHeader>
         <CardContent>
           <Select
             value={bookingData.adultCount || '1'}
@@ -147,7 +151,7 @@ export const BookingRoomForm = ({
 
       {/* Child */}
       <Card className='w-3xs gap-0 py-2'>
-        <CardHeader className='mx-3'>Child</CardHeader>
+        <CardHeader className='mx-3'>{tBookingRoomForm('child')}</CardHeader>
         <CardContent>
           <Select
             value={bookingData.childCount !== '' ? bookingData.childCount : '0'}
@@ -179,7 +183,7 @@ export const BookingRoomForm = ({
               'cursor-pointer rounded-xl border-4 border-border bg-primary px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary hover:bg-primary/80 hover:text-primary-foreground',
             )}
           >
-            Complete Book Now
+            {tButtons('completeBookNow')}
           </Button>
         </Link>
       ) : (
@@ -194,7 +198,7 @@ export const BookingRoomForm = ({
               buttonClass,
             )}
           >
-            Book Rooms
+            {tButtons('bookRooms')}
           </Button>
         </Link>
       )}

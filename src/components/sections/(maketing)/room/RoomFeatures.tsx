@@ -12,12 +12,18 @@ import {
   TreePineIcon,
   Users2Icon,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 
 interface RoomFeaturesProps {
   room: TRoom;
 }
 
 export function RoomFeatures({ room }: RoomFeaturesProps) {
+  const tRooms = useTranslations('rooms.room');
+  const { translateRoom } = useRoomTranslations();
+  const translatedRoom = translateRoom(room);
+
   return (
     <section>
       <div className='grid grid-cols-1 gap-4 pb-8 md:grid-cols-2 md:grid-rows-2'>
@@ -30,9 +36,9 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <BedDoubleIcon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Giường</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>{tRooms('bed')}</ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              {room.bed.join(', ')}
+              {translatedRoom.bed.join(', ')}
             </ItemDescription>
           </ItemContent>
         </Item>
@@ -46,7 +52,9 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <ExpandIcon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Không gian</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>
+              {tRooms('space')}
+            </ItemTitle>
             <ItemDescription className='text-xl font-bold'>
               {room.area} <span className='ordinal'>m2</span>
             </ItemDescription>
@@ -62,9 +70,11 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <Users2Icon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Tối đa</ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>
+              {tRooms('maximum')}
+            </ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              {room.maxOccupancy} Người
+              {room.maxOccupancy} {tRooms('people')}
             </ItemDescription>
           </ItemContent>
         </Item>
@@ -78,9 +88,11 @@ export function RoomFeatures({ room }: RoomFeaturesProps) {
             <TreePineIcon className='size-8' />
           </ItemMedia>
           <ItemContent>
-            <ItemTitle className='text-h4 font-bold'>Cảnh quan </ItemTitle>
+            <ItemTitle className='text-h4 font-bold'>
+              {tRooms('view')}
+            </ItemTitle>
             <ItemDescription className='text-xl font-bold'>
-              {room.view}
+              {translatedRoom.view}
             </ItemDescription>
           </ItemContent>
         </Item>

@@ -6,8 +6,11 @@ import { formatCurrency } from '@/lib/utils';
 import { useRoomStore } from '@/stores/useRoomStore';
 import { BookingPanel } from '../../room/booking-panel/BookingPanel';
 import ContactForm from '../../contact/ContactForm';
+import { useTranslations } from 'next-intl';
 
 const BookingDetailsContent = () => {
+  const tBookingDetails = useTranslations('bookingDetails');
+
   const items = useRoomStore((state) => state.items);
   const getTotalPrice = useRoomStore((state) => state.getTotalPrice);
   return (
@@ -15,14 +18,15 @@ const BookingDetailsContent = () => {
       <div className='mb-24 grid grid-cols-1 gap-8 lg:grid-cols-3'>
         <div className='lg:col-span-2'>
           <BookingDetailsDataTable
-            columns={BookingDetailsColumns}
+            columns={BookingDetailsColumns()}
             data={items}
           />
 
           {items.length > 0 && (
             <div className='bg mt-4 rounded-lg border p-4 text-right'>
               <div className='text-lg font-semibold'>
-                Total Price: {formatCurrency(getTotalPrice())}
+                {tBookingDetails('totalPrice')}:{' '}
+                {formatCurrency(getTotalPrice())}
               </div>
             </div>
           )}

@@ -1,9 +1,12 @@
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { BLUR_DATA_URL } from '@/constants';
 import { StarIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 export function SummarySection() {
+  const tDesciptions = useTranslations('home.desciptions');
+
   return (
     <section className='mb-4 rounded-4xl bg-secondary sm:mb-10 md:mb-16'>
       <div className='mx-auto max-w-7xl px-6 py-8 md:py-12'>
@@ -15,17 +18,21 @@ export function SummarySection() {
                 <span className='flex items-center gap-2' aria-hidden='false'>
                   <span>8/10</span>
                   <StarIcon fill='#ffd339' aria-hidden='true' />
-                  <span>on Travoleka</span>
+                  <span>
+                    {tDesciptions('rate', {
+                      social: 'Travoleka',
+                    })}
+                  </span>
                 </span>
               </div>
 
-              <div className='mr-10 text-sm font-medium'>94 rooms</div>
+              <div className='mr-10 text-sm font-medium'>
+                {tDesciptions('rooms', { countRooms: '94' })}
+              </div>
             </div>
 
             <article className='text-lg leading-tight font-normal tracking-wider md:text-xl lg:text-3xl'>
-              Khách sạn trung tâm Tam Đảo ở độ cao hơn 1.000m, khí hậu mát mẻ
-              quanh năm. Quy mô gần 100 phòng, 3 hội trường, nhà hàng, bể bơi,
-              phòng gym và bãi đỗ xe — phù hợp nghỉ dưỡng và tổ chức sự kiện
+              {tDesciptions('summary')}
             </article>
           </div>
 

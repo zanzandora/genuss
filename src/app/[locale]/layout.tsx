@@ -29,12 +29,17 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  setRequestLocale(locale);
+
+  setRequestLocale(locale as 'en' | 'vi');
   const messages = await getMessages();
+
   return (
-    <html lang='en'>
+    <html lang={locale}>
       <body className={`${noto_Sans.variable} ${allison.variable} antialiased`}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider
+          locale={locale as 'en' | 'vi'}
+          messages={messages}
+        >
           {children}
         </NextIntlClientProvider>
       </body>

@@ -1,54 +1,84 @@
 'use client';
 
-import { useState } from 'react';
-import { Languages } from 'lucide-react';
+import { Check, EarthIcon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useRouter, usePathname } from '@/i18n/routing';
+import { locales } from '@/i18n/config';
+import { Language, languagesSelect } from '@/types/countries.type';
+import { Button } from '@/components/ui/button';
+import { useLocale } from 'next-intl';
 
-export type Language = 'en' | 'vi' | 'ja';
+import VN from 'country-flag-icons/react/3x2/VN';
+import GB from 'country-flag-icons/react/3x2/GB';
 
 interface LanguageSelectorProps {
   defaultLanguage?: Language;
-  onLanguageChange?: (language: Language) => void;
 }
 
-const languages: { value: Language; label: string }[] = [
-  { value: 'en', label: 'English' },
-  { value: 'vi', label: 'Vietnamese' },
-  { value: 'ja', label: 'Japanese' },
-];
+const FlagIcon = ({ locale }: { locale: Language }) => {
+  switch (locale) {
+    case 'vi':
+      return <VN className='size-full' />;
+    case 'en':
+      return <GB className='size-full' />;
+    default:
+      return <EarthIcon className='size-full' />;
+  }
+};
 
-export function LanguageSelector({
+export function SwitcherLanguage({
   defaultLanguage = 'en',
-  onLanguageChange,
 }: LanguageSelectorProps) {
-  const [selectedLanguage, setSelectedLanguage] =
-    useState<Language>(defaultLanguage);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Detect current locale from pathname
+  const currentLocale = useLocale() as Language;
+  const selectedLanguage = locales.includes(currentLocale)
+    ? currentLocale
+    : defaultLanguage;
 
   const handleLanguageChange = (value: Language) => {
-    setSelectedLanguage(value);
-    onLanguageChange?.(value);
+    router.replace(pathname, { locale: value });
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className='flex h-12 w-12 items-center justify-center rounded-full border-0 bg-muted p-0 hover:bg-muted/80 focus:ring-1 focus:ring-ring focus:outline-none'>
-          <Languages className='h-5 w-5 text-foreground' />
-        </button>
+        <Button
+          variant={'outline'}
+          className='bg-black/25 px-2 text-primary-foreground backdrop-blur-lg hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground md:px-4'
+        >
+          <div className='size-6'>
+            <FlagIcon locale={selectedLanguage} />
+          </div>
+          <span className='hidden uppercase lg:block'>{selectedLanguage}</span>
+        </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='center' className='min-w-max'>
-        {languages.map((lang) => (
+      <DropdownMenuContent
+        align='center'
+        className='min-w-max border-border/15 bg-black/25 backdrop-blur-lg'
+      >
+        {languagesSelect.map((lang) => (
           <DropdownMenuItem
             key={lang.value}
             onClick={() => handleLanguageChange(lang.value)}
-            className={selectedLanguage === lang.value ? 'bg-accent' : ''}
+            className='group flex items-center justify-between gap-2 text-primary-foreground hover:text-primary-foreground'
           >
-            <span className='text-base'>{lang.label}</span>
+            <div className='flex items-center gap-2'>
+              <div className='size-4'>
+                <FlagIcon locale={lang.value} />
+              </div>
+              <span className='text-base'>{lang.label}</span>
+            </div>
+            {selectedLanguage === lang.value && (
+              <Check className='size-4 text-primary-foreground group-hover:text-primary' />
+            )}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

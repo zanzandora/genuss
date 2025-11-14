@@ -1,5 +1,182 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "common": {
+    "buttons": {
+      "bookNow": "Book Now",
+      "bookRooms": "Book Rooms",
+      "contactUs": "Contact Us",
+      "learnMore": "Learn More",
+      "completeBookNow": "Complete Book Now",
+      "send": "Send",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "labels": {
+      "loading": "Loading...",
+      "submitting": "Submitting...",
+      "error": "Error",
+      "success": "Success",
+      "selectDate": "Select date",
+      "total": "Total",
+      "bookingSummary": "Booking Summary",
+      "noResult": "No results "
+    },
+    "forms": {
+      "bookingForm": {
+        "title": "Book Rooms",
+        "checkIn": "Check In",
+        "checkOut": "Check Out",
+        "adult": "Adult",
+        "child": "Child"
+      },
+      "contact": {
+        "title": "Leave us your info",
+        "titleBooking": "Complete your booking",
+        "desciptions": "and we will get back to you",
+        "desciptionsBooking": "Fill in your details to complete the booking",
+        "form": {
+          "fullName": "Full Name",
+          "email": "Email",
+          "country": "Country",
+          "phone": "Phone",
+          "message": "Message (optional)",
+          "send": "Send Message"
+        }
+      }
+    }
+  },
+
+  "menu": {
+    "home": "home",
+    "services": "services",
+    "rooms": "rooms",
+    "roomDetails": "room details",
+    "bookingDetails": "booking details",
+    "booking": "booking",
+    "contact": "contact"
+  },
+
+  "home": {
+    "title": "Welcome to Genuss Hotel",
+    "desciptions": {
+      "summary": "Genuss Tam Dao - Hideaway Retreats at an altitude of over 1,000m, cool climate all year round. Scale of nearly 100 rooms, 3 halls, restaurant, swimming pool, gym and parking lot - suitable for relaxation and event organization",
+      "rate": "on {social}",
+      "rooms": "{countRooms} rooms"
+    },
+    "testimonial": {
+      "title": "Testimonial"
+    }
+  },
+
+  "rooms": {
+    "title": "Our Rooms",
+    "desciptions": "A total of 94 rooms with 7 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.",
+    "viewDetails": "View Details",
+    "viewAllRooms": "View All Rooms",
+    "recommended": "more rooms",
+    "priceJSX": "From <price>{value}</price> / Night",
+    "price": "From {value} / Night",
+    "maxOccupancy": "Maximum  {maxOccupancy} people",
+    "room": {
+      "title": "Room {name}",
+      "roomFeatures": "Room features",
+      "bed": "Bed",
+      "space": "Space",
+      "maximum": "Maximum",
+      "view": "View",
+      "amenities": "Amenities",
+      "roomGallery": "Room Gallery",
+      "people": "people"
+    }
+  },
+
+  "facilities": {
+    "title": "Hotel facilities",
+    "parking": "Parking",
+    "swimmingPool": "Swimming Pool",
+    "gym": "Gym",
+    "breakfast": "Breakfast",
+    "airConditioning": "Air Conditioning",
+    "noSmoking": "No Smoking",
+    "phone": "Phone",
+    "safe": "Safe",
+    "shower": "Shower",
+    "wifi": "Wi-Fi",
+    "spa": "Spa"
+  },
+
+  "hotelRules": {
+    "title": "Hotel Rules",
+    "noSmoking": "No smoking",
+    "noAlcoholPool": "No alcohol or stimulants allowed in the pool",
+    "childSupervision": "Children must always be supervised",
+    "gymHours": "Gym: 5:00-7:00 AM and 5:00-8:00 PM",
+    "restaurantHours": "Restaurant: Open from 6:00 AM to 10:00 PM"
+  },
+
+  "services": {
+    "title": "Visit Our Famous Facilities",
+    "dinning": {
+      "title": "Restaurant & Dining Service",
+      "desciptions": "Experience a rich culinary experience with a breakfast buffet and an attractive Asian-European menu."
+    },
+    "event": {
+      "title": "Conference & Event Service",
+      "desciptions": "Luxurious space for meetings, weddings and professional events with full amenities."
+    },
+    "recreation": {
+      "title": "Recreation & Wellness Service",
+      "desciptions": "Relax at the pool, fitness center, and other recreational amenities, suitable for family vacations, couples, or travelers seeking privacy and tranquility."
+    }
+  },
+
+  "contact": {
+    "phone": "Phone",
+    "location": {
+      "title": "Location",
+      "address": "Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam",
+      "viewOnGoogleMap": "View on Google Map"
+    }
+  },
+
+  "bookingDetails": {
+    "totalPrice": "Total Price",
+    "table": {
+      "rooms": "Rooms",
+      "priceNight": "Price Night",
+      "quantity": "Quanity"
+    }
+  },
+
+  "roomData": {
+    "bedTypes": {
+      "largeDouble": "1 large double bed 2m x 2m",
+      "double": "1 double bed 1m6 x 2m",
+      "single": "1 single bed 1m2 x 2m"
+    },
+    "viewTypes": {
+      "square": "Square view",
+      "mountain": "Mountain view"
+    },
+    "bathroomTypes": {
+      "bathtubShower": "Bathtub & Shower",
+      "bathtub": "Bathtub",
+      "shower": "Shower"
+    },
+    "features": {
+      "sofa": "Sofa",
+      "balcony": "Balcony",
+      "romanticDecor": "Romantic decor"
+    }
+  },
+
+  "footer": {
+    "contactUs": {
+      "title": "contact us",
+      "Tel": "Tel"
+    },
+    "hotelAddress": {
+      "title": "Hotel Address",
+      "address": "Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam"
+    }
   }
 }

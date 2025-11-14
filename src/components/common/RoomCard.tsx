@@ -6,6 +6,8 @@ import { BLUR_DATA_URL } from '@/constants';
 import { BookNowButton } from './BookNowButton';
 import { TRoom } from '@/types/room.type';
 import { Link } from '@/i18n/routing';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 
@@ -17,11 +19,18 @@ type Props = {
 };
 
 const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
+  const tRooms = useTranslations('rooms');
+  const locale = useLocale();
+  const { translateRoom } = useRoomTranslations();
+
   const gridClasses = {
     normal: 'md:col-span-1 ',
     medium: 'md:col-span-2 ',
     large: 'md:col-span-3',
   };
+
+  const price = formatCurrency(+room.price, locale);
+  const translatedRoom = translateRoom(room);
 
   return (
     <div
@@ -45,7 +54,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
         {/* Price */}
         <div className={cn('absolute top-3 right-3 z-10')}>
           <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
-            Từ {formatCurrency(+room.price)} / Đêm
+            {tRooms('price', { value: price })}
           </Badge>
         </div>
       </div>
@@ -60,7 +69,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
           <div className='flex items-start gap-2'>
             <BedDoubleIcon />
             <div className='flex flex-col'>
-              {room.bed.map((item, index) => (
+              {translatedRoom.bed.map((item, index) => (
                 <span key={index}>{item}</span>
               ))}
             </div>
@@ -68,7 +77,11 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
 
           <div className='flex items-center gap-2'>
             <Users2Icon />
-            <span>tối đa {room.maxOccupancy} người</span>
+            <span>
+              {tRooms('maxOccupancy', {
+                maxOccupancy: room.maxOccupancy.toString(),
+              })}
+            </span>
           </div>
         </div>
 
@@ -78,7 +91,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
             className='flex items-center gap-2 font-semibold'
             aria-description='Link into room detailt'
           >
-            Thông tin chi tiết <ArrowRightIcon />
+            {tRooms('viewDetails')} <ArrowRightIcon />
           </Link>
 
           {action || <BookNowButton room={room} />}

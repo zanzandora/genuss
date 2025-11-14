@@ -5,7 +5,6 @@ import RoomTitleSection from '../RoomTitleSection';
 import { Separator } from '@/components/ui/separator';
 import { hotelAmenities, hotelRules, roomAmenities } from '@/lib/mock';
 import { getRoomBySlugWithImages, getRoomDatas } from '@/lib/action/getRooms';
-import { formatCurrency } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import { RoomGallery } from '../RoomGallery';
 import RoomRecommends from '../RoomRecommends';
@@ -30,11 +29,7 @@ export default async function RoomDetailsContent({ slug }: { slug: string }) {
       <div className='mx-auto mb-16 max-w-6xl'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <main className='space-y-8 lg:col-span-2'>
-            <RoomTitleSection
-              title={room.name}
-              subtitle={room.features?.join(', ') || ''}
-              price={formatCurrency(+room.price)}
-            />
+            <RoomTitleSection room={room} />
 
             <Separator className='bg-gray-500' />
 

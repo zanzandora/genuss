@@ -1,18 +1,33 @@
+import { formatCurrency } from '@/lib/utils';
+import { useRoomTranslations } from '@/lib/utils/roomTranslations';
+import { TRoom } from '@/types/room.type';
+import { useTranslations } from 'next-intl';
+
 type Props = {
-  title: string;
-  subtitle: string;
-  price: string;
+  room: TRoom;
 };
 
-const RoomTitleSection = ({ title, subtitle, price }: Props) => {
+const RoomTitleSection = ({ room }: Props) => {
+  const tRooms = useTranslations('rooms');
+  const { translateRoom } = useRoomTranslations();
+  const translatedRoom = translateRoom(room);
+
   return (
     <div className='flex items-start justify-between'>
       <div className='space-y-8'>
-        <h1 className='text-h3'>{title}</h1>
-        <p className='text-paragraph-m'>Tính năng phòng: {subtitle}</p>
+        <h1 className='text-h3'>{room.name}</h1>
+        <p className='text-paragraph-m'>
+          {tRooms('room.roomFeatures')}:{' '}
+          {translatedRoom.features?.join(', ') || ''}
+        </p>
       </div>
       <div className='text-h3 font-normal text-primary'>
-        Từ <span className='text-paragraph-b text-primary'>{price} / Đêm</span>
+        {tRooms.rich('priceJSX', {
+          value: String(formatCurrency(+room.price)),
+          price: (chunks) => (
+            <span className='text-paragraph-b text-primary'>{chunks}</span>
+          ),
+        })}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { RoomStoreItem, useRoomStore } from '@/stores/useRoomStore';
 import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 // Cell component for quantity management
 const QuantityCell = ({ item }: { item: RoomStoreItem }) => {
@@ -55,43 +56,48 @@ const ActionsCell = ({ item }: { item: RoomStoreItem }) => {
   );
 };
 
-export const BookingDetailsColumns: ColumnDef<RoomStoreItem>[] = [
-  {
-    accessorKey: 'name',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant='ghost'
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className=''
-        >
-          Rooms
-          <ArrowUpDown />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div className='capitalize'>{row.getValue('name')}</div>,
-  },
-  {
-    accessorKey: 'pricePerNight',
-    header: () => <div className=''>Price Night</div>,
-    cell: ({ row }) => {
-      const pricePerNight = parseFloat(row.getValue('pricePerNight'));
+export const BookingDetailsColumns: () => ColumnDef<RoomStoreItem>[] = () => {
+  const t = useTranslations('bookingDetails.table');
 
-      const formatted = formatCurrency(pricePerNight);
-
-      return <div className='font-medium'>{formatted}</div>;
+  return [
+    {
+      accessorKey: 'name',
+      header: ({ column }) => {
+        return (
+          <Button
+            variant='ghost'
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+            className=''
+          >
+            {t('rooms')}
+            <ArrowUpDown />
+          </Button>
+        );
+      },
+      cell: ({ row }) => (
+        <div className='capitalize'>{row.getValue('name')}</div>
+      ),
     },
-  },
-  {
-    accessorKey: 'quantity',
-    header: () => <div className=''>Quantity</div>,
-    cell: ({ row }) => <QuantityCell item={row.original} />,
-  },
-  {
-    id: 'actions',
-    header: () => <div className=''>Actions</div>,
-    enableHiding: false,
-    cell: ({ row }) => <ActionsCell item={row.original} />,
-  },
-];
+    {
+      accessorKey: 'pricePerNight',
+      header: () => <div className=''>{t('priceNight')}</div>,
+      cell: ({ row }) => {
+        const pricePerNight = parseFloat(row.getValue('pricePerNight'));
+
+        const formatted = formatCurrency(pricePerNight);
+
+        return <div className='font-medium'>{formatted}</div>;
+      },
+    },
+    {
+      accessorKey: 'quantity',
+      header: () => <div className=''>{t('quantity')}</div>,
+      cell: ({ row }) => <QuantityCell item={row.original} />,
+    },
+    {
+      id: 'actions',
+      enableHiding: false,
+      cell: ({ row }) => <ActionsCell item={row.original} />,
+    },
+  ];
+};

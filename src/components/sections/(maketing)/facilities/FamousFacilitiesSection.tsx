@@ -1,27 +1,27 @@
 import { BLUR_DATA_URL } from '@/constants';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 const FamousFacilitiesSection = () => {
+  const tFacilities = useTranslations('services');
+
   const services = [
     {
-      title: 'Restaurant & Dining Service',
-      description:
-        'Tận hưởng trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á-Âu hấp dẫn.',
+      title: tFacilities('dinning.title'),
+      description: tFacilities('dinning.desciptions'),
       image: '/images/facilities/restaurant-and-dining-service.jpg',
       position: 'left',
     },
     {
-      title: 'Conference & Event Service',
-      description:
-        'Không gian sang trọng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp với đầy đủ tiện nghi.',
+      title: tFacilities('event.title'),
+      description: tFacilities('event.desciptions'),
       image: '/images/facilities/conference-and-event-service.jpg',
       position: 'right',
     },
     {
-      title: 'Recreation & Wellness Service',
-      description:
-        'Thư giãn tại hồ bơi, trung tâm thể dục, và các tiện nghi giải trí khác, phù hợp cho kỳ nghỉ bên gia đình, cặp đôi, hoặc du khách tìm sự riêng tư và thanh bình.',
+      title: tFacilities('recreation.title'),
+      description: tFacilities('recreation.desciptions'),
       image: '/images/facilities/recreation-and-wellness-service.jpg',
       position: 'left',
     },
@@ -37,8 +37,8 @@ const FamousFacilitiesSection = () => {
         className='absolute top-1/2 right-0 z-0 -mx-4 h-auto w-4xl -translate-y-1/2 scale-x-[-1] opacity-50'
       />
       <div className='relative mx-auto max-w-6xl'>
-        <h1 className='mb-16 text-center text-4xl font-bold md:text-5xl'>
-          Visit Our Famous Facilities
+        <h1 className='mb-16 text-center text-4xl font-bold capitalize md:text-5xl'>
+          {tFacilities('title')}
         </h1>
 
         <div className='space-y-16'>

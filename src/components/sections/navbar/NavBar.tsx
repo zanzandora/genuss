@@ -21,16 +21,21 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, usePathname } from '@/i18n/routing';
+import { SwitcherLanguage } from './SwitcherLanguage';
+import { useTranslations } from 'next-intl';
 
 const NavBar = () => {
+  const tMenu = useTranslations('menu');
+  const tButtons = useTranslations('common.buttons');
+
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: '/', label: 'home', icon: Home },
-    { href: '/rooms', label: 'rooms', icon: BedDouble },
-    { href: '/services', label: 'services', icon: ConciergeBell },
-    { href: '/contact', label: 'contact', icon: Phone },
+    { href: '/', label: tMenu('home'), icon: Home },
+    { href: '/rooms', label: tMenu('rooms'), icon: BedDouble },
+    { href: '/services', label: tMenu('services'), icon: ConciergeBell },
+    { href: '/contact', label: tMenu('contact'), icon: Phone },
   ];
 
   const isActiveLink = (href: string) => {
@@ -52,8 +57,8 @@ const NavBar = () => {
   };
 
   return (
-    <div className='absolute z-10 my-6 w-full'>
-      <nav className='mx-8 flex items-center justify-between rounded-full border border-white/15 bg-black/25 px-4 py-2 shadow-[0_8px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg lg:mx-20 lg:px-8'>
+    <div className='absolute z-10 my-8 flex w-full items-center justify-between px-12 lg:px-16'>
+      <nav className='flex flex-1 items-center justify-between rounded-full border border-white/15 bg-black/25 px-4 py-2 shadow-[0_8px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg lg:mx-8 lg:px-8'>
         {/* Logo */}
         <Link href={'/'} className='relative h-12 w-12 lg:h-20 lg:w-20'>
           <Image
@@ -80,12 +85,16 @@ const NavBar = () => {
         </div>
 
         {/* Book Now Button - Desktop and Mobile */}
-        <Button
-          size={'lg'}
-          className='cursor-pointer border-2 border-border bg-transparent text-sm font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground md:text-xl'
-        >
-          <Link href={'/booking'}>Book Now</Link>
-        </Button>
+        <div className='flex items-center gap-x-2'>
+          <Link href={'/booking'}>
+            <Button
+              size={'lg'}
+              className='cursor-pointer border-border bg-transparent text-sm font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground md:border-2 md:text-xl'
+            >
+              {tButtons('bookNow')}
+            </Button>
+          </Link>
+        </div>
 
         {/* Mobile Hamburger Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -139,6 +148,9 @@ const NavBar = () => {
           </SheetContent>
         </Sheet>
       </nav>
+      <div className='mx-2'>
+        <SwitcherLanguage />
+      </div>
     </div>
   );
 };

@@ -12,12 +12,17 @@ import {
 } from '@/components/ui/carousel';
 import { testimonials } from '@/lib/data/testimonials';
 import { maskEmailPretty } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
-const TestimonialsSectino = () => {
+const TestimonialsSection = () => {
+  const tTestimonials = useTranslations('home.testimonial');
+
   return (
     <section className='-mx-4 py-20'>
       <div className='h-full'>
-        <h1 className='mb-16 text-center text-h1'>Testimonial</h1>
+        <h1 className='mb-16 text-center text-h1 capitalize'>
+          {tTestimonials('title')}
+        </h1>
 
         <div className='h-full w-full bg-accent py-8 pb-6'>
           <Carousel className='relative mx-auto max-w-6xl overflow-visible'>
@@ -69,4 +74,4 @@ const TestimonialsSectino = () => {
   );
 };
 
-export default TestimonialsSectino;
+export default TestimonialsSection;

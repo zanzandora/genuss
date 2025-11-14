@@ -2,10 +2,11 @@ import RoomCard from '@/components/common/RoomCard';
 import { Link } from '@/i18n/routing';
 import { TRoom } from '@/types/room.type';
 import { ArrowRightIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
-  // const recommendedRooms = useRecommendation(rooms, undefined, 3);
+  const tRooms = useTranslations('rooms');
 
   return (
     <section className='relative px-6 py-20'>
@@ -18,11 +19,9 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
       />
       <div className='relative mx-auto max-w-6xl'>
         <div className='mb-12 text-center'>
-          <h2 className='mb-4 text-h1'>Our room</h2>
+          <h2 className='mb-4 text-h1'>{tRooms('title')}</h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
-            Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của
-            khách hàng. Nội thất được lựa chọn tinh tế, trang thiết bị đầy đủ,
-            đảm bảo sự thoải mái và riêng tư tối đa.
+            {tRooms('desciptions')}
           </p>
         </div>
 
@@ -37,7 +36,7 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
             href='/rooms'
             className='flex items-center justify-end gap-2 font-semibold hover:underline hover:underline-offset-4'
           >
-            View all rooms
+            {tRooms('viewAllRooms')}
             <ArrowRightIcon className='h-4 w-4' />
           </Link>
         </div>

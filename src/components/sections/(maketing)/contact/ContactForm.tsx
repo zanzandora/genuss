@@ -20,7 +20,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { format } from 'date-fns';
 import axios from 'axios';
 import { formatCurrency } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
+import { useLocale, useTranslations } from 'next-intl';
 
 // Zod schema for contact form
 const contactSchema = z.object({
@@ -43,6 +44,13 @@ const ContactForm = ({
   requireBookingData = false,
   hotelEmail = 'maiminhtu130803@gmail.com',
 }: Props) => {
+  const tContactForm = useTranslations('common.forms.contact');
+  const tBookingForm = useTranslations('common.forms.bookingForm');
+  const tLabel = useTranslations('common.labels');
+  const tButton = useTranslations('common.buttons');
+
+  const locale = useLocale();
+
   const items = useRoomStore((state) => state.items);
   const getTotalPrice = useRoomStore((state) => state.getTotalPrice);
   const clearStore = useRoomStore((state) => state.clearStore);
@@ -120,8 +128,8 @@ const ContactForm = ({
                 : '',
               adultCount: parseInt(bookingData.adultCount),
               childCount: parseInt(bookingData.childCount),
-              currency: 'USD',
-              totalPrice: getTotalPrice(),
+              currency: locale === 'vi' ? 'VND' : 'USD',
+              totalPrice: formatCurrency(getTotalPrice()),
             }
           : undefined,
         rooms: requireBookingData
@@ -172,13 +180,13 @@ const ContactForm = ({
         <div className='mb-12 text-center'>
           <h2 className='mb-4 text-h2'>
             {requireBookingData
-              ? 'Complete Your Booking'
-              : 'Leave us your info'}
+              ? tContactForm('titleBooking')
+              : tContactForm('title')}
           </h2>
           <p className='text-paragraph-m text-muted-foreground'>
             {requireBookingData
-              ? 'Fill in your details to complete the booking'
-              : 'and we will get back to you'}
+              ? tContactForm('desciptionsBooking')
+              : tContactForm('desciptions')}
           </p>
         </div>
 
@@ -205,7 +213,7 @@ const ContactForm = ({
               <Input
                 {...register('fullName')}
                 type='text'
-                placeholder='Full Name'
+                placeholder={tContactForm('form.fullName')}
                 className='w-full rounded-none border-0 bg-muted placeholder:text-paragraph-m'
               />
               {errors.fullName && (
@@ -220,7 +228,7 @@ const ContactForm = ({
             <Input
               {...register('email')}
               type='email'
-              placeholder='Email'
+              placeholder={tContactForm('form.email')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
             {errors.email && (
@@ -234,7 +242,7 @@ const ContactForm = ({
             <Input
               {...register('country')}
               type='text'
-              placeholder='Country'
+              placeholder={tContactForm('form.country')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
             {errors.country && (
@@ -248,7 +256,7 @@ const ContactForm = ({
             <Input
               {...register('phone')}
               type='text'
-              placeholder='Phone'
+              placeholder={tContactForm('form.phone')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
             {errors.phone && (
@@ -261,7 +269,7 @@ const ContactForm = ({
           <div>
             <Textarea
               {...register('message')}
-              placeholder='Message (optional)'
+              placeholder={tContactForm('form.message')}
               className='min-h-32 rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
           </div>
@@ -269,7 +277,9 @@ const ContactForm = ({
           {/* Show booking summary */}
           {requireBookingData && items.length > 0 && (
             <div className='rounded-lg border bg-muted p-4'>
-              <h4 className='mb-2 font-semibold'>Booking Summary</h4>
+              <h4 className='mb-2 font-semibold capitalize'>
+                {tLabel('bookingSummary')}
+              </h4>
               <div className='space-y-1 text-sm'>
                 {items.map((item) => (
                   <div key={item.id} className='flex justify-between'>
@@ -282,19 +292,21 @@ const ContactForm = ({
                   </div>
                 ))}
                 <div className='mt-2 border-t pt-2 font-semibold'>
-                  Total: {formatCurrency(getTotalPrice())}
+                  {tLabel('total')}: {formatCurrency(getTotalPrice())}
                 </div>
                 {bookingData.checkIn && bookingData.checkOut && (
                   <div className='mt-2 text-sm'>
                     <div>
-                      Check-in: {format(bookingData.checkIn, 'd/MM/yyyy')}
+                      {tBookingForm('checkIn')}:{' '}
+                      {format(bookingData.checkIn, 'd/MM/yyyy')}
                     </div>
                     <div>
-                      Check-out: {format(bookingData.checkOut, 'd/MM/yyyy')}
+                      {tBookingForm('checkOut')}:{' '}
+                      {format(bookingData.checkOut, 'd/MM/yyyy')}
                     </div>
                     <div>
-                      Adults: {bookingData.adultCount}, Children:{' '}
-                      {bookingData.childCount}
+                      {tBookingForm('adult')}: {bookingData.adultCount},{' '}
+                      {tBookingForm('child')}: {bookingData.childCount}
                     </div>
                   </div>
                 )}
@@ -309,7 +321,7 @@ const ContactForm = ({
               disabled={isSubmitting}
               className='cursor-pointer border-2 border-border bg-transparent text-xl font-bold text-primary uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground disabled:opacity-50'
             >
-              {isSubmitting ? 'Submitting...' : 'SEND'}
+              {isSubmitting ? tLabel('submitting') : tButton('send')}
             </Button>
           </div>
         </form>

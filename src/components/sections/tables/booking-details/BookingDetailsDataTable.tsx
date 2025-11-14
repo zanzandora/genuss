@@ -7,7 +7,6 @@ import {
   ColumnFiltersState,
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   PaginationState,
@@ -26,6 +25,7 @@ import {
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -36,6 +36,9 @@ export function BookingDetailsDataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const tLabels = useTranslations('common.labels');
+  const tButtons = useTranslations('common.buttons');
+
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -54,7 +57,6 @@ export function BookingDetailsDataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onPaginationChange: setPagination,
     state: {
@@ -110,7 +112,7 @@ export function BookingDetailsDataTable<TData, TValue>({
                   colSpan={columns.length}
                   className='h-24 text-center'
                 >
-                  No results.
+                  {tLabels('noResult')}.
                 </TableCell>
               </TableRow>
             )}
@@ -118,10 +120,6 @@ export function BookingDetailsDataTable<TData, TValue>({
         </Table>
       </div>
       <div className='flex items-center justify-end space-x-2 py-4'>
-        <div className='flex-1 text-sm text-muted-foreground'>
-          {table.getFilteredSelectedRowModel().rows.length} of{' '}
-          {table.getFilteredRowModel().rows.length} room(s) selected.
-        </div>
         <div className='space-x-2'>
           <Button
             variant='outline'
@@ -129,7 +127,7 @@ export function BookingDetailsDataTable<TData, TValue>({
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            {tButtons('previous')}
           </Button>
           <Button
             variant='outline'
@@ -137,7 +135,7 @@ export function BookingDetailsDataTable<TData, TValue>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            {tButtons('next')}
           </Button>
         </div>
       </div>
