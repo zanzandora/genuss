@@ -1,8 +1,8 @@
 import RoomCard from '@/components/common/RoomCard';
+import { Link } from '@/i18n/routing';
 import { TRoom } from '@/types/room.type';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
   // const recommendedRooms = useRecommendation(rooms, undefined, 3);

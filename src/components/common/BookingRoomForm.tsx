@@ -18,10 +18,9 @@ import {
 import { format } from 'date-fns';
 import { TriangleIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 import { useBookingDataStore } from '@/stores/useBookingDataStore';
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/routing';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -45,7 +44,7 @@ export const BookingRoomForm = ({
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  const isBookingDetail = pathname === '/booking-detail';
+  const isBookingDetail = pathname.endsWith('/booking-detail');
 
   const containerClasses =
     orientation === 'vertical'
@@ -184,7 +183,9 @@ export const BookingRoomForm = ({
           </Button>
         </Link>
       ) : (
-        <Link href={pathname === '/booking' ? '/booking-detail' : '/booking'}>
+        <Link
+          href={pathname.includes('/booking') ? '/booking-detail' : '/booking'}
+        >
           <Button
             size='lg'
             type='button'

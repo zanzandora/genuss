@@ -11,8 +11,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import {
   ChevronRightSquareIcon,
   Menu,
@@ -22,6 +20,7 @@ import {
   Phone,
 } from 'lucide-react';
 import { useState } from 'react';
+import { Link, usePathname } from '@/i18n/routing';
 
 const NavBar = () => {
   const pathname = usePathname();

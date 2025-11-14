@@ -1,11 +1,11 @@
 import { cn, formatCurrency } from '@/lib/utils';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRightIcon, BedDoubleIcon, Users2Icon } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { BLUR_DATA_URL } from '@/constants';
 import { BookNowButton } from './BookNowButton';
 import { TRoom } from '@/types/room.type';
+import { Link } from '@/i18n/routing';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 

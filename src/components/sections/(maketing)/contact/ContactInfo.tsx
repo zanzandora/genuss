@@ -1,5 +1,5 @@
+import { Link } from '@/i18n/routing';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import Link from 'next/link';
 
 const ContactInfo = () => {
   return (

@@ -3,8 +3,8 @@
 import RoomCard from '@/components/common/RoomCard';
 import { useRecommendation } from '@/hooks/useRecommendation';
 import { ArrowRightIcon } from 'lucide-react';
-import Link from 'next/link';
 import { TRoom } from '@/types/room.type';
+import { Link } from '@/i18n/routing';
 
 interface RoomRecommendsProps {
   rooms: TRoom[];

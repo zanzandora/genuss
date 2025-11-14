@@ -1,7 +1,7 @@
 // app/hooks/useScrollToTop.ts
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/routing';
 import { useIsomorphicLayoutEffect } from 'usehooks-ts';
 
 export function useScrollToTop(options: { behavior?: ScrollBehavior } = {}) {
