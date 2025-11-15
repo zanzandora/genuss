@@ -13,8 +13,11 @@ export interface OptimizedImageProps {
 }
 
 /**
- * Generate a simple blur placeholder for images
- * This creates a low-quality placeholder that loads instantly
+ * TODO: Generate a simple blur placeholder for images
+ * Creates a low-quality placeholder that loads instantly for better UX
+ * @param width - Placeholder width in pixels
+ * @param height - Placeholder height in pixels
+ * @returns Base64 encoded SVG placeholder
  */
 export function generateBlurPlaceholder(
   width: number = 400,
@@ -40,7 +43,11 @@ export function generateBlurPlaceholder(
 }
 
 /**
- * Get image props with optimization for Next.js Image component
+ * TODO: Get image props with optimization for Next.js Image component
+ * Generates optimized props including blur placeholders and loading strategies
+ * @param imageUrl - Image source URL
+ * @param index - Image index for priority determination
+ * @returns Optimized image props for Next.js Image component
  */
 export function getOptimizedImageProps(
   imageUrl: string,
@@ -59,7 +66,10 @@ export function getOptimizedImageProps(
 }
 
 /**
- * Preload critical images for better performance
+ * TODO: Preload critical images for better performance
+ * Identifies and returns the most important images for immediate loading
+ * @param room - Room object containing images array
+ * @returns Array of critical image URLs for preloading
  */
 export function getCriticalImageUrls(room: TRoom): string[] {
   if (!room.images) {
@@ -71,7 +81,10 @@ export function getCriticalImageUrls(room: TRoom): string[] {
 }
 
 /**
- * Get room with optimized image metadata (doesn't modify original room)
+ * TODO: Get room with optimized image metadata (doesn't modify original room)
+ * Enhances room object with image optimization metadata for better performance
+ * @param room - Original room object
+ * @returns Enhanced room object with image metadata
  */
 export function getRoomWithImageMetadata(room: TRoom) {
   if (!room.images) {

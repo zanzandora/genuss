@@ -18,6 +18,15 @@ type Props = {
   action?: React.ReactNode;
 };
 
+/**
+ * TODO: Display room card with responsive design and image optimization
+ * Shows basic room information, pricing, and action buttons
+ * @param className - Additional CSS classes
+ * @param room - Room data object containing room details
+ * @param sizeCard - Card size variant ('normal', 'medium', 'large')
+ * @param action - Optional custom action component
+ * @returns Room card component
+ */
 const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
   const tRooms = useTranslations('rooms');
   const locale = useLocale();
@@ -36,7 +45,6 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
     <div
       className={cn('group relative h-full', gridClasses[sizeCard], className)}
     >
-      {/* Image Section (now standalone, occupies full container area) */}
       <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
         <div className='relative h-full w-full'>
           <Image
@@ -56,7 +64,6 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
             } object-cover transition-transform duration-500 ease-out`}
           />
         </div>
-        {/* Price */}
         <div className={cn('absolute top-3 right-3 z-10')}>
           <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
             {tRooms('price', { value: price })}
@@ -64,7 +71,6 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
         </div>
       </div>
 
-      {/* Info Panel (separate block under image; no overlay) */}
       <div className='w-full rounded-xl border border-secondary bg-white p-4 shadow-sm'>
         <div className='flex items-start justify-between gap-4'>
           <p className='text-sm font-semibold uppercase'>{room.name}</p>

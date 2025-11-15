@@ -1,6 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+/**
+ * TODO: Manage booking data state with persistence and validation
+ * Automatically saves to localStorage and validates date logic
+ */
 export interface BookingData {
   checkIn: Date | null;
   checkOut: Date | null;
@@ -104,7 +108,7 @@ export const useBookingDataStore = create<BookingDataStore>()(
         const bd = state.bookingData;
         if (!bd) return;
 
-        // FIX: Đảm bảo giá trị mặc định luôn được áp dụng
+        // Ensure default values are always applied
         bd.adultCount =
           bd.adultCount && bd.adultCount !== '' ? String(bd.adultCount) : '1';
 
@@ -115,7 +119,7 @@ export const useBookingDataStore = create<BookingDataStore>()(
             ? String(bd.childCount)
             : '0';
 
-        // Convert ISO string → Date
+        // Convert ISO string to Date
         bd.checkIn =
           bd.checkIn && !(bd.checkIn instanceof Date)
             ? new Date(bd.checkIn)

@@ -17,6 +17,14 @@ interface StreamingRoomDetailsProps {
   currentSlug: string;
 }
 
+/**
+ * TODO: Stream room details with progressive loading for optimal performance
+ * Renders content in priority order: critical, secondary, then deferred
+ * @param room - Current room data
+ * @param allRooms - Array of all available rooms
+ * @param currentSlug - Current room slug for context
+ * @returns Streaming room details component
+ */
 export function StreamingRoomDetails({
   room,
   allRooms,
