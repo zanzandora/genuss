@@ -1,4 +1,4 @@
-import RoomDetailsSkeleton from '@/components/common/skeleton/RoomDetailsSkeleton';
+import RoomDetailsSkeleton from '@/components/sections/(maketing)/booking-detail/content/skeleton/RoomDetailsSkeleton';
 
 const Loading = () => {
   return <RoomDetailsSkeleton />;

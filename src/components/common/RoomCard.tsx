@@ -2,7 +2,7 @@ import { cn, formatCurrency } from '@/lib/utils';
 import Image from 'next/image';
 import { ArrowRightIcon, BedDoubleIcon, Users2Icon } from 'lucide-react';
 import { Badge } from '../ui/badge';
-import { BLUR_DATA_URL } from '@/constants';
+import { getOptimizedImageProps } from '@/lib/utils/imageOptimization';
 import { BookNowButton } from './BookNowButton';
 import { TRoom } from '@/types/room.type';
 import { Link } from '@/i18n/routing';
@@ -40,15 +40,20 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
       <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
         <div className='relative h-full w-full'>
           <Image
-            src={
-              room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg'
-            }
-            alt={`${room.name} room image`}
+            {...getOptimizedImageProps(
+              room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg',
+              0,
+            )}
+            alt={room.slug}
             fill
-            sizes='100vw'
-            className='object-cover transition-transform duration-500 ease-out'
-            placeholder='blur'
-            blurDataURL={BLUR_DATA_URL}
+            className={`${
+              getOptimizedImageProps(
+                room.mainImage ||
+                  room.images?.[0] ||
+                  '/images/rooms/room-1.jpg',
+                0,
+              ).className
+            } object-cover transition-transform duration-500 ease-out`}
           />
         </div>
         {/* Price */}

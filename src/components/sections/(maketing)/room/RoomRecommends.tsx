@@ -1,11 +1,19 @@
 'use client';
 
-import RoomCard from '@/components/common/RoomCard';
+import { lazy, Suspense } from 'react';
 import { useRecommendation } from '@/hooks/useRecommendation';
 import { ArrowRightIcon } from 'lucide-react';
 import { TRoom } from '@/types/room.type';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { DeferredRoomContentSkeleton } from './content/skeletons/DeferredRoomContentSkeleton';
+
+// Lazy load RoomCard component
+const RoomCard = lazy(() =>
+  import('@/components/common/RoomCard').then((module) => ({
+    default: module.default,
+  })),
+);
 
 interface RoomRecommendsProps {
   rooms: TRoom[];
@@ -26,7 +34,9 @@ const RoomRecommends = ({ rooms, currentSlug }: RoomRecommendsProps) => {
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {recommendedRooms.map((room) => (
-            <RoomCard key={room.id} room={room} />
+            <Suspense key={room.id} fallback={<DeferredRoomContentSkeleton />}>
+              <RoomCard room={room} />
+            </Suspense>
           ))}
         </div>
 
