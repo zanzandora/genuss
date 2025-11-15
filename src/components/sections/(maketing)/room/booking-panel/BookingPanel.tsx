@@ -1,14 +1,16 @@
 import { Card } from '@/components/ui/card';
 import BookingRoomForm from '../../../../common/BookingRoomForm';
+import { useTranslations } from 'next-intl';
 
 export function BookingPanel() {
+  const t = useTranslations('common.forms.bookingForm');
   return (
     <div className='lg:col-span-1'>
       <Card className='sticky top-8 p-6'>
         <div className='w-full'>
           <div className='mx-6 mb-6'>
             <h2 className='text-xl font-semibold text-foreground'>
-              Book Rooms
+              {t('title')}
             </h2>
           </div>
           <BookingRoomForm

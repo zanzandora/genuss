@@ -1,10 +1,9 @@
 import HeaderSection from '@/components/sections/(maketing)/home/HeaderSection';
 import FamousFacilitiesSection from '@/components/sections/(maketing)/facilities/FamousFacilitiesSection';
 import HotelFacilitiesSection from '@/components/sections/(maketing)/facilities/HotelFacilitiesSection';
-import NewLetterSection from '@/components/sections/(maketing)/home/main-content/NewLetterSection';
 import OurRoomSection from '@/components/sections/(maketing)/home/main-content/OurRoomSection';
 import { SummarySection } from '@/components/sections/(maketing)/home/main-content/SummarySection';
-import TestimonialsSectino from '@/components/sections/(maketing)/home/main-content/TestimonialsSectino';
+import TestimonialsSection from '@/components/sections/(maketing)/home/main-content/TestimonialsSection';
 import { BackToTopButton } from '@/components/common/BackToTopButton';
 import { getRoomDatas } from '@/lib/action/getRooms';
 
@@ -23,9 +22,7 @@ export default async function Home() {
 
       <FamousFacilitiesSection />
 
-      <TestimonialsSectino />
-
-      <NewLetterSection />
+      <TestimonialsSection />
 
       <BackToTopButton />
     </div>

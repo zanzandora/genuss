@@ -1,7 +1,9 @@
+import { Link } from '@/i18n/routing';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const ContactInfo = () => {
+  const tContact = useTranslations('contact');
   return (
     <section className='-mx-4 mb-4 bg-primary py-12 sm:-mt-12 sm:mb-16 md:mb-24 md:py-20'>
       <div className='mx-auto max-w-7xl px-4'>
@@ -11,7 +13,9 @@ const ContactInfo = () => {
             <div className='mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary-foreground'>
               <Phone size={64} fill='black' />
             </div>
-            <h2 className='mb-6 text-h2 text-primary-foreground'>Phone</h2>
+            <h2 className='mb-6 text-h2 text-primary-foreground'>
+              {tContact('phone')}
+            </h2>
             <div className='space-y-0.5 text-h4 text-primary-foreground'>
               <p>0978 352 968</p>
               <p>0978 352 968</p>
@@ -35,15 +39,17 @@ const ContactInfo = () => {
             <div className='mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary-foreground'>
               <MapPin size={64} />
             </div>
-            <h2 className='mb-6 text-h2 text-primary-foreground'>Location</h2>
+            <h2 className='mb-6 text-h2 text-primary-foreground'>
+              {tContact('location.title')}
+            </h2>
             <p className='mb-4 text-h4 text-primary-foreground'>
-              No 1, Tam Dao, Phu Tho, Viet Nam
+              {tContact('location.address')}
             </p>
             <Link
               href='#'
               className='text-h4 text-primary-foreground underline transition hover:text-blue-400'
             >
-              View on Google Map
+              {tContact('location.viewOnGoogleMap')}
             </Link>
           </div>
         </div>

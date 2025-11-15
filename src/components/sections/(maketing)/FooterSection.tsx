@@ -1,7 +1,10 @@
 import { BLUR_DATA_URL } from '@/constants';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 const FooterSection = () => {
+  const tFooter = useTranslations('footer');
+
   return (
     <footer className='mt-20 rounded-t-2xl bg-primary px-6 py-16 text-primary-foreground'>
       <div className='mx-auto grid max-w-7xl gap-32 md:grid-cols-2'>
@@ -18,9 +21,11 @@ const FooterSection = () => {
             />
           </div>
           <div>
-            <h4 className='mb-4 text-h4 uppercase'>contact us</h4>
+            <h4 className='mb-4 text-h4 uppercase'>
+              {tFooter('contactUs.title')}
+            </h4>
             <p className='mb-4 text-paragraph-m font-normal'>
-              Tel:
+              {tFooter('contactUs.Tel')}:
               <br />
               0978 352 968
               <br />
@@ -36,10 +41,11 @@ const FooterSection = () => {
 
         <div className='mb-6 grid grid-cols-2'>
           <div>
-            <h4 className='mb-6 text-h4 uppercase'>hotel address</h4>
+            <h4 className='mb-6 text-h4 uppercase'>
+              {tFooter('hotelAddress.title')}
+            </h4>
             <p className='text-paragraph-m font-normal'>
-              Khu 1 Thị Trấn Tam Đảo, Tam Dao Township, Tỉnh Vĩnh Phúc, Tỉnh Phú
-              Thọ, Việt Nam
+              {tFooter('hotelAddress.address')}
             </p>
           </div>
           <Image

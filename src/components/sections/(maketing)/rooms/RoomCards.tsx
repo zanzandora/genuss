@@ -1,8 +1,11 @@
 import RoomCard from '@/components/common/RoomCard';
 import { getRoomDatas } from '@/lib/action/getRooms';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
 const RoomCards = async () => {
+  const tRooms = await getTranslations('rooms');
+
   const rooms = await getRoomDatas();
 
   return (
@@ -17,20 +20,16 @@ const RoomCards = async () => {
 
       <section className='mx-auto mb-4 max-w-6xl sm:mb-16 md:mb-24'>
         <div className='mb-12 text-center'>
-          <h2 className='mb-4 text-h1'>Our room</h2>
+          <h2 className='mb-4 text-h1 capitalize'>{tRooms('title')}</h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
-            Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của
-            khách hàng. Nội thất được lựa chọn tinh tế, trang thiết bị đầy đủ,
-            đảm bảo sự thoải mái và riêng tư tối đa.
+            {tRooms('desciptions')}
           </p>
         </div>
 
         <div className='mb-8 grid gap-6 md:grid-cols-3'>
           {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} shouldUseHover={true} />
+            <RoomCard key={room.id} room={room} />
           ))}
-
-          {/* <RoomCard key={rooms[0].id} room={rooms[0]} sizeCard='large' /> */}
         </div>
       </section>
     </div>

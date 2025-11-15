@@ -1,0 +1,182 @@
+{
+  "common": {
+    "buttons": {
+      "bookNow": "Đặt Ngay",
+      "bookRooms": "Đặt Phòng",
+      "contactUs": "Liên hệ",
+      "learnMore": "Tìm hiểu thêm",
+      "completeBookNow": "Hoàn tất đặt ngay",
+      "send": "Gửi",
+      "previous": "Trước",
+      "next": "Tiếp"
+    },
+    "labels": {
+      "loading": "Đang tải...",
+      "submitting": "Đang gửi...",
+      "error": "Lỗi",
+      "success": "Thành công",
+      "selectDate": "Chọn ngày",
+      "total": "Tổng cộng",
+      "bookingSummary": "Tóm tắt đặt phòng",
+      "noResult": "Không tìm thấy kết quả"
+    },
+    "forms": {
+      "bookingForm": {
+        "title": "Đặt Phòng",
+        "checkIn": "Ngày đến",
+        "checkOut": "Ngày đi",
+        "adult": "Người lớn",
+        "child": "Trẻ em"
+      },
+      "contact": {
+        "title": "Để lại thông tin của bạn",
+        "titleBooking": "Hoàn tất đặt phòng của bạn",
+        "desciptions": "và chúng tôi sẽ liên hệ lại với bạn",
+        "desciptionsBooking": "Điền thông tin của bạn để hoàn tất đặt phòng",
+        "form": {
+          "fullName": "Họ và Tên",
+          "email": "Email",
+          "country": "Quốc gia",
+          "phone": "Điện thoại",
+          "message": "Tin nhắn (tùy chọn)",
+          "send": "Gửi Tin nhắn"
+        }
+      }
+    }
+  },
+
+  "menu": {
+    "home": "trang chủ",
+    "services": "dịch vụ",
+    "rooms": "phòng",
+    "roomDetails": "chi tiết phòng",
+    "bookingDetails": "chi tiết đặt phòng",
+    "booking": "đặt phòng",
+    "contact": "liên hệ"
+  },
+
+  "home": {
+    "title": "Chào mừng đến với Genuss Hotel",
+    "desciptions": {
+      "summary": "Genuss Tam Đảo - Nơi ẩn mình ở độ cao hơn 1.000m, khí hậu mát mẻ quanh năm. Quy mô gần 100 phòng, 3 phòng hội trường, nhà hàng, hồ bơi, phòng gym và bãi đậu xe - phù hợp để nghỉ dưỡng và tổ chức sự kiện",
+      "rate": "trên {social}",
+      "rooms": "{countRooms} phòng"
+    },
+    "testimonial": {
+      "title": "Đánh giá"
+    }
+  },
+
+  "rooms": {
+    "title": "Phòng của chúng tôi",
+    "desciptions": "Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của khách hàng. Nội thất được chọn lọc kỹ lưỡng, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư tối đa.",
+    "viewDetails": "Xem chi tiết",
+    "viewAllRooms": "Xem tất cả phòng",
+    "recommended": "nhiều phòng hơn",
+    "priceJSX": "Từ <price>{value}</price> / Đêm",
+    "price": "Từ {value} / Đêm",
+    "maxOccupancy": "Tối đa {maxOccupancy} người",
+    "room": {
+      "title": "Phòng {name}",
+      "roomFeatures": "Tiện nghi phòng",
+      "bed": "Giường",
+      "space": "Không gian",
+      "maximum": "Tối đa",
+      "view": "View",
+      "amenities": "Tiện nghi",
+      "roomGallery": "Thư viện phòng",
+      "people": "người"
+    }
+  },
+
+  "facilities": {
+    "title": "Cơ sở vật chất khách sạn",
+    "parking": "Bãi đỗ xe",
+    "swimmingPool": "Hồ bơi",
+    "gym": "Phòng gym",
+    "breakfast": "Bữa sáng",
+    "airConditioning": "Điều hòa không khí",
+    "noSmoking": "Không hút thuốc",
+    "phone": "Điện thoại",
+    "safe": "Két an toàn",
+    "shower": "Vòi sen",
+    "wifi": "Wi-Fi",
+    "spa": "Spa"
+  },
+
+  "hotelRules": {
+    "title": "Quy định khách sạn",
+    "noSmoking": "Không được hút thuốc",
+    "noAlcoholPool": "Không được mang rượu bia hoặc chất kích thích vào hồ bơi",
+    "childSupervision": "Trẻ em phải luôn được giám sát",
+    "gymHours": "Phòng gym: 5:00-7:00 sáng và 5:00-8:00 tối",
+    "restaurantHours": "Nhà hàng: Mở cửa từ 6:00 sáng đến 10:00 tối"
+  },
+
+  "services": {
+    "title": "Khám phá các tiện nghi nổi bật",
+    "dinning": {
+      "title": "Dịch vụ Nhà hàng & Ẩm thực",
+      "desciptions": "Trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á-Âu hấp dẫn."
+    },
+    "event": {
+      "title": "Dịch vụ Hội nghị & Sự kiện",
+      "desciptions": "Không gian sang trọng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp với đầy đủ tiện nghi."
+    },
+    "recreation": {
+      "title": "Dịch vụ Giải trí & Chăm sóc sức khỏe",
+      "desciptions": "Thư giãn tại hồ bơi, trung tâm thể dục và các tiện nghi giải trí khác, phù hợp cho các kỳ nghỉ gia đình, cặp đôi hoặc du khách tìm kiếm sự riêng tư và yên tĩnh."
+    }
+  },
+
+  "contact": {
+    "phone": "Điện thoại",
+    "location": {
+      "title": "Vị trí",
+      "address": "Khu 1, thị trấn Tam Đảo, huyện Tam Đảo, tỉnh Vĩnh Phúc, Việt Nam",
+      "viewOnGoogleMap": "Xem trên Google Map"
+    }
+  },
+
+  "bookingDetails": {
+    "totalPrice": "Giá trị tổng cộng",
+    "table": {
+      "rooms": "phòng",
+      "priceNight": "Giá mỗi đêm",
+      "quantity": "Số lượng"
+    }
+  },
+
+  "roomData": {
+    "bedTypes": {
+      "largeDouble": "1 giường đôi lớn 2m x 2m",
+      "double": "1 giường đôi 1m6 x 2m",
+      "single": "1 giường đơn 1m2 x 2m"
+    },
+    "viewTypes": {
+      "square": "Quảng trường",
+      "mountain": "Hướng núi"
+    },
+    "bathroomTypes": {
+      "bathtubShower": "Bồn tắm & Tắm đứng",
+      "bathtub": "Bồn tắm",
+      "shower": "Tắm đứng"
+    },
+    "features": {
+      "sofa": "Sofa",
+      "balcony": "Ban công",
+      "romanticDecor": "Decor lãng mạn"
+    }
+  },
+
+  "footer": {
+    "contactUs": {
+      "title": "liên hệ với chúng tôi",
+      "Tel": "Điện thoại"
+    },
+    "hotelAddress": {
+      "title": "Địa chỉ khách sạn",
+      "address": "Khu 1, thị trấn Tam Đảo, huyện Tam Đảo, tỉnh Vĩnh Phúc, Việt Nam"
+    }
+  }
+}

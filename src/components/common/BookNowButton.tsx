@@ -1,25 +1,41 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
+import { useRoomStore } from '@/stores/useRoomStore';
+import { TRoom } from '@/types/room.type';
+import { toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   className?: string;
   onClick?: () => void;
-  children?: React.ReactNode;
+  room?: TRoom;
+  checkIn?: string;
+  checkOut?: string;
 };
 
 export const BookNowButton = ({
   className,
   onClick,
-  children = 'Book Now',
+  room,
+  checkIn,
+  checkOut,
 }: Props) => {
+  const tButtons = useTranslations('common.buttons');
+
   const router = useRouter();
+  const addItem = useRoomStore((state) => state.addItem);
 
   function handleClickDefault() {
+    if (room) {
+      addItem(room, checkIn, checkOut);
+      toast.success('Room added to booking!');
+    }
     router.push('/booking-detail');
   }
+
   return (
     <Button
       size='sm'
@@ -29,7 +45,7 @@ export const BookNowButton = ({
         className,
       )}
     >
-      {children}
+      {tButtons('bookNow')}
     </Button>
   );
 };

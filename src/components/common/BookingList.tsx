@@ -1,7 +1,4 @@
-'use client';
-
 import RoomCard from './RoomCard';
-import QuantityBooking from './QuantityBooking';
 import { TRoom } from '@/types/room.type';
 
 interface BookingListProps {
@@ -9,22 +6,11 @@ interface BookingListProps {
   action?: React.ReactNode;
 }
 
-export default function BookingList({ rooms, action }: BookingListProps) {
+export default function BookingList({ rooms }: BookingListProps) {
   return (
     <div className='space-y-5'>
       {rooms.map((room) => (
-        <RoomCard
-          key={room.id}
-          room={room}
-          sizeCard='medium'
-          action={
-            <QuantityBooking
-              min={1}
-              max={5}
-              onQuantityChange={(qty) => console.log(qty)}
-            />
-          }
-        />
+        <RoomCard key={room.id} room={room} sizeCard='medium' />
       ))}
     </div>
   );

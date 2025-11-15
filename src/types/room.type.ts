@@ -1,3 +1,8 @@
+export type BedType = 'largeDouble' | 'double' | 'single';
+export type ViewType = 'square' | 'mountain';
+export type BathroomType = 'bathtubShower' | 'bathtub' | 'shower';
+export type FeatureType = 'sofa' | 'balcony' | 'romanticDecor';
+
 export interface TRoom {
   id: number;
   name: string;
@@ -7,9 +12,9 @@ export interface TRoom {
   images?: string[];
   mainImage?: string;
   area: number; // diện tích phòng (m2)
-  bed: string[];
+  bed: BedType[];
   maxOccupancy: number;
-  view: string;
-  bathroom: string;
-  features?: string[];
+  view: ViewType;
+  bathroom: BathroomType;
+  features?: FeatureType[];
 }

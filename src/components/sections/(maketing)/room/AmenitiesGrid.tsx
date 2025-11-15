@@ -1,9 +1,11 @@
 import { Item, ItemContent, ItemMedia, ItemTitle } from '@/components/ui/item';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { FacilityKey } from '@/types/FacilityKey.type';
 
 interface Amenity {
   icon: string;
-  label: string;
+  labelKey: FacilityKey;
 }
 
 interface AmenitiesGridProps {
@@ -12,20 +14,22 @@ interface AmenitiesGridProps {
 }
 
 export function AmenitiesGrid({ amenities, title }: AmenitiesGridProps) {
+  const t = useTranslations('facilities');
+
   return (
     <div className='space-y-4'>
       <h3 className='py-4 text-h3'>{title}</h3>
       <div className='grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3'>
         {amenities.map((amenity) => (
           <Item
-            key={amenity.label}
+            key={amenity.labelKey}
             variant={'outline'}
             className='flex cursor-default items-center gap-6 rounded-2xl p-4 transition-transform duration-300 ease-out will-change-transform hover:-translate-y-1 hover:scale-[1.04] hover:bg-primary-foreground hover:shadow-2xl'
           >
             <ItemMedia className='my-auto border-none bg-transparent'>
               <Image
                 src={amenity.icon}
-                alt={amenity.label}
+                alt={t(amenity.labelKey)}
                 height={52}
                 width={52}
                 className='size-12'
@@ -34,7 +38,7 @@ export function AmenitiesGrid({ amenities, title }: AmenitiesGridProps) {
             </ItemMedia>
             <ItemContent className=''>
               <ItemTitle className='text-lg font-bold text-muted-foreground'>
-                {amenity.label}
+                {t(amenity.labelKey)}
               </ItemTitle>
             </ItemContent>
           </Item>

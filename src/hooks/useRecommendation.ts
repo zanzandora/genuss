@@ -2,7 +2,10 @@ import { useMemo } from 'react';
 import { TRoom } from '@/types/room.type';
 
 /**
- * Simple seeded random number generator for consistent results
+ * TODO: Simple seeded random number generator for consistent results
+ * Generates deterministic random numbers based on seed value
+ * @param seed - Seed value for random generation
+ * @returns Pseudo-random number between 0 and 1
  */
 function seededRandom(seed: number): number {
   const x = Math.sin(seed) * 10000;
@@ -10,7 +13,10 @@ function seededRandom(seed: number): number {
 }
 
 /**
- * Generate a simple hash from a string
+ * TODO: Generate a simple hash from a string
+ * Converts string to numeric hash for consistent randomization
+ * @param str - Input string to hash
+ * @returns Numeric hash value
  */
 function stringHash(str: string): number {
   let hash = 0;
@@ -23,7 +29,8 @@ function stringHash(str: string): number {
 }
 
 /**
- * Hook to get 3 random rooms excluding the current room
+ * TODO: Hook to get random room recommendations excluding current room
+ * Provides consistent recommendations based on room slug for better UX
  * @param rooms - Array of all available rooms
  * @param currentSlug - Slug of the current room to exclude
  * @param count - Number of recommendations to return (default: 3)
