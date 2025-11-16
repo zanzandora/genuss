@@ -1,60 +1,164 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Autoplay from 'embla-carousel-autoplay';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel';
 import { getOptimizedImageProps } from '@/lib/utils/imageOptimization';
 import { TRoom } from '@/types/room.type';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { ImageGalleryDialog } from '../dialogs/ImageGalleryDialog';
 
 interface RoomGalleryProps {
   room: TRoom;
 }
 
 export function RoomGallery({ room }: RoomGalleryProps) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogInitialIndex, setDialogInitialIndex] = useState(0);
+
+  const plugin = useRef(Autoplay({ delay: 3000 }));
+
+  const images =
+    room.images && room.images.length > 0
+      ? room.images
+      : ['/images/rooms/room-1.jpg'];
+
+  const remainingImages = Math.max(0, images.length - 4);
+
+  const handleThumbnailClickDialog = (index: number) => {
+    setDialogInitialIndex(index);
+    setIsDialogOpen(true);
+  };
+
+  const handleMainImageClick = () => {
+    setDialogInitialIndex(current);
+    setIsDialogOpen(true);
+  };
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const autoplayPlugin = plugin.current;
+
+    // Set current slide on select
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+
+    // Initialize autoplay
+    if (autoplayPlugin) {
+      api.plugins().autoplay?.play();
+    }
+
+    // Cleanup
+    return () => {
+      if (autoplayPlugin) {
+        api.plugins().autoplay?.stop();
+      }
+    };
+  }, [api]);
+
   return (
     <div className='space-y-4'>
-      <Carousel className='w-full'>
-        <CarouselContent className='-ml-2 md:-ml-4'>
-          {room.images && room.images.length > 0 ? (
-            room.images.map((image, idx) => {
-              const imageProps = getOptimizedImageProps(image, idx);
-              return (
-                <CarouselItem
-                  key={idx}
-                  className='basis-full sm:basis-1/2 md:basis-1/3 md:pl-6 lg:basis-1/4'
-                >
-                  <div className='relative aspect-[3/2] overflow-hidden rounded-lg'>
-                    <Image
-                      {...imageProps}
-                      alt='Room Image'
-                      fill
-                      className={`${imageProps.className} cursor-pointer object-cover`}
-                    />
-                  </div>
-                </CarouselItem>
-              );
-            })
-          ) : (
-            <CarouselItem className='basis-full'>
-              <div className='relative aspect-square overflow-hidden rounded-lg'>
-                <Image
-                  {...getOptimizedImageProps('/images/rooms/room-1.jpg', 0)}
-                  fill
-                  alt='Room Image'
-                  className={`${getOptimizedImageProps('/images/rooms/room-1.jpg', 0).className} cursor-pointer object-cover`}
-                />
-              </div>
+      {/* Main Image Carousel */}
+      <Carousel
+        setApi={setApi}
+        className='w-full'
+        plugins={[plugin.current]}
+        opts={{
+          loop: true,
+        }}
+      >
+        <CarouselContent>
+          {images.map((image, idx) => (
+            <CarouselItem key={idx}>
+              <button
+                onClick={handleMainImageClick}
+                className='relative w-full overflow-hidden rounded-lg shadow-lg'
+              >
+                <AspectRatio ratio={16 / 10}>
+                  <Image
+                    {...getOptimizedImageProps(image, idx)}
+                    alt='Room Image'
+                    fill
+                    className={`${getOptimizedImageProps(image, idx).className} cursor-pointer object-cover`}
+                    sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw'
+                    priority={idx === 0}
+                  />
+                </AspectRatio>
+              </button>
             </CarouselItem>
-          )}
+          ))}
         </CarouselContent>
-        <CarouselPrevious className='left-4' />
-        <CarouselNext className='right-4' />
+        <CarouselPrevious className='left-4 bg-white/80 hover:bg-white' />
+        <CarouselNext className='right-4 bg-white/80 hover:bg-white' />
       </Carousel>
+
+      {/* Thumbnail Gallery */}
+      <div className='space-y-2'>
+        <div className='grid grid-cols-4 gap-2'>
+          {images.slice(0, 3).map((image, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleThumbnailClickDialog(idx)}
+              className={`relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${
+                current === idx
+                  ? 'border-blue-500 ring-2 ring-blue-200'
+                  : 'border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              <Image
+                {...getOptimizedImageProps(image, idx)}
+                alt={`Room thumbnail ${idx + 1}`}
+                fill
+                className={`${getOptimizedImageProps(image, idx).className} object-cover`}
+              />
+            </button>
+          ))}
+
+          {/* More images indicator */}
+          {remainingImages > 0 && (
+            <button
+              onClick={() => handleThumbnailClickDialog(3)}
+              className={`relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${
+                current >= 3
+                  ? 'border-blue-500 ring-2 ring-blue-200'
+                  : 'border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              <Image
+                {...getOptimizedImageProps(images[3], 3)}
+                alt={`Room thumbnail 4`}
+                fill
+                className={`${getOptimizedImageProps(images[3], 3).className} object-cover`}
+              />
+              <div className='absolute inset-0 flex items-center justify-center bg-black/50 text-lg font-semibold text-white'>
+                +{remainingImages}
+              </div>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Image Gallery Dialog */}
+      <ImageGalleryDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        images={images}
+        initialIndex={dialogInitialIndex}
+      />
     </div>
   );
 }

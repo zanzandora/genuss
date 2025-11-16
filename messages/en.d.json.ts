@@ -42,6 +42,8 @@ declare const messages: {
           "country": "Country",
           "phone": "Phone",
           "message": "Message (optional)",
+          "mr": "Mr",
+          "mrs": "Mrs",
           "send": "Send Message"
         }
       }
@@ -72,7 +74,7 @@ declare const messages: {
 
   "rooms": {
     "title": "Our Rooms",
-    "desciptions": "A total of 94 rooms with 7 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.",
+    "desciptions": "A total of 94 rooms with 8 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.",
     "viewDetails": "View Details",
     "viewAllRooms": "View All Rooms",
     "recommended": "more rooms",
@@ -152,9 +154,9 @@ declare const messages: {
 
   "roomData": {
     "bedTypes": {
-      "largeDouble": "1 large double bed 2m x 2m",
-      "double": "1 double bed 1m6 x 2m",
-      "single": "1 single bed 1m2 x 2m"
+      "largeDouble": "1 large double bed",
+      "double": "1 double bed",
+      "single": "1 single bed"
     },
     "viewTypes": {
       "square": "Square view",

@@ -16,12 +16,13 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { format } from 'date-fns';
+import { vi, enUS } from 'date-fns/locale';
 import { TriangleIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useBookingDataStore } from '@/stores/useBookingDataStore';
 import { useState } from 'react';
 import { Link, usePathname } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -38,6 +39,11 @@ export const BookingRoomForm = ({
 }: Props) => {
   const tBookingRoomForm = useTranslations('common.forms.bookingForm');
   const tButtons = useTranslations('common.buttons');
+  const tLabels = useTranslations('common.labels');
+
+  const locale = useLocale();
+
+  const dateLocale = locale === 'vi' ? vi : enUS;
 
   const bookingData = useBookingDataStore((state) => state.bookingData);
   const setCheckIn = useBookingDataStore((state) => state.setCheckIn);
@@ -70,14 +76,19 @@ export const BookingRoomForm = ({
                 className='w-50 justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
               >
                 {bookingData.checkIn
-                  ? format(bookingData.checkIn, 'd/MM/yyyy')
-                  : 'Select date'}
+                  ? format(
+                      bookingData.checkIn,
+                      locale === 'vi' ? 'dd/MM/yyyy' : 'MM/dd/yyyy',
+                      { locale: dateLocale },
+                    )
+                  : tLabels('selectDate')}
                 <TriangleIcon fill='#111111' className='rotate-180' />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className='w-auto p-0'>
+            <PopoverContent className='my-2 w-auto p-0'>
               <Calendar
                 mode='single'
+                locale={dateLocale}
                 required
                 selected={bookingData.checkIn || undefined}
                 onSelect={(date) => {
@@ -103,14 +114,19 @@ export const BookingRoomForm = ({
                 className='w-50 justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
               >
                 {bookingData.checkOut
-                  ? format(bookingData.checkOut, 'd/MM/yyyy')
-                  : 'Select date'}
+                  ? format(
+                      bookingData.checkOut,
+                      locale === 'vi' ? 'dd/MM/yyyy' : 'MM/dd/yyyy',
+                      { locale: dateLocale },
+                    )
+                  : tLabels('selectDate')}
                 <TriangleIcon fill='#111111' className='rotate-180' />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className='w-auto p-0'>
+            <PopoverContent className='my-2 w-auto p-0'>
               <Calendar
                 mode='single'
+                locale={dateLocale}
                 required
                 selected={bookingData.checkOut || undefined}
                 onSelect={(date) => {
@@ -138,7 +154,7 @@ export const BookingRoomForm = ({
             >
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className='my-2 w-3xs px-4'>
               {Array.from({ length: 10 }, (_, i) => i + 1).map((value) => (
                 <SelectItem key={value} value={value.toString()}>
                   {value.toString()}
@@ -163,9 +179,9 @@ export const BookingRoomForm = ({
             >
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className='relative'>
+            <SelectContent className='my-2 w-3xs px-4'>
               {Array.from({ length: 10 }, (_, i) => i).map((value) => (
-                <SelectItem key={value} value={value.toString()}>
+                <SelectItem key={value} value={value.toString()} className=''>
                   {value.toString()}
                 </SelectItem>
               ))}

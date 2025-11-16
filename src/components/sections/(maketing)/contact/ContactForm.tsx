@@ -117,6 +117,7 @@ const ContactForm = ({
           country: data.country,
           message: data.message,
         },
+        hotelEmail,
         booking_data: requireBookingData
           ? {
               hotelEmail,
@@ -143,7 +144,11 @@ const ContactForm = ({
 
       // Send to API using axios
       const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
-      await axios.post(`${apiBaseUrl}/api/bookings/send-emails`, payload, {
+      const apiUrl = requireBookingData
+        ? `${apiBaseUrl}/api/bookings/send-email`
+        : `${apiBaseUrl}/api/contact`;
+
+      await axios.post(apiUrl, payload, {
         headers: {
           'Content-Type': 'application/json',
           'Idempotency-Key': idempotencyKey,
@@ -200,12 +205,13 @@ const ContactForm = ({
                 className='w-32 rounded-none border-0 bg-muted'
                 aria-label='Select Mr/Mrs'
               >
-                <SelectValue placeholder='Mr/Mrs' />
+                <SelectValue
+                  placeholder={`${tContactForm('form.mr')} / ${tContactForm('form.mrs')}`}
+                />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value='mr'>Mr</SelectItem>
-                <SelectItem value='mrs'>Mrs</SelectItem>
-                <SelectItem value='ms'>Ms</SelectItem>
+                <SelectItem value='mr'>{tContactForm('form.mr')}</SelectItem>
+                <SelectItem value='mrs'>{tContactForm('form.mrs')}</SelectItem>
               </SelectContent>
             </Select>
 

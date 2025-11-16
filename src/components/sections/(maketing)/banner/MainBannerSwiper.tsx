@@ -2,13 +2,12 @@
 
 import {
   Carousel,
-  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import { BLUR_DATA_URL } from '@/constants';
+import Autoplay from 'embla-carousel-autoplay';
 
 type HeroSlide = {
   src: string;
@@ -21,22 +20,6 @@ export default function MainBannerSwiper({
   heroSlides: HeroSlide[];
 }) {
   //* Lưu instance của Carousel API để điều khiển carousel
-  const [api, setApi] = useState<CarouselApi>();
-
-  // TODO: Auto-play functionality
-  useEffect(() => {
-    if (!api) return;
-
-    const interval = setInterval(() => {
-      if (api.canScrollNext()) {
-        api.scrollNext();
-      } else {
-        api.scrollTo(0);
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [api]);
 
   return (
     <div className='relative'>
@@ -49,16 +32,18 @@ export default function MainBannerSwiper({
         </div>
       </div>
 
-      {/* Phone Contract */}
-      {/* <div className='bg-opacity-50 absolute left-50 z-10 my-2 inline-flex items-center justify-center text-white'>
-        <PhoneIcon className='mx-4' />{' '}
-        <span className=''>
-          +84 978 352 968 * +84 978 452 968 * +84 978 552 968
-        </span>
-      </div> */}
-
       {/* Main Banner Swiper*/}
-      <Carousel setApi={setApi} className='w-full'>
+      <Carousel
+        className='w-full'
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        opts={{
+          loop: true,
+        }}
+      >
         <CarouselContent>
           {heroSlides.map((slide, idx) => (
             <CarouselItem key={idx}>
