@@ -55,11 +55,7 @@ export function StreamingRoomDetails({
 
       {/* Deferred Content - Low Priority */}
       <Suspense fallback={<DeferredRoomContentSkeleton />}>
-        <DeferredRoomContent
-          room={room}
-          allRooms={allRooms}
-          currentSlug={currentSlug}
-        />
+        <DeferredRoomContent allRooms={allRooms} currentSlug={currentSlug} />
       </Suspense>
     </div>
   );

@@ -31,7 +31,21 @@ async function readImagesForSlug(slug: string) {
     const files = entries
       .filter((e) => e.isFile() && IMAGE_EXT_RE.test(e.name))
       .map((e) => e.name)
-      .sort();
+      .sort((a, b) => {
+        // Extract trailing number from filename pattern: name_room_number
+        const getTrailingNumber = (filename: string) => {
+          const nameWithoutExt = filename.replace(/\.[^/.]+$/, '');
+          // Match the last number after the last underscore
+          const match = nameWithoutExt.match(/_(\d+)$/);
+          return match ? parseInt(match[1], 10) : 0;
+        };
+
+        const numA = getTrailingNumber(a);
+        const numB = getTrailingNumber(b);
+
+        // Sort numerically by the trailing number
+        return numA - numB;
+      });
     return files.map(publicImagesPathForSlug(slug));
   } catch {
     return [];

@@ -1,5 +1,4 @@
 import { formatCurrency } from '@/lib/utils';
-import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 import { TRoom } from '@/types/room.type';
 import { useTranslations } from 'next-intl';
 
@@ -9,17 +8,17 @@ type Props = {
 
 const RoomTitleSection = ({ room }: Props) => {
   const tRooms = useTranslations('rooms');
-  const { translateRoom } = useRoomTranslations();
-  const translatedRoom = translateRoom(room);
+  // const { translateRoom } = useRoomTranslations();
+  // const translatedRoom = translateRoom(room);
 
   return (
     <div className='flex items-start justify-between'>
       <div className='space-y-8'>
         <h1 className='text-h3'>{room.name}</h1>
-        <p className='text-paragraph-m'>
+        {/* <p className='text-paragraph-m'>
           {tRooms('room.roomFeatures')}:{' '}
           {translatedRoom.features?.join(', ') || ''}
-        </p>
+        </p> */}
       </div>
       <div className='text-h3 font-normal text-primary'>
         {tRooms.rich('priceJSX', {

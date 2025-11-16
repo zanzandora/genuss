@@ -8,6 +8,7 @@ import { TRoom } from '@/types/room.type';
 import { Link } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRoomTranslations } from '@/lib/utils/roomTranslations';
+import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 
@@ -42,11 +43,16 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
   const translatedRoom = translateRoom(room);
 
   return (
-    <div
-      className={cn('group relative h-full', gridClasses[sizeCard], className)}
+    <Card
+      className={cn(
+        'group relative h-full overflow-hidden rounded-xl py-0 pb-6 shadow-[8px_8px_4px_0px_#0000004D]',
+        gridClasses[sizeCard],
+        className,
+      )}
     >
-      <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden rounded-xl shadow-[8px_8px_4px_0px_#0000004D]'>
-        <div className='relative h-full w-full'>
+      {/* Image Section */}
+      <CardHeader className='relative p-0'>
+        <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden'>
           <Image
             {...getOptimizedImageProps(
               room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg',
@@ -54,24 +60,26 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
             )}
             alt={room.slug}
             fill
-            className={`${
+            className={cn(
               getOptimizedImageProps(
                 room.mainImage ||
                   room.images?.[0] ||
                   '/images/rooms/room-1.jpg',
                 0,
-              ).className
-            } object-cover transition-transform duration-500 ease-out`}
+              ).className,
+              'object-cover transition-transform duration-500 ease-out',
+            )}
           />
-        </div>
-        <div className={cn('absolute top-3 right-3 z-10')}>
-          <Badge className='h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
+
+          {/* Badge Price */}
+          <Badge className='absolute top-3 right-3 z-10 h-5 min-w-[5rem] rounded-sm px-3 py-4 font-mono text-sm'>
             {tRooms('price', { value: price })}
           </Badge>
         </div>
-      </div>
+      </CardHeader>
 
-      <div className='w-full rounded-xl border border-secondary bg-white p-4 shadow-sm'>
+      {/* Content Section */}
+      <CardContent className='p-0 px-6'>
         <div className='flex items-start justify-between gap-4'>
           <p className='text-sm font-semibold uppercase'>{room.name}</p>
         </div>
@@ -95,20 +103,19 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
             </span>
           </div>
         </div>
+      </CardContent>
+      <CardFooter className='justify-between'>
+        <Link
+          href={`/room-detail/${room.slug}`}
+          className='flex items-center gap-2 font-semibold'
+          aria-description='Link into room detail'
+        >
+          {tRooms('viewDetails')} <ArrowRightIcon />
+        </Link>
 
-        <div className='mt-4 flex items-center justify-between'>
-          <Link
-            href={`/room-detail/${room.slug}`}
-            className='flex items-center gap-2 font-semibold'
-            aria-description='Link into room detailt'
-          >
-            {tRooms('viewDetails')} <ArrowRightIcon />
-          </Link>
-
-          {action || <BookNowButton room={room} />}
-        </div>
-      </div>
-    </div>
+        {action || <BookNowButton room={room} />}
+      </CardFooter>
+    </Card>
   );
 };
 
