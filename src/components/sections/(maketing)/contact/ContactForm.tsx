@@ -190,8 +190,8 @@ const ContactForm = ({
           </h2>
           <p className='text-paragraph-m text-muted-foreground'>
             {requireBookingData
-              ? tContactForm('desciptionsBooking')
-              : tContactForm('desciptions')}
+              ? tContactForm('descriptionsBooking')
+              : tContactForm('descriptions')}
           </p>
         </div>
 

@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
   return (
     <section className='-mx-4 py-20'>
       <div className='h-full'>
-        <h1 className='mb-16 text-center text-h1 capitalize'>
+        <h1 className='mb-16 text-center text-h1 uppercase'>
           {tTestimonials('title')}
         </h1>
 

@@ -31,8 +31,8 @@
       "contact": {
         "title": "Để lại thông tin của bạn",
         "titleBooking": "Hoàn tất đặt phòng của bạn",
-        "desciptions": "và chúng tôi sẽ liên hệ lại với bạn",
-        "desciptionsBooking": "Điền thông tin của bạn để hoàn tất đặt phòng",
+        "descriptions": "và chúng tôi sẽ liên hệ lại với bạn",
+        "descriptionsBooking": "Điền thông tin của bạn để hoàn tất đặt phòng",
         "form": {
           "fullName": "Họ và Tên",
           "email": "Email",
@@ -50,7 +50,7 @@
   "menu": {
     "home": "tổng quan",
     "services": "dịch vụ",
-    "rooms": "phòng",
+    "rooms": "phòng nghỉ",
     "roomDetails": "chi tiết phòng",
     "bookingDetails": "chi tiết đặt phòng",
     "booking": "đặt phòng",
@@ -59,8 +59,31 @@
 
   "home": {
     "title": "Chào mừng đến với Genuss Hotel",
-    "desciptions": {
-      "summary": "Genuss Tam Đảo - Nơi ẩn mình ở độ cao hơn 1.000m, khí hậu mát mẻ quanh năm. Quy mô gần 100 phòng, 3 phòng hội trường, nhà hàng, hồ bơi, phòng gym và bãi đậu xe - phù hợp để nghỉ dưỡng và tổ chức sự kiện",
+    "description": "nghỉ dưỡng hiện đại giữa thị trấn trên mây",
+    "introduce": {
+      "title": "VÌ SAO CHỌN GENUSS TAM ĐẢO ?",
+      "features": {
+        "location": {
+          "title": "VỊ TRÍ TRUNG TÂM",
+          "description": "Chỉ vài bước chân tới quảng trường và Nhà thờ đá"
+        },
+        "spaces": {
+          "title": "KHÔNG GIAN HIỆN ĐẠI - THƯ GIÃN",
+          "description": "Thiết kế tối giản, cửa kính lớn mở ra biển mây & thị trấn"
+        },
+        "pool": {
+          "title": "Hồ bơi ngoài trời quanh năm",
+          "description": "Trải nghiệm Tam Đảo theo cách thư giãn nhất"
+        },
+        "facilities": {
+          "title": "Tiện nghi đầy đủ",
+          "description": "Gym, sauna, nhà hàng, bar và dịch vụ 24/7"
+        }
+      }
+    },
+    "summary": {
+      "title": "Một hideaway hiện đại giữa nhịp sống Tam Đảo",
+      "descriptions": "GENUSS mang đến sự cân bằng hoàn hảo: đủ gần để bạn có thể đi bộ khám phá thị trấn, nhưng đủ yên để bạn tìm lại những khoảng lặng dễ chịu<lineBreak></lineBreak><lineBreak> </lineBreak>94 phòng nghỉ rộng rãi, hướng nhìn ra phố mây Tam Đảo, kết hợp cùng hồ bơi ngoài trời, gym, sauna và dịch vụ 24/7 - tất cả tạo nên một chuyến nghỉ dưỡng nhẹ nhàng, dễ dàng và đầy cảm hứng.",
       "rate": "trên {social}",
       "rooms": "{countRooms} phòng"
     },
@@ -71,7 +94,7 @@
 
   "rooms": {
     "title": "Phòng của chúng tôi",
-    "desciptions": "Tổng cộng 94 phòng với 8 hạng phòng phù hợp với mọi nhu cầu của khách hàng. Nội thất được chọn lọc kỹ lưỡng, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư tối đa.",
+    "descriptions": "Tổng cộng 94 phòng với 8 hạng phòng phù hợp với mọi nhu cầu của khách hàng. Nội thất được chọn lọc kỹ lưỡng, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư tối đa.",
     "viewDetails": "Xem chi tiết",
     "viewAllRooms": "Xem tất cả phòng",
     "recommended": "các phòng khác",
@@ -84,7 +107,7 @@
       "bed": "Giường",
       "space": "Không gian",
       "maximum": "Tối đa",
-      "view": "View",
+      "view": "Hướng nhìn",
       "amenities": "Tiện nghi",
       "roomGallery": "Thư viện phòng",
       "people": "người"
@@ -119,15 +142,19 @@
     "title": "Khám phá các tiện nghi nổi bật",
     "dinning": {
       "title": "Dịch vụ Nhà hàng & Ẩm thực",
-      "desciptions": "Trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á-Âu hấp dẫn."
+      "descriptions": "Trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á-Âu hấp dẫn."
     },
     "event": {
       "title": "Dịch vụ Hội nghị & Sự kiện",
-      "desciptions": "Không gian sang trọng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp với đầy đủ tiện nghi."
+      "descriptions": "Không gian sang trọng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp với đầy đủ tiện nghi."
     },
     "recreation": {
       "title": "Dịch vụ Giải trí & Chăm sóc sức khỏe",
-      "desciptions": "Thư giãn tại hồ bơi, trung tâm thể dục và các tiện nghi giải trí khác, phù hợp cho các kỳ nghỉ gia đình, cặp đôi hoặc du khách tìm kiếm sự riêng tư và yên tĩnh."
+      "descriptions": "Thư giãn tại hồ bơi, trung tâm thể dục và các tiện nghi giải trí khác, phù hợp cho các kỳ nghỉ gia đình, cặp đôi hoặc du khách tìm kiếm sự riêng tư và yên tĩnh."
+    },
+    "swimming": {
+      "title": "Hồ bơi ngoài trời quanh năm",
+      "descriptions": "Thư giãn giữa làn sương đặc trưng Tam Đảo."
     }
   },
 
@@ -178,7 +205,22 @@
     },
     "hotelAddress": {
       "title": "Địa chỉ khách sạn",
-      "address": "Khu 1, thị trấn Tam Đảo, huyện Tam Đảo, tỉnh Vĩnh Phúc, Việt Nam"
+      "address": "Khu 1, thị trấn Tam Đảo, huyện Tam Đảo, tỉnh Vĩnh Phúc, Việt Nam",
+      "offices": {
+        "hanoi1": "Văn phòng Hà Nội 1: Số 175 Ngô Gia Tự - Việt Hưng - Hà Nội (Hotline: 0978700968)",
+        "hanoi2": "Văn phòng Hà Nội 2: Tầng 9, Số 85 Trần Thái Tông, Cầu Giấy, Hà Nội Hotline: 0978600968",
+        "haiphong1": "Văn phòng Hải Phòng 1: Số 16&18/33 Đỗ Nhuận - Hải An - Hải Phòng Hotline: 0978500968",
+        "haiphong2": "Văn phòng Hải Phòng 2: Số 326&328 Trường Chinh- Kiến An - Hải Phòng Hotline: 0978044968",
+        "thaibinh": "Văn phòng Thái Bình: Số 604&608 Lê Thánh Tông, Hotline: 0978420968 & Khách sạn Thụy Điển, số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên Hotline: 0978752968",
+        "ninhbinh": "Văn phòng Ninh Bình: Số 2/38 Đinh Tiên Hoàng - Hoa Lư - Ninh Bình. Hotline: 0978609968",
+        "namdinh1": "Văn phòng Nam Định 1: HVKT Building, Số 553 Đường Trường Chinh - P Nam Định, tỉnh Ninh Bình Hotline: 0978605968",
+        "quangninh": "Văn phòng Quảng Ninh: Số 169 Lê Thánh Tông, Hồng Gai, Quảng Ninh. Hotline: 0978940968",
+        "hanam": "Văn phòng Hà Nam: Số 6 Trần Phú, Phủ Lý, Ninh Bình. Hotline: 0978704968",
+        "haiduong": "Văn phòng Hải Dương: Số 41 Bạch Đằng, P Hải Dương, TP Hải Phòng. Hotline: 0978156968",
+        "bacgiang": "Văn phòng Bắc Giang: Số 293 Lê Lợi, P Bắc Giang, Tỉnh Bắc Ninh. Hotline: 0978053968",
+        "hungyen": "Văn Phòng Hưng Yên: Số 148 Chu Mạnh Trinh - Hiến Nam - Hưng Yên. Hotline: 0978430968",
+        "hochiminh": "Văn phòng Hồ Chí Minh: Số 48 đường Cát Tường, Lovera Park, KDC Phong Phú 4, Bình Chánh, Thành phố Hồ Chí Minh. Hotline: 0978552968"
+      }
     }
   }
 }

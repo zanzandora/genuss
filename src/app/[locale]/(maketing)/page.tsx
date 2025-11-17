@@ -6,6 +6,7 @@ import { SummarySection } from '@/components/sections/(maketing)/home/main-conte
 import TestimonialsSection from '@/components/sections/(maketing)/home/main-content/TestimonialsSection';
 import { BackToTopButton } from '@/components/common/BackToTopButton';
 import { getRoomDatas } from '@/lib/action/getRooms';
+import IntroduceSection from '@/components/sections/(maketing)/home/main-content/IntroduceSection';
 
 export default async function Home() {
   const rooms = await getRoomDatas();
@@ -13,6 +14,8 @@ export default async function Home() {
   return (
     <div>
       <HeaderSection />
+
+      <IntroduceSection />
 
       <SummarySection />
 

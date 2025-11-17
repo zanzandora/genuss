@@ -9,21 +9,27 @@ const FamousFacilitiesSection = () => {
   const services = [
     {
       title: tFacilities('dinning.title'),
-      description: tFacilities('dinning.desciptions'),
+      description: tFacilities('dinning.descriptions'),
       image: '/images/facilities/restaurant-and-dining-service.jpg',
       position: 'left',
     },
     {
       title: tFacilities('event.title'),
-      description: tFacilities('event.desciptions'),
+      description: tFacilities('event.descriptions'),
       image: '/images/facilities/conference-and-event-service.jpg',
       position: 'right',
     },
     {
       title: tFacilities('recreation.title'),
-      description: tFacilities('recreation.desciptions'),
+      description: tFacilities('recreation.descriptions'),
       image: '/images/facilities/recreation-and-wellness-service.jpg',
       position: 'left',
+    },
+    {
+      title: tFacilities('swimming.title'),
+      description: tFacilities('swimming.descriptions'),
+      image: '/images/facilities/swimming-pool-service.jpg',
+      position: 'right',
     },
   ];
 
@@ -37,7 +43,7 @@ const FamousFacilitiesSection = () => {
         className='absolute top-1/2 right-0 z-0 -mx-4 h-auto w-4xl -translate-y-1/2 scale-x-[-1] opacity-50'
       />
       <div className='relative mx-auto max-w-6xl'>
-        <h1 className='mb-16 text-center text-4xl font-bold capitalize md:text-5xl'>
+        <h1 className='mb-16 text-center text-4xl font-bold uppercase md:text-4xl'>
           {tFacilities('title')}
         </h1>
 
@@ -65,7 +71,7 @@ const FamousFacilitiesSection = () => {
               </div>
 
               <div className='px-6 md:w-1/2'>
-                <h2 className='mb-10 text-2xl font-bold text-gray-900'>
+                <h2 className='mb-10 text-2xl font-bold text-gray-900 uppercase'>
                   {service.title}
                 </h2>
                 <p className='leading-relaxed font-medium'>

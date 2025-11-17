@@ -21,7 +21,7 @@ const HotelFacilitiesSection = () => {
   return (
     <section className='px-6 py-20'>
       <div className='mx-auto max-w-7xl px-28'>
-        <h1 className='mb-12 text-center text-4xl font-bold text-primary capitalize md:text-5xl'>
+        <h1 className='mb-12 text-center text-3xl font-bold text-primary uppercase md:text-4xl'>
           {tFacilities('title')}
         </h1>
 
@@ -35,7 +35,7 @@ const HotelFacilitiesSection = () => {
                 alt={tFacilities(facility.nameKey)}
                 className='h-fit w-fit text-5xl'
               />
-              <p className='text-center font-medium text-primary'>
+              <p className='text-center font-medium text-primary capitalize'>
                 {tFacilities(facility.nameKey)}
               </p>
             </div>

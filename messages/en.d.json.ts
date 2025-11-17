@@ -2,187 +2,229 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-  "common": {
-    "buttons": {
-      "bookNow": "Book Now",
-      "bookRooms": "Book Rooms",
-      "contactUs": "Contact Us",
-      "learnMore": "Learn More",
-      "completeBookNow": "Complete Book Now",
-      "send": "Send",
-      "previous": "Previous",
-      "next": "Next"
-    },
-    "labels": {
-      "loading": "Loading...",
-      "submitting": "Submitting...",
-      "error": "Error",
-      "success": "Success",
-      "selectDate": "Select date",
-      "total": "Total",
-      "bookingSummary": "Booking Summary",
-      "noResult": "No results "
-    },
-    "forms": {
-      "bookingForm": {
-        "title": "Book Rooms",
-        "checkIn": "Check In",
-        "checkOut": "Check Out",
-        "adult": "Adult",
-        "child": "Child"
-      },
-      "contact": {
-        "title": "Leave us your info",
-        "titleBooking": "Complete your booking",
-        "desciptions": "and we will get back to you",
-        "desciptionsBooking": "Fill in your details to complete the booking",
-        "form": {
-          "fullName": "Full Name",
-          "email": "Email",
-          "country": "Country",
-          "phone": "Phone",
-          "message": "Message (optional)",
-          "mr": "Mr",
-          "mrs": "Mrs",
-          "send": "Send Message"
-        }
-      }
-    }
-  },
+  common: {
+    buttons: {
+      bookNow: 'Book Now';
+      bookRooms: 'Book Rooms';
+      contactUs: 'Contact Us';
+      learnMore: 'Learn More';
+      completeBookNow: 'Complete Book Now';
+      send: 'Send';
+      previous: 'Previous';
+      next: 'Next';
+    };
+    labels: {
+      loading: 'Loading...';
+      submitting: 'Submitting...';
+      error: 'Error';
+      success: 'Success';
+      selectDate: 'Select date';
+      total: 'Total';
+      bookingSummary: 'Booking Summary';
+      noResult: 'No results';
+    };
+    forms: {
+      bookingForm: {
+        title: 'Book Rooms';
+        checkIn: 'Check In';
+        checkOut: 'Check Out';
+        adult: 'Adult';
+        child: 'Child';
+      };
+      contact: {
+        title: 'Leave us your info';
+        titleBooking: 'Complete your booking';
+        descriptions: 'and we will get back to you';
+        descriptionsBooking: 'Fill in your details to complete the booking';
+        form: {
+          fullName: 'Full Name';
+          email: 'Email';
+          country: 'Country';
+          phone: 'Phone';
+          message: 'Message (optional)';
+          mr: 'Mr';
+          mrs: 'Mrs';
+          send: 'Send Message';
+        };
+      };
+    };
+  };
 
-  "menu": {
-    "home": "home",
-    "services": "services",
-    "rooms": "rooms",
-    "roomDetails": "room details",
-    "bookingDetails": "booking details",
-    "booking": "booking",
-    "contact": "contact"
-  },
+  menu: {
+    home: 'home';
+    services: 'services';
+    rooms: 'rooms';
+    roomDetails: 'room details';
+    bookingDetails: 'booking details';
+    booking: 'booking';
+    contact: 'contact';
+  };
 
-  "home": {
-    "title": "Welcome to Genuss Hotel",
-    "desciptions": {
-      "summary": "Genuss Tam Dao - Hideaway Retreats at an altitude of over 1,000m, cool climate all year round. Scale of nearly 100 rooms, 3 halls, restaurant, swimming pool, gym and parking lot - suitable for relaxation and event organization",
-      "rate": "on {social}",
-      "rooms": "{countRooms} rooms"
-    },
-    "testimonial": {
-      "title": "Testimonial"
-    }
-  },
+  home: {
+    title: 'Welcome to Genuss Hotel';
+    description: 'Modern Mountain Retreat in the Heart of Tam Dao';
+    introduce: {
+      title: 'WHY CHOOSE GENUSS TAM DAO ?';
+      features: {
+        location: {
+          title: 'PRIME CENTRAL LOCATION';
+          description: 'Just a few steps from the Central Square and the iconic Stone Church';
+        };
+        spaces: {
+          title: 'MODERN & RELAXING SPACES';
+          description: 'Minimalist design with large windows opening toward cloud-filled mountain views';
+        };
+        pool: {
+          title: 'ALL-YEAR OUTDOOR SWIMMING POOL';
+          description: 'Enjoy Tam Dao in the most refreshing and relaxing way';
+        };
+        facilities: {
+          title: 'FULL FACILITIES & 24/7 SERVICE';
+          description: 'Gym, sauna, restaurant, bar, and dedicated round-the-clock support';
+        };
+      };
+    };
+    summary: {
+      title: 'A modern hideaway amidst the hustle and bustle of Tam Dao';
+      descriptions: 'GENUSS offers the perfect balance: close enough for you to walk and explore the town, but quiet enough for you to find a pleasant silence<lineBreak></lineBreak><lineBreak></lineBreak> 94 spacious rooms, overlooking the Tam Dao cloud city, combined with an outdoor swimming pool, gym, sauna and 24/7 service - all create a gentle, effortless and inspiring vacation.';
+      rate: 'on {social}';
+      rooms: '{countRooms} rooms';
+    };
+    testimonial: {
+      title: 'Testimonial';
+    };
+  };
 
-  "rooms": {
-    "title": "Our Rooms",
-    "desciptions": "A total of 94 rooms with 8 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.",
-    "viewDetails": "View Details",
-    "viewAllRooms": "View All Rooms",
-    "recommended": "more rooms",
-    "priceJSX": "From <price>{value}</price> / Night",
-    "price": "From {value} / Night",
-    "maxOccupancy": "Maximum  {maxOccupancy} people",
-    "room": {
-      "title": "Room {name}",
-      "roomFeatures": "Room features",
-      "bed": "Bed",
-      "space": "Space",
-      "maximum": "Maximum",
-      "view": "View",
-      "amenities": "Amenities",
-      "roomGallery": "Room Gallery",
-      "people": "people"
-    }
-  },
+  rooms: {
+    title: 'Our Rooms';
+    descriptions: "A total of 94 rooms with 8 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.";
+    viewDetails: 'View Details';
+    viewAllRooms: 'View All Rooms';
+    recommended: 'more rooms';
+    priceJSX: 'From <price>{value}</price> / Night';
+    price: 'From {value} / Night';
+    maxOccupancy: 'Maximum  {maxOccupancy} people';
+    room: {
+      title: '{name} Room';
+      roomFeatures: 'Room features';
+      bed: 'Bed';
+      space: 'Space';
+      maximum: 'Maximum';
+      view: 'View';
+      amenities: 'Amenities';
+      roomGallery: 'Room Gallery';
+      people: 'people';
+    };
+  };
 
-  "facilities": {
-    "title": "Hotel facilities",
-    "parking": "Parking",
-    "swimmingPool": "Swimming Pool",
-    "gym": "Gym",
-    "breakfast": "Breakfast",
-    "airConditioning": "Air Conditioning",
-    "noSmoking": "No Smoking",
-    "phone": "Phone",
-    "safe": "Safe",
-    "shower": "Shower",
-    "wifi": "Wi-Fi",
-    "spa": "Spa"
-  },
+  facilities: {
+    title: 'Hotel facilities';
+    parking: 'Parking';
+    swimmingPool: 'Swimming Pool';
+    gym: 'Gym';
+    breakfast: 'Breakfast';
+    airConditioning: 'Air Conditioning';
+    noSmoking: 'No Smoking';
+    phone: 'Phone';
+    safe: 'Safe';
+    shower: 'Shower';
+    wifi: 'Wi-Fi';
+    spa: 'Spa';
+  };
 
-  "hotelRules": {
-    "title": "Hotel Rules",
-    "noSmoking": "No smoking",
-    "noAlcoholPool": "No alcohol or stimulants allowed in the pool",
-    "childSupervision": "Children must always be supervised",
-    "gymHours": "Gym: 5:00-7:00 AM and 5:00-8:00 PM",
-    "restaurantHours": "Restaurant: Open from 6:00 AM to 10:00 PM"
-  },
+  hotelRules: {
+    title: 'Hotel Rules';
+    noSmoking: 'No smoking';
+    noAlcoholPool: 'No alcohol or stimulants allowed in the pool';
+    childSupervision: 'Children must always be supervised';
+    gymHours: 'Gym: 5:00-7:00 AM and 5:00-8:00 PM';
+    restaurantHours: 'Restaurant: Open from 6:00 AM to 10:00 PM';
+  };
 
-  "services": {
-    "title": "Visit Our Famous Facilities",
-    "dinning": {
-      "title": "Restaurant & Dining Service",
-      "desciptions": "Experience a rich culinary experience with a breakfast buffet and an attractive Asian-European menu."
-    },
-    "event": {
-      "title": "Conference & Event Service",
-      "desciptions": "Luxurious space for meetings, weddings and professional events with full amenities."
-    },
-    "recreation": {
-      "title": "Recreation & Wellness Service",
-      "desciptions": "Relax at the pool, fitness center, and other recreational amenities, suitable for family vacations, couples, or travelers seeking privacy and tranquility."
-    }
-  },
+  services: {
+    title: 'Visit Our Famous Facilities';
+    dinning: {
+      title: 'Restaurant & Dining Service';
+      descriptions: 'Experience a rich culinary experience with a breakfast buffet and an attractive Asian-European menu.';
+    };
+    event: {
+      title: 'Conference & Event Service';
+      descriptions: 'Luxurious space for meetings, weddings and professional events with full amenities.';
+    };
+    recreation: {
+      title: 'Recreation & Wellness Service';
+      descriptions: 'Relax at the pool, fitness center, and other recreational amenities, suitable for family vacations, couples, or travelers seeking privacy and tranquility.';
+    };
+    swimming: {
+      title: 'ALL-YEAR OUTDOOR SWIMMING POOL';
+      descriptions: 'Relax in the signature misty atmosphere of Tam Dao.';
+    };
+  };
 
-  "contact": {
-    "phone": "Phone",
-    "location": {
-      "title": "Location",
-      "address": "Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam",
-      "viewOnGoogleMap": "View on Google Map"
-    }
-  },
+  contact: {
+    phone: 'Phone';
+    location: {
+      title: 'Location';
+      address: 'Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam';
+      viewOnGoogleMap: 'View on Google Map';
+    };
+  };
 
-  "bookingDetails": {
-    "totalPrice": "Total Price",
-    "table": {
-      "rooms": "Rooms",
-      "priceNight": "Price Night",
-      "quantity": "Quanity"
-    }
-  },
+  bookingDetails: {
+    totalPrice: 'Total Price';
+    table: {
+      rooms: 'Rooms';
+      priceNight: 'Price Night';
+      quantity: 'Quantity';
+    };
+  };
 
-  "roomData": {
-    "bedTypes": {
-      "largeDouble": "1 large double bed",
-      "double": "1 double bed",
-      "single": "1 single bed"
-    },
-    "viewTypes": {
-      "square": "Square view",
-      "mountain": "Mountain view"
-    },
-    "bathroomTypes": {
-      "bathtubShower": "Bathtub & Shower",
-      "bathtub": "Bathtub",
-      "shower": "Shower"
-    },
-    "features": {
-      "sofa": "Sofa",
-      "balcony": "Balcony",
-      "romanticDecor": "Romantic decor"
-    }
-  },
+  roomData: {
+    bedTypes: {
+      largeDouble: '1 large double bed';
+      double: '1 double bed';
+      single: '1 single bed';
+    };
+    viewTypes: {
+      square: 'Square view';
+      mountain: 'Mountain view';
+    };
+    bathroomTypes: {
+      bathtubShower: 'Bathtub & Shower';
+      bathtub: 'Bathtub';
+      shower: 'Shower';
+    };
+    features: {
+      sofa: 'Sofa';
+      balcony: 'Balcony';
+      romanticDecor: 'Romantic decor';
+    };
+  };
 
-  "footer": {
-    "contactUs": {
-      "title": "contact us",
-      "Tel": "Tel"
-    },
-    "hotelAddress": {
-      "title": "Hotel Address",
-      "address": "Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam"
-    }
-  }
+  footer: {
+    contactUs: {
+      title: 'contact us';
+      Tel: 'Tel';
+    };
+    hotelAddress: {
+      title: 'Hotel Address';
+      address: 'Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam';
+      offices: {
+        hanoi1: 'Hanoi Office 1: No. 175 Ngo Gia Tu - Viet Hung - Hanoi (Hotline: 0978700968)';
+        hanoi2: 'Hanoi Office 2: Floor 9, No. 85 Tran Thai Tong, Cau Giay, Hanoi Hotline: 0978600968';
+        haiphong1: 'Hai Phong Office 1: No. 16&18/33 Do Nhuan - Hai An - Hai Phong Hotline: 0978500968';
+        haiphong2: 'Hai Phong Office 2: No. 326&328 Truong Chinh- Kien An - Hai Phong Hotline: 0978044968';
+        thaibinh: 'Thai Binh Office: No. 604&608 Le Thanh Tong, Hotline: 0978420968 & Thuy Dien Hotel, No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen Hotline: 0978752968';
+        ninhbinh: 'Ninh Binh Office: No. 2/38 Dinh Tien Hoang - Hoa Lu - Ninh Binh. Hotline: 0978609968';
+        namdinh1: 'Nam Dinh Office 1: HVKT Building, No. 553 Truong Chinh Street - P Nam Dinh, Ninh Binh Province Hotline: 0978605968';
+        quangninh: 'Quang Ninh Office: No. 169 Le Thanh Tong, Hong Gai, Quang Ninh. Hotline: 0978940968';
+        hanam: 'Ha Nam Office: No. 6 Tran Phu, Phu Ly, Ninh Binh. Hotline: 0978704968';
+        haiduong: 'Hai Duong Office: No. 41 Bach Dang, P Hai Duong, Hai Phong City. Hotline: 0978156968';
+        bacgiang: 'Bac Giang Office: No. 293 Le Loi, P Bac Giang, Bac Ninh Province. Hotline: 0978053968';
+        hungyen: 'Hung Yen Office: No. 148 Chu Manh Trinh - Hien Nam - Hung Yen. Hotline: 0978430968';
+        hochiminh: 'Ho Chi Minh Office: No. 48 Cat Tuong Street, Lovera Park, KDC Phong Phu 4, Binh Chanh, Ho Chi Minh City. Hotline: 0978552968';
+      };
+    };
+  };
 };
 export default messages;
