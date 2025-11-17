@@ -81,7 +81,9 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
       {/* Content Section */}
       <CardContent className='p-0 px-6'>
         <div className='flex items-start justify-between gap-4'>
-          <p className='text-sm font-semibold uppercase'>{room.name}</p>
+          <p className='text-sm font-semibold uppercase'>
+            {tRooms('room.title', { name: room.name })}
+          </p>
         </div>
 
         <div className='mt-3 space-y-2 text-sm font-medium'>

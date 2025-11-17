@@ -64,7 +64,7 @@ export function ImageGalleryDialog({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
-        className='h-[95vh] overflow-hidden border-border/10 p-0 sm:max-w-2xl'
+        className='overflow-hidden border-border/10 p-0 sm:max-w-2xl md:h-[95vh]'
         showCloseButton={false}
       >
         <DialogHeader className='sr-only'>

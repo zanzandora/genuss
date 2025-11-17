@@ -7,7 +7,7 @@ const FooterSection = () => {
 
   return (
     <footer className='mt-20 rounded-t-2xl bg-primary px-6 py-16 text-primary-foreground'>
-      <div className='mx-auto grid max-w-7xl gap-32 md:grid-cols-2'>
+      <div className='mx-auto grid max-w-7xl gap-x-12 gap-y-20 md:grid-cols-2'>
         <div className='mb-6 grid grid-cols-2'>
           <div className='h-30 w-30'>
             <Image
@@ -39,15 +39,7 @@ const FooterSection = () => {
           </div>
         </div>
 
-        <div className='mb-6 grid grid-cols-1 gap-2 md:grid-cols-2'>
-          <div>
-            <h4 className='mb-6 text-h4 uppercase'>
-              {tFooter('hotelAddress.title')}
-            </h4>
-            <p className='text-paragraph-m font-normal'>
-              {tFooter('hotelAddress.address')}
-            </p>
-          </div>
+        <div className='flex gap-2'>
           <div className='relative h-60 min-h-[241px] w-full'>
             <iframe
               src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0969447657!2d105.6403567!3d21.4572571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134e7650ddc749f:0x9fde527b2b8fb0ca!2sKh%C3%A1ch+s%E1%BA%A1n+Genuss+Tam+%C4%90%E1%BA%A3o!5e0!3m2!1sen!2s!4v1234567890!5m2!1sen!2s'
@@ -58,6 +50,58 @@ const FooterSection = () => {
               referrerPolicy='no-referrer-when-downgrade'
               title='Genuss Hotel Location Map'
             />
+          </div>
+        </div>
+        <div className='col-span-2 w-full'>
+          <h4 className='mb-6 text-h4 uppercase'>
+            {tFooter('hotelAddress.title')}
+          </h4>
+          <div className='grid w-full grid-cols-1 gap-18 text-paragraph-m font-normal md:grid-cols-3'>
+            <div>
+              {tFooter('hotelAddress.offices.hanoi1')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.hanoi2')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.haiphong1')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.haiphong2')}
+              <br />
+              <br />
+            </div>
+            <div>
+              {tFooter('hotelAddress.offices.thaibinh')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.ninhbinh')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.namdinh1')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.quangninh')}
+              <br />
+              <br />
+            </div>
+            <div>
+              {tFooter('hotelAddress.offices.hanam')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.haiduong')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.bacgiang')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.hungyen')}
+              <br />
+              <br />
+              {tFooter('hotelAddress.offices.hochiminh')}
+              <br />
+              <br />
+            </div>
           </div>
         </div>
       </div>

@@ -19,9 +19,11 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
       />
       <div className='relative mx-auto max-w-6xl'>
         <div className='mb-12 text-center'>
-          <h2 className='mb-4 text-h1'>{tRooms('title')}</h2>
+          <h2 className='mb-4 text-xl font-bold uppercase sm:text-2xl lg:text-5xl'>
+            {tRooms('title')}
+          </h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
-            {tRooms('desciptions')}
+            {tRooms('descriptions')}
           </p>
         </div>
 
