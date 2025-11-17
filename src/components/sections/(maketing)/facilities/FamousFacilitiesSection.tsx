@@ -28,7 +28,7 @@ const FamousFacilitiesSection = () => {
     {
       title: tFacilities('swimming.title'),
       description: tFacilities('swimming.descriptions'),
-      image: '/images/facilities/swimming-pool-service.jpg',
+      image: '/images/facilities/swimming-pool-service.webp',
       position: 'right',
     },
   ];
