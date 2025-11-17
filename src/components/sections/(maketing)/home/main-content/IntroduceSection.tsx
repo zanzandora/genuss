@@ -6,6 +6,30 @@ import { useTranslations } from 'next-intl';
 
 const IntroduceSection = () => {
   const tIntroduce = useTranslations('home.introduce');
+
+  const features = [
+    {
+      icon: MapPin,
+      titleKey: 'features.location.title' as const,
+      descriptionKey: 'features.location.description' as const,
+    },
+    {
+      icon: BinocularsIcon,
+      titleKey: 'features.spaces.title' as const,
+      descriptionKey: 'features.spaces.description' as const,
+    },
+    {
+      icon: SunIcon,
+      titleKey: 'features.pool.title' as const,
+      descriptionKey: 'features.pool.description' as const,
+    },
+    {
+      icon: DumbbellIcon,
+      titleKey: 'features.facilities.title' as const,
+      descriptionKey: 'features.facilities.description' as const,
+    },
+  ];
+
   return (
     <section className='mb-4 rounded-4xl bg-primary-foreground sm:mb-10 md:mb-16'>
       <div className='mb-2 flex items-center justify-center'>
@@ -41,57 +65,22 @@ const IntroduceSection = () => {
 
             {/* Right Column - Feature Sections */}
             <div className='ml-2 flex flex-col justify-center space-y-12'>
-              {/* Prime Central Location */}
-              <div className='flex items-start gap-4'>
-                <MapPin />
-                <div>
-                  <h3 className='text-xl font-bold text-gray-900 uppercase'>
-                    {tIntroduce('features.location.title')}
-                  </h3>
-                  <p className='text-mu mt-1 text-sm'>
-                    {tIntroduce('features.location.description')}
-                  </p>
-                </div>
-              </div>
-
-              {/* Modern & Relaxing Spaces */}
-              <div className='flex items-start gap-4'>
-                <BinocularsIcon />
-                <div>
-                  <h3 className='text-xl font-bold text-gray-900 uppercase'>
-                    {tIntroduce('features.spaces.title')}
-                  </h3>
-                  <p className='text-mu mt-1 text-sm'>
-                    {tIntroduce('features.spaces.description')}
-                  </p>
-                </div>
-              </div>
-
-              {/* All-Year Outdoor Swimming Pool */}
-              <div className='flex items-start gap-4'>
-                <SunIcon />
-                <div>
-                  <h3 className='text-xl font-bold text-gray-900 uppercase'>
-                    {tIntroduce('features.pool.title')}
-                  </h3>
-                  <p className='text-mu mt-1 text-sm'>
-                    {tIntroduce('features.pool.description')}
-                  </p>
-                </div>
-              </div>
-
-              {/* Full Facilities & 24/7 Service */}
-              <div className='flex items-start gap-4'>
-                <DumbbellIcon />
-                <div>
-                  <h3 className='text-xl font-bold text-gray-900 uppercase'>
-                    {tIntroduce('features.facilities.title')}
-                  </h3>
-                  <p className='text-mu mt-1 text-sm'>
-                    {tIntroduce('features.facilities.description')}
-                  </p>
-                </div>
-              </div>
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={index} className='flex items-start gap-4'>
+                    <Icon />
+                    <div>
+                      <h3 className='text-xl font-bold text-gray-900 uppercase'>
+                        {tIntroduce(feature.titleKey)}
+                      </h3>
+                      <p className='text-mu mt-1 text-sm'>
+                        {tIntroduce(feature.descriptionKey)}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

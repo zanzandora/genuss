@@ -96,7 +96,7 @@ export function RoomFeatures({
               {tRooms('view')}
             </ItemTitle>
             <ItemDescription className='text-sm font-bold'>
-              {translatedRoom.view}
+              {translatedRoom.view.join(', ')}
             </ItemDescription>
           </ItemContent>
         </Item>

@@ -16,6 +16,7 @@ export const hotelAmenities = [
   { icon: '/icons/icon-breakfast.svg', labelKey: 'breakfast' as FacilityKey },
   { icon: '/icons/icon-gym.svg', labelKey: 'gym' as FacilityKey },
   { icon: '/icons/icon-shower.svg', labelKey: 'shower' as FacilityKey },
-  { icon: '/icons/icon-spa.svg', labelKey: 'spa' as FacilityKey },
+  // { icon: '/icons/icon-spa.svg', labelKey: 'spa' as FacilityKey },
   { icon: '/icons/icon-wifi.svg', labelKey: 'wifi' as FacilityKey },
+  { icon: '/icons/icon-coffe.svg', labelKey: 'coffee' as FacilityKey },
 ];

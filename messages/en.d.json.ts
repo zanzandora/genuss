@@ -113,23 +113,42 @@ declare const messages: {
       "view": "View",
       "amenities": "Amenities",
       "roomGallery": "Room Gallery",
-      "people": "people"
+      "people": "people",
+      "name": {
+        "executive-suite-city-view": "Executive Suite City View",
+        "royal-suite": "Royal Suite",
+        "royal-honeymoon": "Royal Honeymoon",
+        "junior-deluxe-mountain-view": "Junior Deluxe Mountain View",
+        "premium-deluxe-city-view": "Premium Deluxe City View",
+        "deluxe-twin-mountain-view": "Deluxe Twin Mountain View",
+        "superior-double-city-view": "Superior Double City View"
+      },
+      "description": {
+        "superior-double-city-view": "Superior Double Room (City View) - approximately 25 m², furnished with one large double bed and a window overlooking Tam Đao town's skyline. The room features a modern, minimalist design with a comfortable seating area, flat-screen TV, air conditioning and complimentary Wi-Fi. The en-suite bathroom includes a walk-in shower, bath linens and essential toiletries.\nSituated close to the town centre and offering a city view, this room is an ideal choice for couples or two guests seeking a relaxing stay with easy access to Tam Dao's vibrant atmosphere.",
+        "executive-suite-city-view": "The Executive Suite City View Room spans approximately 38 m², featuring one expansive King-size bed and commanding views of Tam Dao town centre. The suite is stylishly appointed with a neutral palette, light wood accents, floor-to-ceiling windows inviting natural daylight and showcasing misty mountain or town vistas. Amenities include a comfortable lounge seating area, dedicated workspace, a fully stocked minibar, modern air-conditioning and complimentary Wi-Fi. The en-suite bathroom boasts both a bathtub and a walk-in shower, crisp white linens and premium toiletries.\nThis suite is ideal for guests seeking an elevated getaway — where leisure meets refined style, in the heart of Tam Dao.",
+        "royal-suite": "The Royal Suite spans approximately 52 m², featuring one large King-size bed and wide windows overlooking the bustling boulevard or central square of Tam Dao—offering a view into the town's heartbeat and nighttime lights. The suite boasts a generously spacious layout with a separate living area—relaxing sofa, work desk and fully stocked minibar. The neutral-toned decor and generous natural light from large windows enhance the feeling of open, calm luxury. The en-suite bathroom includes both a bathtub and a walk-in shower, crisp white linens and premium toiletries.\nThis suite is an ideal choice for guests seeking an upgraded stay: more than just a restful night, it's about enjoying refined, modern resort-style living in the heart of Tam Dao.",
+        "royal-honeymoon": "The Royal Honeymoon Room spans approximately 48 m², features one large King-size bed and offers a view of the misty mountains of Tam Dao. The suite is elegantly styled with modern furnishings, abundant natural light, light wood accents and soft touches, creating a space that is both cozy and contemporary. Amenities include a separate lounge area, a small work desk, a fully stocked minibar, complimentary Wi-Fi and modern air-conditioning. The luxury en-suite bathroom includes both a bathtub and a walk-in shower, crisp white linens and premium toiletries.\nThis suite is the perfect choice for couples seeking a special getaway — where romance meets refined comfort, nestled in the tranquil mountain air of Tam Dao.",
+        "junior-deluxe-mountain-view": "The Deluxe Double Room (Mountain View) offers approximately 28 m² of space with one large double bed and a window framing the serene mountain landscape of Tam Dao — where morning mist lingers gently. The room features a premium, minimalist design with light wood tones and abundant natural light. Amenities include a seating area, compact work desk, flat-screen TV, modern air-conditioning, a mini-bar and complimentary Wi-Fi. The en-suite bathroom comes with a walk-in shower or bathtub (depending on room), pristine white towels and premium toiletries.\nThis room is perfect for couples or guests seeking a tranquil mountain view stay, blending nature's calm with modern, comfortable resort-style living.",
+        "premium-deluxe-city-view": "The Premium Deluxe City View Room offers approximately 35 m² of elegantly designed space, featuring a large King-size bed and a window overlooking the vibrant centre of Tam Dao town—allowing you to feel connected yet comfortably secluded. The room presents a modern aesthetic with neutral tones, light wood accents and abundant natural daylight, accompanied by a relaxing lounge chair, compact work desk and well-stocked minibar. The en-suite bathroom is upscale, offering both a bathtub and walk-in shower, pristine white linens and premium toiletries.\nThis room is perfect for those seeking an upgraded stay: it's not just about rest—it's about enjoying refined comfort and wellness in the heart of Tam Dao.",
+        "deluxe-twin-mountain-view": "The Superior Triple Room, around 28 m²,with 32 rooms, features one double bed and one single bed, offering scenic views of the mountain of Tam Dao. The room boasts a modern design with light tones and timber accents, and a large window to welcome natural daylight. Amenities include a seating area, small work desk, flat-screen TV, air conditioning, complimentary Wi-Fi and a compact minibar. The en-suite bathroom is equipped with a walk-in shower and/or bathtub (depending on room), fresh towels and complimentary toiletries.\nThis room is ideal for a small family or a trio of friends seeking a spacious, modern retreat while staying just steps from the heart of Tam Dao—perfect for both relaxation and exploration."
+      }
     }
   },
 
   "facilities": {
     "title": "Hotel facilities",
     "parking": "Parking",
-    "swimmingPool": "Swimming Pool",
+    "swimmingPool": "Swimming pool",
     "gym": "Gym",
     "breakfast": "Breakfast",
-    "airConditioning": "Air Conditioning",
-    "noSmoking": "No Smoking",
+    "airConditioning": "Air conditioning",
+    "noSmoking": "No smoking",
     "phone": "Phone",
     "safe": "Safe",
     "shower": "Shower",
     "wifi": "Wi-Fi",
-    "spa": "Spa"
+    "spa": "Spa",
+    "coffee": "Free coffee"
   },
 
   "hotelRules": {
@@ -187,7 +206,9 @@ declare const messages: {
     },
     "viewTypes": {
       "square": "Square view",
-      "mountain": "Mountain view"
+      "mountain": "Mountain view",
+      "city": "City",
+      "church": "Church"
     },
     "bathroomTypes": {
       "bathtubShower": "Bathtub & Shower",
@@ -198,7 +219,8 @@ declare const messages: {
       "sofa": "Sofa",
       "balcony": "Balcony",
       "romanticDecor": "Romantic decor"
-    }
+    },
+    "combined": "{a} / {b}"
   },
 
   "footer": {
