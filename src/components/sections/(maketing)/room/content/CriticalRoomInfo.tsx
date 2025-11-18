@@ -2,7 +2,6 @@ import RoomTitleSection from '../RoomTitleSection';
 import { RoomFeatures } from '../RoomFeatures';
 import { RoomGallery } from '../RoomGallery';
 import { TRoom } from '@/types/room.type';
-import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 import RenderMultilineText from '@/components/ui/RenderMultilineText';
 import { useTranslations } from 'next-intl';
 
