@@ -4,7 +4,7 @@ export type FacilityKey =
   | 'safe'
   | 'breakfast'
   | 'gym'
-  | 'spa'
+  | 'coffee'
   | 'wifi'
   | 'airConditioning'
   | 'noSmoking'

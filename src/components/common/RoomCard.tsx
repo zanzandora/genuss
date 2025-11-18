@@ -82,7 +82,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
       <CardContent className='p-0 px-6'>
         <div className='flex items-start justify-between gap-4'>
           <p className='text-sm font-semibold uppercase'>
-            {tRooms('room.title', { name: room.name })}
+            {tRooms('room.title', { name: translatedRoom.name })}
           </p>
         </div>
 

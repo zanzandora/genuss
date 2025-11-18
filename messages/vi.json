@@ -110,7 +110,25 @@
       "view": "Hướng nhìn",
       "amenities": "Tiện nghi",
       "roomGallery": "Thư viện phòng",
-      "people": "người"
+      "people": "người",
+      "name": {
+        "executive-suite-city-view": "Executive Suite Hướng Nhìn Thành Phố",
+        "royal-suite": "Royal Suite",
+        "royal-honeymoon": "Royal Honeymoon",
+        "junior-deluxe-mountain-view": "Junior Deluxe Hướng Núi",
+        "premium-deluxe-city-view": "Premium Deluxe Hướng Nhìn Thành Phố",
+        "deluxe-twin-mountain-view": "Deluxe Twin Hướng Núi",
+        "superior-double-city-view": "Superior Double Hướng Nhìn Thành Phố"
+      },
+      "description": {
+        "superior-double-city-view": "Hạng phòng Superior Double (View thành phố) rộng khoảng 22 m² với 32 phòng, được bố trí 01 giường đôi lớn và cửa sổ hướng ra quang cảnh thị trấn Tam Đảo. Phòng được thiết kế hiện đại, tối giản với khu vực ghế ngồi tiện nghi, TV màn hình phẳng, điều hòa và wifi miễn phí. Phòng tắm riêng đi kèm buồng tắm vòi sen, khăn tắm và đồ dùng cá nhân.\nVới vị trí gần trung tâm và hướng view thành phố, căn phòng chính là lựa chọn lý tưởng cho cặp đôi hoặc khách hàng muốn tận hưởng không gian thư giãn mà vẫn dễ dàng tiếp cận nhịp sống Tam Đảo.",
+        "executive-suite-city-view": "Hạng phòng Executive Suite hướng nhìn thành phố rộng khoảng 38 m², với 01 giường lớn (King) và hướng nhìn ra trung tâm thị trấn Tam Đảo. Phòng được thiết kế sang trọng và tinh tế, với tông màu trung tính - chút điểm nhấn gỗ sáng - cửa kính lớn đón ánh sáng tự nhiên và tầm nhìn ra phố mây hoặc núi nhẹ. Tiện nghi bao gồm khu vực ghế thư giãn, bàn làm việc, minibar chuẩn khách sạn 4★, điều hòa hiện đại và Wi-Fi miễn phí. Phòng tắm riêng đi kèm bồn tắm và vòi sen riêng biệt, cùng khăn trắng tinh và dòng đồ dùng cá nhân cao cấp.\nĐây là lựa chọn tuyệt vời cho quý khách muốn nâng cấp kỳ nghỉ — không chỉ dừng ở thư giãn mà còn trải nghiệm đẳng cấp và phong cách sống nhẹ nhàng giữa trung tâm Tam Đảo.",
+        "royal-suite": "Hạng phòng Royal Suite có diện tích khoảng 52 m², được bố trí 01 giường lớn King và cửa sổ rộng hướng ra đại lộ trung tâm hoặc quảng trường Tam Đảo — nơi bạn có thể ngắm nhịp sống thị trấn và ánh đèn khi chiều buông. Thiết kế phòng sang trọng và rộng rãi với không gian tiếp khách riêng biệt—sofa thư giãn, bàn làm việc gọn và minibar tiện nghi. Tông màu trung tính kết hợp ánh sáng tự nhiên từ cửa kính lớn tạo cảm giác thoáng và nhẹ nhàng. Phòng tắm riêng đi kèm bồn tắm và vòi sen riêng, khăn trắng tinh và dòng đồ dùng cá nhân chuẩn khách sạn cao cấp.\nĐây là lựa chọn lý tưởng cho khách hàng muốn nâng cấp trải nghiệm nghỉ dưỡng: không chỉ để nghỉ ngơi mà còn để tận hưởng phong cách nghỉ dưỡng hiện đại giữa trung tâm Tam Đảo.",
+        "royal-honeymoon": "Hạng phòng Royal Honeymoon diện tích khoảng 48 m², trang bị 01 giường King cực lớn, cửa sổ hoặc ban công hướng thẳng ra khung cảnh núi Tam Đảo lãng mạn. Phòng được thiết kế theo phong cách nội thất thanh lịch, ánh sáng tự nhiên tràn ngập, kết hợp với tông gỗ sáng và chi tiết mềm mại tạo nên không gian ấm cúng nhưng vẫn hiện đại. Tiện nghi gồm khu vực tiếp khách riêng biệt, bàn làm việc nhỏ, minibar chuẩn, Wi-Fi miễn phí và điều hoà hiện đại. Phòng tắm riêng sang trọng với cả bồn tắm và vòi sen riêng biệt, khăn trắng tinh và bộ đồ dùng cá nhân cao cấp.\nĐây là lựa chọn lý tưởng cho các cặp đôi muốn một chuyến nghỉ dưỡng đặc biệt — nơi cảm xúc lãng mạn hòa quyện với tiện nghi hiện đại, giữa thiên nhiên sương mờ Tam Đảo.",
+        "junior-deluxe-mountain-view": "Phòng Deluxe Double (Mountain View) có diện tích khoảng 28 m²,  được bố trí 01 giường đôi lớn, với cửa sổ hướng thẳng ra khung cảnh núi rừng Tam Đảo — nơi làn sương nhẹ bàng bạc vào mỗi sáng. Thiết kế phòng tinh giản nhưng cao cấp với tông màu gỗ sáng và ánh sáng tự nhiên rộng mở. Tiện nghi gồm khu vực ghế ngồi, bàn làm việc gọn, TV màn hình phẳng, điều hòa hiện đại, minibar nhỏ và Wi-Fi miễn phí. Phòng tắm riêng được trang bị vòi sen hoặc bồn tắm (tùy phòng), khăn trắng tinh và các đồ dùng cá nhân chuẩn khách sạn 4★.\nHạng phòng này là lựa chọn lý tưởng cho các cặp đôi hoặc khách muốn trải nghiệm view thiên nhiên yên bình của Tam Đảo mà vẫn giữ phong cách nghỉ dưỡng hiện đại, dễ chịu và thoải mái.",
+        "premium-deluxe-city-view": "Hạng phòng Premium Deluxe City View rộng khoảng 35 m², được trang bị một giường King kích thước lớn và cửa sổ hướng về trung tâm thị trấn Tam Đảo, cho bạn cảm giác vừa kết nối với nhịp sống quanh quảng trường, vừa giữ được sự riêng tư. Thiết kế phòng theo phong cách hiện đại với tông màu trung tính - gỗ sáng - ánh sáng tự nhiên, bổ sung ghế thư giãn, bàn làm việc nhỏ và minibar tiện nghi. Phòng tắm riêng cao cấp với bồn tắm & vòi sen riêng, khăn trắng tinh và bộ đồ dùng cá nhân chất lượng.\nĐây là lựa chọn lý tưởng cho những ai muốn nâng cấp trải nghiệm: không chỉ nghỉ ngơi - mà còn tận hưởng sự tinh tế và tiện nghi giữa lòng Tam Đảo.",
+        "deluxe-twin-mountain-view": "Hạng phòng Deluxe Twin rộng khoảng 28 m², trang bị 32 phòng, được bố trí 01 giường đôi và 01 giường đơn, hướng nhìn ra núi Tam Đảo. Phòng thiết kế hiện đại với tông màu sáng - nâu gỗ nhẹ - cửa kính lớn đón ánh sáng tự nhiên. Tiện nghi gồm khu vực ghế ngồi, bàn làm việc nhỏ, TV màn hình phẳng, điều hòa, Wi-Fi miễn phí và minibar nhỏ gọn. Phòng tắm riêng trang bị vòi sen và/hoặc bồn tắm (tùy phòng), khăn sạch và đồ dùng cá nhân.\nĐây là lựa chọn lý tưởng cho gia đình nhỏ hoặc nhóm bạn 3 người, muốn tận hưởng không gian nghỉ dưỡng hiện đại, rộng rãi mà vẫn gần trung tâm Tam Đảo - rất tiện để vừa thư giãn vừa khám phá."
+      }
     }
   },
 
@@ -126,7 +144,8 @@
     "safe": "Két an toàn",
     "shower": "Vòi sen",
     "wifi": "Wi-Fi",
-    "spa": "Spa"
+    "spa": "Spa",
+    "coffee": "Cà phê miễn phí"
   },
 
   "hotelRules": {
@@ -184,7 +203,9 @@
     },
     "viewTypes": {
       "square": "Quảng trường",
-      "mountain": "Hướng núi"
+      "mountain": "Hướng núi",
+      "city": "Thành phố",
+      "church": "Nhà thờ"
     },
     "bathroomTypes": {
       "bathtubShower": "Bồn tắm & Tắm đứng",
@@ -195,7 +216,8 @@
       "sofa": "Sofa",
       "balcony": "Ban công",
       "romanticDecor": "Decor lãng mạn"
-    }
+    },
+    "combined": "{a} / {b}"
   },
 
   "footer": {
