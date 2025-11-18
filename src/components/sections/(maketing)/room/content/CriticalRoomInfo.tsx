@@ -31,7 +31,6 @@ export function CriticalRoomInfo({ room }: CriticalRoomInfoProps) {
       {/* Description - Below both columns */}
       <div className='space-y-4'>
         <p className='text-paragraph-m leading-relaxed text-muted-foreground'>
-          {/* {translatedRoom.description || ''} */}
           <RenderMultilineText
             text={tRooms(`room.description.${room.slug}` as never)}
           />
