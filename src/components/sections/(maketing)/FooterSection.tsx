@@ -76,7 +76,7 @@ const FooterSection = () => {
 
         <div className='w-full'>
           <h4 className='mb-6 text-center text-h4 uppercase sm:mb-8 lg:mb-10 lg:text-left'>
-            {tFooter('hotelAddress.title')}
+            {tFooter('hotelAddress.offices.title')}
           </h4>
           <div className='grid w-full grid-cols-1 gap-8 text-paragraph-m font-normal sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 lg:gap-16'>
             <div className='space-y-4'>

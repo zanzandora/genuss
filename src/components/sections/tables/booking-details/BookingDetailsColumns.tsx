@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Trash2Icon } from 'lucide-react';
 import { RoomStoreItem, useRoomStore } from '@/stores/useRoomStore';
 import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown } from 'lucide-react';
@@ -18,7 +17,7 @@ const QuantityCell = ({ item }: { item: RoomStoreItem }) => {
         variant='outline'
         size='sm'
         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-        disabled={item.quantity <= 1}
+        disabled={item.quantity <= 0}
         className='h-6 w-6 rounded-full p-0'
       >
         -
@@ -33,24 +32,6 @@ const QuantityCell = ({ item }: { item: RoomStoreItem }) => {
         className='h-6 w-6 rounded-full p-0'
       >
         +
-      </Button>
-    </div>
-  );
-};
-
-// Cell component for delete action
-const ActionsCell = ({ item }: { item: RoomStoreItem }) => {
-  const removeItem = useRoomStore((state) => state.removeItem);
-
-  return (
-    <div className='flex justify-start'>
-      <Button
-        variant='ghost'
-        size='sm'
-        onClick={() => removeItem(item.id)}
-        className='h-8 w-8 p-0 text-red-600 hover:text-red-800'
-      >
-        <Trash2Icon className='h-4 w-4' />
       </Button>
     </div>
   );
@@ -82,9 +63,16 @@ export const BookingDetailsColumns: () => ColumnDef<RoomStoreItem>[] = () => {
       accessorKey: 'pricePerNight',
       header: () => <div className=''>{t('priceNight')}</div>,
       cell: ({ row }) => {
-        const pricePerNight = parseFloat(row.getValue('pricePerNight'));
+        const item = row.original;
 
-        const formatted = formatCurrency(pricePerNight);
+        if (item.quantity === 0) {
+          return <div className='font-medium text-muted-foreground'>-</div>;
+        }
+
+        const pricePerNight = parseFloat(row.getValue('pricePerNight'));
+        const totalPrice = pricePerNight * item.quantity;
+
+        const formatted = formatCurrency(totalPrice);
 
         return <div className='font-medium'>{formatted}</div>;
       },
@@ -93,11 +81,6 @@ export const BookingDetailsColumns: () => ColumnDef<RoomStoreItem>[] = () => {
       accessorKey: 'quantity',
       header: () => <div className=''>{t('quantity')}</div>,
       cell: ({ row }) => <QuantityCell item={row.original} />,
-    },
-    {
-      id: 'actions',
-      enableHiding: false,
-      cell: ({ row }) => <ActionsCell item={row.original} />,
     },
   ];
 };
