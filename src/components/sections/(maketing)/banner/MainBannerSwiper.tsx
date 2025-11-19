@@ -25,8 +25,8 @@ export default function MainBannerSwiper({
     <div className='relative'>
       {/* Booking Title */}
       <div className='absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/12 md:-translate-y-1/2'>
-        <div className='size-26 w-full perspective-dramatic'>
-          <div className='font-allison flex translate-z-16 flex-col items-center text-3xl text-white capitalize sm:text-4xl md:text-5xl xl:text-3xl'>
+        <div className='size-26 w-28 perspective-dramatic sm:w-40 md:w-full'>
+          <div className='font-allison flex translate-z-16 flex-col items-center text-center text-base text-white capitalize sm:text-lg md:text-xl xl:text-2xl'>
             <span className='font-allison text-shadow-lg'>genuss hotel</span>
             <span className='font-allison text-shadow-lg'>
               {t('description')}

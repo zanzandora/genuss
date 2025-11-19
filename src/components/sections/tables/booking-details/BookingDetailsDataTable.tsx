@@ -42,10 +42,6 @@ export function BookingDetailsDataTable<TData, TValue>({
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: 6,
-  });
 
   const memoData = useMemo(() => data ?? [], [data]);
 
@@ -58,9 +54,7 @@ export function BookingDetailsDataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
-    onPaginationChange: setPagination,
     state: {
-      pagination,
       sorting,
       columnFilters,
       columnVisibility,
@@ -118,26 +112,6 @@ export function BookingDetailsDataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className='flex items-center justify-end space-x-2 py-4'>
-        <div className='space-x-2'>
-          <Button
-            variant='outline'
-            size='sm'
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            {tButtons('previous')}
-          </Button>
-          <Button
-            variant='outline'
-            size='sm'
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            {tButtons('next')}
-          </Button>
-        </div>
       </div>
     </div>
   );

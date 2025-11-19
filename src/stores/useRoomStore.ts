@@ -4,6 +4,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { TRoom } from '@/types/room.type';
 import { TBookingDetails } from '@/types/bookingDetails.type';
+import { rooms } from '@/lib/data/rooms';
 
 export type RoomStoreItem = TBookingDetails & {
   quantity: number;
@@ -13,19 +14,35 @@ export type RoomStoreItem = TBookingDetails & {
 
 type RoomStore = {
   items: RoomStoreItem[];
+  initializeAllRooms: () => void;
   addItem: (room: TRoom, checkIn?: string, checkOut?: string) => void;
-  removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearStore: () => void;
+  resetQuantities: () => void;
   getTotalPrice: () => number;
   getTotalRooms: () => number;
   getItemById: (id: string) => RoomStoreItem | undefined;
+  getItemsWithQuantity: () => RoomStoreItem[];
 };
+
+export const selectItemsWithQuantity = (state: RoomStore) =>
+  state.items.filter((item) => item.quantity > 0);
 
 export const useRoomStore = create<RoomStore>()(
   persist(
     (set, get) => ({
       items: [],
+
+      initializeAllRooms: () => {
+        const allRooms: RoomStoreItem[] = rooms.map((room) => ({
+          id: room.id.toString(),
+          name: room.name,
+          pricePerNight: parseFloat(room.price),
+          quantity: 0,
+          maxGuest: room.maxOccupancy,
+        }));
+        set({ items: allRooms });
+      },
 
       addItem: (room: TRoom, checkIn?: string, checkOut?: string) => {
         const { items } = get();
@@ -45,41 +62,37 @@ export const useRoomStore = create<RoomStore>()(
           };
           set({ items: updatedItems });
         } else {
-          // Add new item
-          const newItem: RoomStoreItem = {
-            id: `${room.id}-${Date.now()}`,
-            name: room.name,
-            pricePerNight: parseFloat(room.price),
-            quantity: 1,
-            checkIn,
-            checkOut,
-            maxGuest: room.maxOccupancy,
-          };
-          set({ items: [...items, newItem] });
+          // Find existing room by name and increment quantity
+          const roomIndex = items.findIndex((item) => item.name === room.name);
+          if (roomIndex !== -1) {
+            const updatedItems = [...items];
+            updatedItems[roomIndex] = {
+              ...updatedItems[roomIndex],
+              quantity: updatedItems[roomIndex].quantity + 1,
+              checkIn,
+              checkOut,
+            };
+            set({ items: updatedItems });
+          }
         }
-      },
-
-      removeItem: (id: string) => {
-        const { items } = get();
-        const updatedItems = items.filter((item) => item.id !== id);
-        set({ items: updatedItems });
       },
 
       updateQuantity: (id: string, quantity: number) => {
-        if (quantity <= 0) {
-          get().removeItem(id);
-          return;
-        }
-
         const { items } = get();
         const updatedItems = items.map((item) =>
-          item.id === id ? { ...item, quantity } : item,
+          item.id === id ? { ...item, quantity: Math.max(0, quantity) } : item,
         );
         set({ items: updatedItems });
       },
 
       clearStore: () => {
         set({ items: [] });
+      },
+
+      resetQuantities: () => {
+        const { items } = get();
+        const updatedItems = items.map((item) => ({ ...item, quantity: 0 }));
+        set({ items: updatedItems });
       },
 
       getTotalPrice: () => {
@@ -98,6 +111,11 @@ export const useRoomStore = create<RoomStore>()(
       getItemById: (id: string) => {
         const { items } = get();
         return items.find((item) => item.id === id);
+      },
+
+      getItemsWithQuantity: () => {
+        const { items } = get();
+        return items.filter((item) => item.quantity > 0);
       },
     }),
     {

@@ -51,9 +51,9 @@ const ContactForm = ({
 
   const locale = useLocale();
 
-  const items = useRoomStore((state) => state.items);
-  const getTotalPrice = useRoomStore((state) => state.getTotalPrice);
-  const clearStore = useRoomStore((state) => state.clearStore);
+  const items = useRoomStore().getItemsWithQuantity();
+  const totalPrice = useRoomStore((state) => state.getTotalPrice());
+  const resetQuantities = useRoomStore((state) => state.resetQuantities);
 
   const bookingData = useBookingDataStore((state) => state.bookingData);
   const clearBookingData = useBookingDataStore(
@@ -130,7 +130,7 @@ const ContactForm = ({
               adultCount: parseInt(bookingData.adultCount),
               childCount: parseInt(bookingData.childCount),
               currency: locale === 'vi' ? 'VND' : 'USD',
-              totalPrice: formatCurrency(getTotalPrice()),
+              totalPrice: formatCurrency(totalPrice),
             }
           : undefined,
         rooms: requireBookingData
@@ -141,6 +141,8 @@ const ContactForm = ({
             }))
           : [],
       };
+
+      // console.log('payload :>> ', payload);
 
       // Send to API using axios
       const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
@@ -165,7 +167,7 @@ const ContactForm = ({
       reset();
 
       if (requireBookingData) {
-        clearStore();
+        resetQuantities();
         clearBookingData();
       }
 
@@ -298,7 +300,7 @@ const ContactForm = ({
                   </div>
                 ))}
                 <div className='mt-2 border-t pt-2 font-semibold'>
-                  {tLabel('total')}: {formatCurrency(getTotalPrice())}
+                  {tLabel('total')}: {formatCurrency(totalPrice)}
                 </div>
                 {bookingData.checkIn && bookingData.checkOut && (
                   <div className='mt-2 text-sm'>
