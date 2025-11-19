@@ -94,7 +94,7 @@
 
   "rooms": {
     "title": "Phòng của chúng tôi",
-    "descriptions": "Tổng cộng 94 phòng với 8 hạng phòng phù hợp với mọi nhu cầu của khách hàng. Nội thất được chọn lọc kỹ lưỡng, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư tối đa.",
+    "descriptions": "Tổng cộng 94 phòng với 7 hạng phòng phù hợp với mọi nhu cầu của khách hàng. Nội thất được chọn lọc kỹ lưỡng, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư tối đa.",
     "viewDetails": "Xem chi tiết",
     "viewAllRooms": "Xem tất cả phòng",
     "recommended": "các phòng khác",
@@ -181,7 +181,7 @@
     "phone": "Điện thoại",
     "location": {
       "title": "Vị trí",
-      "address": "Khu 1, thị trấn Tam Đảo, huyện Tam Đảo, tỉnh Vĩnh Phúc, Việt Nam",
+      "address": "Khu 1 xã Tam Đảo , tỉnh Phú Thọ",
       "viewOnGoogleMap": "Xem trên Google Map"
     }
   },
@@ -227,21 +227,61 @@
     },
     "hotelAddress": {
       "title": "Địa chỉ khách sạn",
-      "address": "Khu 1, thị trấn Tam Đảo, huyện Tam Đảo, tỉnh Vĩnh Phúc, Việt Nam",
+      "address": "Khu 1 xã Tam Đảo , tỉnh Phú Thọ",
+      "viewAllOffices": "Xem tất cả địa chỉ văn phòng",
       "offices": {
-        "hanoi1": "Văn phòng Hà Nội 1: Số 175 Ngô Gia Tự - Việt Hưng - Hà Nội (Hotline: 0978700968)",
-        "hanoi2": "Văn phòng Hà Nội 2: Tầng 9, Số 85 Trần Thái Tông, Cầu Giấy, Hà Nội Hotline: 0978600968",
-        "haiphong1": "Văn phòng Hải Phòng 1: Số 16&18/33 Đỗ Nhuận - Hải An - Hải Phòng Hotline: 0978500968",
-        "haiphong2": "Văn phòng Hải Phòng 2: Số 326&328 Trường Chinh- Kiến An - Hải Phòng Hotline: 0978044968",
-        "thaibinh": "Văn phòng Thái Bình: Số 604&608 Lê Thánh Tông, Hotline: 0978420968 & Khách sạn Thụy Điển, số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên Hotline: 0978752968",
-        "ninhbinh": "Văn phòng Ninh Bình: Số 2/38 Đinh Tiên Hoàng - Hoa Lư - Ninh Bình. Hotline: 0978609968",
-        "namdinh1": "Văn phòng Nam Định 1: HVKT Building, Số 553 Đường Trường Chinh - P Nam Định, tỉnh Ninh Bình Hotline: 0978605968",
-        "quangninh": "Văn phòng Quảng Ninh: Số 169 Lê Thánh Tông, Hồng Gai, Quảng Ninh. Hotline: 0978940968",
-        "hanam": "Văn phòng Hà Nam: Số 6 Trần Phú, Phủ Lý, Ninh Bình. Hotline: 0978704968",
-        "haiduong": "Văn phòng Hải Dương: Số 41 Bạch Đằng, P Hải Dương, TP Hải Phòng. Hotline: 0978156968",
-        "bacgiang": "Văn phòng Bắc Giang: Số 293 Lê Lợi, P Bắc Giang, Tỉnh Bắc Ninh. Hotline: 0978053968",
-        "hungyen": "Văn Phòng Hưng Yên: Số 148 Chu Mạnh Trinh - Hiến Nam - Hưng Yên. Hotline: 0978430968",
-        "hochiminh": "Văn phòng Hồ Chí Minh: Số 48 đường Cát Tường, Lovera Park, KDC Phong Phú 4, Bình Chánh, Thành phố Hồ Chí Minh. Hotline: 0978552968"
+        "title": "Địa chỉ văn phòng",
+        "cities": {
+          "hanoi": {
+            "name": "Hà Nội",
+            "offices": {
+              "office1": "Văn phòn - 1: Số 175 Ngô Gia Tự - Việt Hưng - Hà Nội (Hotline: 0978 700 968)",
+              "office2": "Văn phòng 2 - Tầng 9, Số 85 Trần Thái Tông, Cầu Giấy, Hà Nội (Hotline: 0978 600 968)"
+            }
+          },
+          "haiphong": {
+            "name": "Hải Phòng",
+            "offices": {
+              "office1": "Văn phòng 1 - Số 16&18/33 Đỗ Nhuận - Hải An - Hải Phòng (Hotline: 0978 500 968)",
+              "office2": "Văn phòng 2 - Số 326&328 Trường Chinh - Kiến An - Hải Phòng (Hotline: 0978 044 968)",
+              "office3": "Văn phòng 3 - Số 41 Bạch Đằng, P Hải Dương, TP Hải Dương (Hotline: 0978 156 968)"
+            }
+          },
+          "ninhbinh": {
+            "name": "Ninh Bình",
+            "offices": {
+              "office1": "Văn phòng 1 - Số 2/38 Đinh Tiên Hoàng - Hoa Lư - Ninh Bình (Hotline: 0978 609 968)",
+              "office2": "Văn phòng 2 - Số 6 Trần Phú, Phủ Lý, Hà Nam (Hotline: 0978 704 968)",
+              "office3": "Văn phòng 3 - HVKT Building, Số 553 Đường Trường Chinh - P Nam Định, tỉnh Ninh Bình (Hotline: 0978 605 968)"
+            }
+          },
+          "quangninh": {
+            "name": "Quảng Ninh",
+            "offices": {
+              "office1": "Văn phòng 1 - Số 169 Lê Thánh Tông, Hồng Gai, Quảng Ninh (Hotline: 0978 940 968)"
+            }
+          },
+          "bacninh": {
+            "name": "Bắc Ninh",
+            "offices": {
+              "office1": "Văn phòng 1 - Số 293 Lê Lợi, P Bắc Giang, Tỉnh Bắc Giang (Hotline: 0978 053 968)"
+            }
+          },
+          "hungyen": {
+            "name": "Hưng Yên",
+            "offices": {
+              "office1": "Văn phòng 1 - Số 148 Chu Mạnh Trinh - Hiến Nam - Hưng Yên (Hotline: 0978 430 968)",
+              "office2": "Văn phòng 2 - Số 604&608 Lê Thánh Tông (Hotline: 0978 420 968) & Khách sạn Thụy Điển, số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên (Hotline: 0978 752 968)",
+              "office3": "Văn phòng 3 - Số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên (Hotline: 0978 752 968)"
+            }
+          },
+          "hochiminh": {
+            "name": "Thành phố Hồ Chí Minh",
+            "offices": {
+              "office1": "Văn phòng 1 - Số 48 đường Cát Tường, Lovera Park, Khu dân cư Phong Phú 4, Bình Chánh, Thành phố Hồ Chí Minh (Hotline: 0978 552 968)"
+            }
+          }
+        }
       }
     }
   }

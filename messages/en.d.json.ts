@@ -97,7 +97,7 @@ declare const messages: {
 
   "rooms": {
     "title": "Our Rooms",
-    "descriptions": "A total of 94 rooms with 8 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.",
+    "descriptions": "A total of 94 rooms with 7 room categories to suit all customers' needs. The interior is carefully selected, fully equipped, ensuring maximum comfort and privacy.",
     "viewDetails": "View Details",
     "viewAllRooms": "View All Rooms",
     "recommended": "more rooms",
@@ -184,7 +184,7 @@ declare const messages: {
     "phone": "Phone",
     "location": {
       "title": "Location",
-      "address": "Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam",
+      "address": "Zone 1, Tam Dao commune, Phu Tho province",
       "viewOnGoogleMap": "View on Google Map"
     }
   },
@@ -230,21 +230,61 @@ declare const messages: {
     },
     "hotelAddress": {
       "title": "Hotel Address",
-      "address": "Zone 1, Tam Dao Town, Tam Dao Township, Vinh Phuc Province, Phu Tho Province, Vietnam",
+      "address": "Zone 1, Tam Dao commune, Phu Tho province",
+      "viewAllOffices": "View all office addresses",
       "offices": {
-        "hanoi1": "Hanoi Office 1: No. 175 Ngo Gia Tu - Viet Hung - Hanoi (Hotline: 0978700968)",
-        "hanoi2": "Hanoi Office 2: Floor 9, No. 85 Tran Thai Tong, Cau Giay, Hanoi Hotline: 0978600968",
-        "haiphong1": "Hai Phong Office 1: No. 16&18/33 Do Nhuan - Hai An - Hai Phong Hotline: 0978500968",
-        "haiphong2": "Hai Phong Office 2: No. 326&328 Truong Chinh- Kien An - Hai Phong Hotline: 0978044968",
-        "thaibinh": "Thai Binh Office: No. 604&608 Le Thanh Tong, Hotline: 0978420968 & Thuy Dien Hotel, No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen Hotline: 0978752968",
-        "ninhbinh": "Ninh Binh Office: No. 2/38 Dinh Tien Hoang - Hoa Lu - Ninh Binh. Hotline: 0978609968",
-        "namdinh1": "Nam Dinh Office 1: HVKT Building, No. 553 Truong Chinh Street - P Nam Dinh, Ninh Binh Province Hotline: 0978605968",
-        "quangninh": "Quang Ninh Office: No. 169 Le Thanh Tong, Hong Gai, Quang Ninh. Hotline: 0978940968",
-        "hanam": "Ha Nam Office: No. 6 Tran Phu, Phu Ly, Ninh Binh. Hotline: 0978704968",
-        "haiduong": "Hai Duong Office: No. 41 Bach Dang, P Hai Duong, Hai Phong City. Hotline: 0978156968",
-        "bacgiang": "Bac Giang Office: No. 293 Le Loi, P Bac Giang, Bac Ninh Province. Hotline: 0978053968",
-        "hungyen": "Hung Yen Office: No. 148 Chu Manh Trinh - Hien Nam - Hung Yen. Hotline: 0978430968",
-        "hochiminh": "Ho Chi Minh Office: No. 48 Cat Tuong Street, Lovera Park, KDC Phong Phu 4, Binh Chanh, Ho Chi Minh City. Hotline: 0978552968"
+        "title": "Office Address",
+        "cities": {
+          "hanoi": {
+            "name": "Hanoi",
+            "offices": {
+              "office1": "Office 1 - No. 175 Ngo Gia Tu - Viet Hung - Hanoi - 0978 700 968",
+              "office2": "Office 2 - Floor 9, No. 85 Tran Thai Tong, Cau Giay, Hanoi - 0978 600 968"
+            }
+          },
+          "haiphong": {
+            "name": "Hai Phong",
+            "offices": {
+              "office1": "Office 1 - No. 16&18/33 Do Nhuan - Hai An - Hai Phong - 0978 500 968",
+              "office2": "Office 2 - No. 326&328 Truong Chinh - Kien An - Hai Phong - 0978 044 968",
+              "office3": "Office 3 - No. 41 Bach Dang, P Hai Duong, Hai Duong City - 0978 156 968"
+            }
+          },
+          "ninhbinh": {
+            "name": "Ninh Binh",
+            "offices": {
+              "office1": "Office 1 - No. 2/38 Dinh Tien Hoang - Hoa Lu - Ninh Binh - 0978 609 968",
+              "office2": "Office 2 - No. 6 Tran Phu, Phu Ly, Ha Nam - 0978 704 968",
+              "office3": "Office 3 - HVKT Building, No. 553 Truong Chinh Street - P Nam Dinh, Ninh Binh Province - 0978 605 968"
+            }
+          },
+          "quangninh": {
+            "name": "Quang Ninh",
+            "offices": {
+              "office1": "Office 1 - No. 169 Le Thanh Tong, Hong Gai, Quang Ninh - 0978 940 968"
+            }
+          },
+          "bacninh": {
+            "name": "Bac Ninh",
+            "offices": {
+              "office1": "Office 1 - No. 293 Le Loi, P Bac Giang, Bac Giang Province - 0978 053 968"
+            }
+          },
+          "hungyen": {
+            "name": "Hung Yen",
+            "offices": {
+              "office1": "Office 1 - No. 148 Chu Manh Trinh - Hien Nam - Hung Yen - 0978 430 968",
+              "office2": "Office 2 - No. 604&608 Le Thanh Tong - 0978 420 968 & Thuy Dien Hotel, No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen - 0978 752 968",
+              "office3": "Office 3 - No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen - 0978 752 968"
+            }
+          },
+          "hochiminh": {
+            "name": "Ho Chi Minh City",
+            "offices": {
+              "office1": "Office 1 - No. 48 Cat Tuong Street, Lovera Park, Phong Phu 4 Residential Area, Binh Chanh, Ho Chi Minh City - 0978 552 968"
+            }
+          }
+        }
       }
     }
   }

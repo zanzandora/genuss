@@ -13,18 +13,16 @@ const RoomTitleSection = ({ room }: Props) => {
   const translatedRoom = translateRoom(room);
 
   return (
-    <div className='flex items-start justify-between'>
-      <div className='space-y-8'>
-        <h1 className='text-h3'>{translatedRoom.name}</h1>
-      </div>
-      <div className='text-h3 font-normal text-primary'>
+    <div className='flex flex-col items-start justify-between gap-x-8 gap-y-4 md:flex-row'>
+      <p className='text-h3 text-pretty'>{translatedRoom.name}</p>
+      <p className='text-h4 font-normal text-primary'>
         {tRooms.rich('priceJSX', {
           value: String(formatCurrency(+room.price)),
           price: (chunks) => (
             <span className='text-paragraph-b text-primary'>{chunks}</span>
           ),
         })}
-      </div>
+      </p>
     </div>
   );
 };

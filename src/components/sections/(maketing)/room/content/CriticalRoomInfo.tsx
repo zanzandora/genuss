@@ -16,14 +16,14 @@ export function CriticalRoomInfo({ room }: CriticalRoomInfoProps) {
       <RoomTitleSection room={room} />
 
       {/* Gallery and Features  */}
-      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-8'>
         {/* Room Gallery */}
-        <div className='order-1 lg:order-1'>
+        <div className='order-1'>
           <RoomGallery room={room} />
         </div>
 
         {/* Room Features  */}
-        <div className='order-2 lg:order-2'>
+        <div className='order-2'>
           <RoomFeatures room={room} showDescription={false} />
         </div>
       </div>

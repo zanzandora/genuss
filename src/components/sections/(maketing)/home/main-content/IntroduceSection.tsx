@@ -42,10 +42,10 @@ const IntroduceSection = () => {
         </div>
       </div>
 
-      <div className='mx-auto max-w-7xl px-6 py-8 md:py-12'>
-        <div className='p-6 md:p-8'>
-          <div className='grid gap-8 lg:grid-cols-2 lg:gap-18'>
-            <figure className='mx-auto w-[350px] overflow-hidden rounded-tl-4xl rounded-br-4xl drop-shadow-xl md:w-[400px] lg:w-[500px]'>
+      <div className='mx-auto max-w-7xl p-6 px-6 py-8 md:p-8 md:py-12'>
+        <div className='grid gap-8 lg:grid-cols-2 lg:gap-18'>
+          <div className='mx-auto w-[350px] rounded-4xl shadow-xl md:w-[400px] lg:w-[500px]'>
+            <figure className='overflow-hidden rounded-4xl'>
               {/* Hotel Exterior */}
               <AspectRatio ratio={1 / 1}>
                 <Image
@@ -62,26 +62,26 @@ const IntroduceSection = () => {
                 Introduc image: Why choose GENUSS ?
               </figcaption>
             </figure>
+          </div>
 
-            {/* Right Column - Feature Sections */}
-            <div className='ml-2 flex flex-col justify-center space-y-12'>
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <div key={index} className='flex items-start gap-4'>
-                    <Icon />
-                    <div>
-                      <h3 className='text-xl font-bold text-gray-900 uppercase'>
-                        {tIntroduce(feature.titleKey)}
-                      </h3>
-                      <p className='text-mu mt-1 text-sm'>
-                        {tIntroduce(feature.descriptionKey)}
-                      </p>
-                    </div>
+          {/* Right Column - Feature Sections */}
+          <div className='ml-2 flex flex-col justify-center space-y-12'>
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className='flex items-start gap-4'>
+                  <Icon />
+                  <div>
+                    <h3 className='text-xl font-bold text-gray-900 uppercase'>
+                      {tIntroduce(feature.titleKey)}
+                    </h3>
+                    <p className='text-mu mt-1 text-sm'>
+                      {tIntroduce(feature.descriptionKey)}
+                    </p>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

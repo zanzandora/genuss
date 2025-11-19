@@ -17,9 +17,7 @@ const ContactInfo = () => {
               {tContact('phone')}
             </h2>
             <div className='space-y-0.5 text-h4 text-primary-foreground'>
-              <p>0978 352 968</p>
-              <p>0978 352 968</p>
-              <p>0978 352 968</p>
+              <p>0978 552 968</p>
             </div>
           </div>
 
@@ -30,7 +28,7 @@ const ContactInfo = () => {
             </div>
             <h2 className='mb-6 text-h2 text-primary-foreground'>Email</h2>
             <p className='text-h4 text-sm text-primary-foreground'>
-              sale01.td@genuss.vn
+              genusstamdao2968@gmail.com
             </p>
           </div>
 
