@@ -7,7 +7,16 @@
     "build": "next build --turbopack",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build --webpack",
-    "lint": "eslint"
+    "lint": "eslint",
+    "docker:dev": "docker-compose up --build",
+    "docker:dev:down": "docker-compose down",
+    "docker:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d",
+    "docker:prod:down": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml down",
+    "docker:logs:dev": "docker-compose logs -f",
+    "docker:logs:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml logs -f",
+    "docker:build:dev": "docker-compose build",
+    "docker:build:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml build",
+    "docker:clean": "docker system prune -f"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Development service
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base # Use base stage for development
+    container_name: genuss-dev
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    command: sh -c "corepack enable pnpm && pnpm install && pnpm run dev"
+    restart: 'no' # Don't restart in development for easier debugging
+    networks:
+      - genuss-network
+
+networks:
+  genuss-network:
+    driver: bridge
