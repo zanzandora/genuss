@@ -1,0 +1,29 @@
+services:
+  # Development service
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deps # Use deps stage for development
+    container_name: genuss-dev
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NEXT_TELEMETRY_DISABLED: 1
+      WATCHPACK_POLLING: true # giúp hot reload ổn định trong Docker
+    volumes:
+      - .:/app
+      - /app/node_modules # Don't override node_modules from the image
+    command: sh -c "corepack enable pnpm && pnpm dev"
+    restart: 'no'
+    networks:
+      - genuss-network
+
+volumes:
+  node_modules:
+
+networks:
+  genuss-network:
+    driver: bridge

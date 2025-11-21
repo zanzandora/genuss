@@ -176,6 +176,10 @@
   .font-allison {
     font-family: var(--font-allison), sans-serif;
   }
+
+  .font-playfair_display_sc {
+    font-family: var(--font-playfair_display_sc), sans-serif;
+  }
 }
 
 @utility text-h1 {

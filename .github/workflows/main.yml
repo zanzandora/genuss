@@ -18,8 +18,8 @@ jobs:
           script: |
             cd /var/www/send-email/genuss
             git fetch origin
-            git checkout master
-            git pull
+            git pullt checkout master
+            gi
             npm install
             npm run build
             pm2 reload genuss

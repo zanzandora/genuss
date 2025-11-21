@@ -4,6 +4,8 @@ import { TRoom } from '@/types/room.type';
 import { ArrowRightIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { AnimatedSection } from '@/components/ui/animations/AnimatedSection';
+import { AnimatedContainer } from '@/components/ui/animations/AnimatedContainer';
 
 const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
   const tRooms = useTranslations('rooms');
@@ -18,22 +20,30 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
         className='absolute top-0 left-0 z-0 -mx-4 h-full w-auto opacity-50'
       />
       <div className='relative mx-auto max-w-6xl'>
-        <div className='mb-12 text-center'>
+        <AnimatedSection variant='fadeInDown' className='mb-12 text-center'>
           <h2 className='mb-4 text-xl font-bold uppercase sm:text-2xl lg:text-5xl'>
             {tRooms('title')}
           </h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
             {tRooms('descriptions')}
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className='mb-8 grid gap-6 md:grid-cols-3'>
+        <AnimatedContainer
+          variant='container'
+          itemVariant='fadeInUp'
+          className='mb-8 grid gap-6 md:grid-cols-3'
+        >
           {rooms.slice(0, 3).map((room) => (
             <RoomCard key={room.id} room={room} />
           ))}
-        </div>
+        </AnimatedContainer>
 
-        <div className='text-right'>
+        <AnimatedSection
+          variant='slideInLeft'
+          delay={0.3}
+          className='text-right'
+        >
           <Link
             href='/rooms'
             className='flex items-center justify-end gap-2 font-semibold hover:underline hover:underline-offset-4'
@@ -41,7 +51,7 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
             {tRooms('viewAllRooms')}
             <ArrowRightIcon className='h-4 w-4' />
           </Link>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

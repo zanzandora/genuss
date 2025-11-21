@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Sans, Allison } from 'next/font/google';
+import { Noto_Sans, Allison, Playfair_Display_SC } from 'next/font/google';
 import '../globals.css';
 import 'ldrs/react/Grid.css';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -13,6 +13,12 @@ const noto_Sans = Noto_Sans({
 const allison = Allison({
   subsets: ['latin'],
   variable: '--font-allison',
+  weight: '400',
+});
+
+const playfair_Display_SC = Playfair_Display_SC({
+  subsets: ['latin'],
+  variable: '--font-playfair_display_sc',
   weight: '400',
 });
 
@@ -35,7 +41,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${noto_Sans.variable} ${allison.variable} antialiased`}>
+      <body
+        className={`${noto_Sans.variable} ${allison.variable} ${playfair_Display_SC.variable} antialiased`}
+      >
         <NextIntlClientProvider
           locale={locale as 'en' | 'vi'}
           messages={messages}
