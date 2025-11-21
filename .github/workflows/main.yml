@@ -16,7 +16,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            cd /var/www/send-email/front-end
+            cd /var/www/send-email/genuss
             git fetch origin
             git checkout production
             git pull
