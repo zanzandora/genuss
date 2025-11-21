@@ -1,3 +1,5 @@
+import AnimatedContainer from '@/components/ui/animations/AnimatedContainer';
+import AnimatedSection from '@/components/ui/animations/AnimatedSection';
 import { BLUR_DATA_URL } from '@/constants';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
@@ -43,11 +45,17 @@ const FamousFacilitiesSection = () => {
         className='absolute top-1/2 right-0 z-0 -mx-4 h-auto w-4xl -translate-y-1/2 scale-x-[-1] opacity-50'
       />
       <div className='relative mx-auto max-w-6xl'>
-        <h1 className='mb-16 text-center text-4xl font-bold uppercase md:text-4xl'>
-          {tFacilities('title')}
-        </h1>
+        <AnimatedSection variant='fadeInDown'>
+          <h1 className='mb-16 text-center text-4xl font-bold uppercase md:text-4xl'>
+            {tFacilities('title')}
+          </h1>
+        </AnimatedSection>
 
-        <div className='space-y-16'>
+        <AnimatedContainer
+          variant='fastContainer'
+          alternatingPattern='left-right'
+          className='space-y-16'
+        >
           {services.map((service, index) => (
             <div
               key={index}
@@ -80,7 +88,7 @@ const FamousFacilitiesSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </AnimatedContainer>
       </div>
     </section>
   );

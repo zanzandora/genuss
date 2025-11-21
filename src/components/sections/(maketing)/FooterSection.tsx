@@ -107,7 +107,7 @@ const FooterSection = () => {
           </div>
           <div className='mt-8 text-center'>
             <Link
-              href='#office-addresses'
+              href='/contact#office-addresses'
               className='text-primary-foreground underline transition-colors hover:text-primary-foreground/80'
             >
               {tFooter('hotelAddress.viewAllOffices') ||
