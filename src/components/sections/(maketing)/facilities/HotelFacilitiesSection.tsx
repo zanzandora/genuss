@@ -1,3 +1,4 @@
+import AnimatedContainer from '@/components/ui/animations/AnimatedContainer';
 import { FacilityKey } from '@/types/FacilityKey.type';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -25,7 +26,10 @@ const HotelFacilitiesSection = () => {
           {tFacilities('title')}
         </h1>
 
-        <div className='flex flex-wrap items-center justify-evenly gap-x-48 gap-y-28'>
+        <AnimatedContainer
+          variant='fastContainer'
+          className='flex flex-wrap items-center justify-evenly gap-x-48 gap-y-28'
+        >
           {facilities.map((facility, index) => (
             <div key={index} className='flex flex-col items-center gap-4'>
               <Image
@@ -40,7 +44,7 @@ const HotelFacilitiesSection = () => {
               </p>
             </div>
           ))}
-        </div>
+        </AnimatedContainer>
       </div>
     </section>
   );
