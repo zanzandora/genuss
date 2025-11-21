@@ -18,7 +18,7 @@ jobs:
           script: |
             cd /var/www/send-email/genuss
             git fetch origin
-            git checkout production
+            git checkout master
             git pull
             pnpm install
             pnpm run build
