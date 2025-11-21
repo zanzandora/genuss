@@ -20,6 +20,6 @@ jobs:
             git fetch origin
             git checkout master
             git pull
-            pnpm install
-            pnpm run build
-            pm2 reload sendmail-frontend
+            npm install
+            npm run build
+            pm2 reload genuss
