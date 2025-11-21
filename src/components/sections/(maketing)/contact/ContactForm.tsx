@@ -204,7 +204,7 @@ const ContactForm = ({
               onValueChange={(value) => setValue('title', value)}
             >
               <SelectTrigger
-                className='w-32 rounded-none border-0 bg-muted'
+                className='w-44 rounded-none border-0 bg-muted'
                 aria-label='Select Mr/Mrs'
               >
                 <SelectValue
