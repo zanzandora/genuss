@@ -27,7 +27,7 @@ export default function MainBannerSwiper({
       {/* Booking Title */}
       <div className='absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/12 md:-translate-y-1/2'>
         <div className='size-26 max-w-fit perspective-dramatic sm:mx-20 sm:w-40 md:w-full'>
-          <div className='font-playfair_display_sc flex translate-z-16 flex-col items-center text-center text-xs text-white capitalize sm:text-sm md:text-base xl:text-lg'>
+          <div className='font-playfair_display_sc flex translate-z-16 flex-col items-center text-center text-xs text-white sm:text-sm md:text-base xl:text-lg'>
             <span className='font-playfair_display_sc text-shadow-lg'>
               genuss hotel
             </span>
