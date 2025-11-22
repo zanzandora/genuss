@@ -20,6 +20,6 @@ jobs:
             git fetch origin
             git checkout production || git switch -c production
             git reset --hard origin/production
-            npm install
-            npm run build
+            pnpm install
+            pnpm run build
             pm2 reload genuss
