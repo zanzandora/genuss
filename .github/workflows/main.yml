@@ -16,10 +16,10 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            cd /var/www/send-email/front-end
+            cd /var/www/send-email/genuss
             git fetch origin
-            git checkout production
-            git pull
-            pnpm install
-            pnpm run build
-            pm2 reload sendmail-frontend
+            git checkout production || git switch -c production
+            git reset --hard origin/production
+            npm install
+            npm run build
+            pm2 reload genuss
