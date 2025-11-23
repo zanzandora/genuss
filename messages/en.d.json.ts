@@ -29,7 +29,16 @@ declare const messages: {
         "checkIn": "Check In",
         "checkOut": "Check Out",
         "adult": "Adult",
-        "child": "Child"
+        "child": "Child",
+        "toast": {
+          "success": "Room added to booking!",
+          "error": "Failed to add room to booking, please try again later.",
+          "validation": {
+            "checkIn": "Please select check-in date.",
+            "checkOut": "Please select check-out date.",
+            "invalidDateRange": "Check-out date must be after check-in date."
+          }
+        }
       },
       "contact": {
         "title": "Leave us your info",
@@ -44,7 +53,17 @@ declare const messages: {
           "message": "Message (optional)",
           "mr": "Mr",
           "mrs": "Mrs",
-          "send": "Send Message"
+          "send": "Send Message",
+          "toast": {
+            "success": {
+              "booking": "Booking submitted successfully! We will contact you soon.",
+              "contact": "Message sent successfully! We will get back to you."
+            },
+            "error": "Failed to submit. Please try again.",
+            "validation": {
+              "roomLength": "Please book at least one room to your booking"
+            }
+          }
         }
       }
     }
@@ -164,19 +183,19 @@ declare const messages: {
     "title": "Visit Our Famous Facilities",
     "dinning": {
       "title": "Restaurant & Dining Service",
-      "descriptions": "Experience a rich culinary experience with a breakfast buffet and an attractive Asian-European menu."
+      "descriptions": "Indulge in a rich culinary journey with a delectable buffet breakfast and an enticing selection of Asian and European dishes. The warm and inviting ambiance, complemented by professional service, ensures every meal is both memorable and fulfilling."
     },
     "event": {
       "title": "Conference & Event Service",
-      "descriptions": "Luxurious space for meetings, weddings and professional events with full amenities."
+      "descriptions": "Offering an elegant setting ideal for meetings, weddings, and professional events, our venue is fully equipped with modern facilities and attentive service. We provide flexible solutions tailored to meet all your event needs with sophistication and precision."
     },
     "recreation": {
       "title": "Recreation & Wellness Service",
-      "descriptions": "Relax at the pool, fitness center, and other recreational amenities, suitable for family vacations, couples, or travelers seeking privacy and tranquility."
+      "descriptions": "Experience absolute relaxation at our year-round outdoor pool, modern fitness center, and premium leisure facilities. The serene and private environment offers the perfect retreat for families, couples, and travelers seeking an elevated and tranquil getaway."
     },
     "swimming": {
       "title": "ALL-YEAR OUTDOOR SWIMMING POOL",
-      "descriptions": "Relax in the signature misty atmosphere of Tam Dao."
+      "descriptions": "Unwind by the outdoor pool, where crystal-clear waters blend harmoniously with the signature misty atmosphere of Tam Dao. The open, refreshing space with mountain views creates an exquisite and peaceful retreat for every guest."
     }
   },
 

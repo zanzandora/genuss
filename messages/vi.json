@@ -26,7 +26,16 @@
         "checkIn": "Ngày đến",
         "checkOut": "Ngày đi",
         "adult": "Người lớn",
-        "child": "Trẻ em"
+        "child": "Trẻ em",
+        "toast": {
+          "success": "Phòng đã được thêm vào đặt phòng!",
+          "error": "Không thể thêm phòng vào đặt phòng, vui lòng thử lại sau.",
+          "validation": {
+            "checkIn": "Vui lòng chọn ngày nhận phòng.",
+            "checkOut": "Vui lòng chọn ngày trả phòng.",
+            "invalidDateRange": "Ngày nhận phòng phải sau ngày trả phòng."
+          }
+        }
       },
       "contact": {
         "title": "Để lại thông tin của bạn",
@@ -41,7 +50,17 @@
           "message": "Tin nhắn (tùy chọn)",
           "mr": "Ông",
           "mrs": "Bà",
-          "send": "Gửi Tin nhắn"
+          "send": "Gửi Tin nhắn",
+          "toast": {
+            "success": {
+              "booking": "Đã gửi đặt chỗ thành công! Chúng tôi sẽ liên hệ với bạn sớm.",
+              "contact": "Đã gửi tin nhắn thành công! Chúng tôi sẽ liên hệ lại với bạn."
+            },
+            "error": "Thất bại khi gửi. Vui lòng thử lại.",
+            "validation": {
+              "roomLength": "Vui lòng đặt ít nhất một phòng vào đặt phòng của bạn."
+            }
+          }
         }
       }
     }
@@ -161,19 +180,19 @@
     "title": "Khám phá các tiện nghi nổi bật",
     "dinning": {
       "title": "Dịch vụ Nhà hàng & Ẩm thực",
-      "descriptions": "Trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á-Âu hấp dẫn."
+      "descriptions": "Trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á - Âu hấp dẫn. Không gian ấm cúng, phục vụ chuyên nghiệp mang đến cho bạn những bữa ăn trọn vị và đáng nhớ."
     },
     "event": {
       "title": "Dịch vụ Hội nghị & Sự kiện",
-      "descriptions": "Không gian sang trọng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp với đầy đủ tiện nghi."
+      "descriptions": "Không gian sang trọng, phù hợp cho các cuộc họp, tiệc cưới và sự kiện chuyên nghiệp. Trang thiết bị đầy đủ cùng dịch vụ chu đáo đảm bảo đáp ứng linh hoạt mọi nhu cầu tổ chức của bạn."
     },
     "recreation": {
       "title": "Dịch vụ Giải trí & Chăm sóc sức khỏe",
-      "descriptions": "Thư giãn tại hồ bơi, trung tâm thể dục và các tiện nghi giải trí khác, phù hợp cho các kỳ nghỉ gia đình, cặp đôi hoặc du khách tìm kiếm sự riêng tư và yên tĩnh."
+      "descriptions": "Tận hưởng những phút giây thư thái tuyệt đối tại hồ bơi ngoài trời, trung tâm thể dục hiện đại và các tiện ích giải trí cao cấp. Không gian yên bình, riêng tư mang đến trải nghiệm hoàn hảo cho gia đình, cặp đôi và những du khách tìm kiếm sự nghỉ dưỡng đẳng cấp."
     },
     "swimming": {
       "title": "Hồ bơi ngoài trời quanh năm",
-      "descriptions": "Thư giãn giữa làn sương đặc trưng Tam Đảo."
+      "descriptions": "Tận hưởng khoảnh khắc thư thái tại hồ bơi ngoài trời, nơi làn nước trong xanh hòa cùng sắc sương đặc trưng của Tam Đảo. Không gian thoáng đãng với tầm nhìn hướng núi mang đến trải nghiệm nghỉ dưỡng tinh tế và yên bình cho mọi du khách."
     }
   },
 
@@ -189,7 +208,7 @@
   "bookingDetails": {
     "totalPrice": "Giá trị tổng cộng",
     "table": {
-      "rooms": "phòng",
+      "rooms": "Phòng",
       "priceNight": "Giá mỗi đêm",
       "quantity": "Số lượng"
     }
@@ -228,9 +247,9 @@
     "hotelAddress": {
       "title": "Địa chỉ khách sạn",
       "address": "Khu 1 xã Tam Đảo , tỉnh Phú Thọ",
-      "viewAllOffices": "Xem tất cả địa chỉ văn phòng",
+      "viewAllOffices": "Xem tất cả văn phòng đại diện",
       "offices": {
-        "title": "Địa chỉ văn phòng",
+        "title": "Văn phòng đại diện",
         "cities": {
           "hanoi": {
             "name": "Hà Nội",

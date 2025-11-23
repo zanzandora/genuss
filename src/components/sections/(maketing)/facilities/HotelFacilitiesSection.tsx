@@ -15,7 +15,6 @@ const HotelFacilitiesSection = () => {
     { icon: '/icons/icon-safe.svg', nameKey: 'safe' as FacilityKey },
     { icon: '/icons/icon-breakfast.svg', nameKey: 'breakfast' as FacilityKey },
     { icon: '/icons/icon-gym.svg', nameKey: 'gym' as FacilityKey },
-    { icon: '/icons/icon-spa.svg', nameKey: 'spa' as FacilityKey },
     { icon: '/icons/icon-wifi.svg', nameKey: 'wifi' as FacilityKey },
   ];
 

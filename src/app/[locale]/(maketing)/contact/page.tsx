@@ -14,9 +14,9 @@ const ContactPage = () => {
 
       <ContactInfo />
 
-      <ContactForm />
-
       <ContactOfficerAddress />
+
+      <ContactForm />
 
       <BackToTopButton />
     </div>

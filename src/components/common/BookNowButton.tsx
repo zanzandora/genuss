@@ -1,11 +1,9 @@
 'use client';
 
-import { useRouter } from '@/i18n/routing';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
-import { useRoomStore } from '@/stores/useRoomStore';
 import { TRoom } from '@/types/room.type';
-import { toast } from 'sonner';
+import { useBookRoom } from '@/hooks/useBookRoom';
 import { useTranslations } from 'next-intl';
 
 type Props = {
@@ -24,28 +22,32 @@ export const BookNowButton = ({
   checkOut,
 }: Props) => {
   const tButtons = useTranslations('common.buttons');
+  const { bookRoom, isLoading } = useBookRoom();
 
-  const router = useRouter();
-  const addItem = useRoomStore((state) => state.addItem);
-
-  function handleClickDefault() {
+  async function handleClickDefault() {
     if (room) {
-      addItem(room, checkIn, checkOut);
-      toast.success('Room added to booking!');
+      await bookRoom(room, checkIn, checkOut);
     }
-    router.push('/booking-detail');
   }
 
   return (
     <Button
       size='sm'
       onClick={onClick || handleClickDefault}
+      disabled={isLoading}
       className={cn(
-        'h-8 min-w-[2.5rem] cursor-pointer rounded-full border border-border bg-primary px-4 py-6 text-paragraph-m text-lg font-medium text-muted transition-all hover:scale-110 hover:border-secondary hover:bg-accent hover:text-muted-foreground',
+        'h-8 min-w-[2.5rem] cursor-pointer rounded-full border border-border bg-primary px-4 py-6 text-paragraph-m text-lg font-medium text-muted transition-all hover:scale-110 hover:border-secondary hover:bg-accent hover:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100',
         className,
       )}
     >
-      {tButtons('bookNow')}
+      {isLoading ? (
+        <div className='flex items-center gap-2'>
+          <div className='h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent' />
+          {tButtons('bookNow')}
+        </div>
+      ) : (
+        tButtons('bookNow')
+      )}
     </Button>
   );
 };

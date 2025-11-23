@@ -5,7 +5,7 @@ const ContactOfficerAddress = () => {
   const tFooter = useTranslations('footer.hotelAddress.offices');
 
   return (
-    <div id='office-addresses' className='mx-auto mt-20 max-w-6xl'>
+    <div id='office-addresses' className='mx-auto my-20 max-w-6xl'>
       <h1 className='mb-6 text-center text-h2 uppercase sm:mb-8 lg:mb-10'>
         {tFooter('title')}
       </h1>

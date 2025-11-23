@@ -86,19 +86,19 @@ const ContactForm = ({
   const onSubmit = async (data: ContactFormData) => {
     if (requireBookingData) {
       if (items.length === 0) {
-        toast.error('Please add at least one room to your booking');
+        toast.error(tContactForm('form.toast.validation.roomLength'));
         return;
       }
       if (!bookingData.checkIn) {
-        toast.error('Please select check-in date');
+        toast.error(tBookingForm('toast.validation.checkIn'));
         return;
       }
       if (!bookingData.checkOut) {
-        toast.error('Please select check-out date');
+        toast.error(tBookingForm('toast.validation.checkOut'));
         return;
       }
       if (bookingData.checkOut <= bookingData.checkIn) {
-        toast.error('Check-out date must be after check-in date');
+        toast.error(tBookingForm('toast.validation.invalidDateRange'));
         return;
       }
     }
@@ -159,8 +159,8 @@ const ContactForm = ({
 
       toast.success(
         requireBookingData
-          ? 'Booking submitted successfully! We will contact you soon.'
-          : 'Message sent successfully! We will get back to you.',
+          ? tContactForm('form.toast.success.booking')
+          : tContactForm('form.toast.success.contact'),
       );
 
       // Reset form

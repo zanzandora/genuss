@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 const FooterSection = () => {
   const tFooter = useTranslations('footer');
+  const tContact = useTranslations('contact');
 
   return (
     <footer className='mt-20 rounded-t-2xl bg-primary px-4 py-12 text-primary-foreground sm:px-6 sm:py-16'>
@@ -30,22 +31,16 @@ const FooterSection = () => {
                 {tFooter('contactUs.title')}
               </h4>
               <div className='space-y-2 sm:space-y-4'>
-                <p className='text-paragraph-m font-normal'>
-                  {tFooter('contactUs.Tel')}:
-                </p>
-                <div className='flex flex-col space-y-1 sm:flex-row sm:space-y-0 sm:space-x-4'>
-                  <span className='text-paragraph-m font-normal'>
-                    0978 352 968
-                  </span>
-                  <span className='text-paragraph-m font-normal'>
-                    0978 452 968
-                  </span>
-                  <span className='text-paragraph-m font-normal'>
-                    0978 552 968
-                  </span>
+                <div className='space-y-1 sm:space-y-0 sm:space-x-4'>
+                  <p className='text-paragraph-m font-normal'>
+                    {tFooter('contactUs.Tel')}:{' '}
+                    <span className='text-paragraph-m font-normal'>
+                      0978 552 968
+                    </span>
+                  </p>
                 </div>
                 <p className='text-paragraph-m font-normal'>
-                  Email: sale01.td@genuss.vn
+                  Email: genusstamdao2968@gmail.com
                 </p>
               </div>
             </div>
@@ -59,6 +54,14 @@ const FooterSection = () => {
               <p className='text-paragraph-m leading-relaxed font-normal'>
                 {tFooter('hotelAddress.address')}
               </p>
+              <Link
+                href='https://www.google.com/maps/place/Kh%C3%A1ch+s%E1%BA%A1n+Genuss+Tam+%C4%90%E1%BA%A3o/@21.4572571,105.6403567,772m/data=!3m2!1e3!4b1!4m10!3m9!1s0x3134e7650ddc749f:0x9fde527b2b8fb0ca!5m3!1s2025-11-23!4m1!1i2!8m2!3d21.4572522!4d105.6452276!16s%2Fg%2F11t99qzv_x?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-sm text-primary-foreground underline transition hover:text-blue-400'
+              >
+                {tContact('location.viewOnGoogleMap')}
+              </Link>
             </div>
             <div className='relative h-48 min-h-[200px] w-full sm:h-56 sm:min-h-[240px] lg:h-60 lg:min-h-[241px]'>
               <iframe

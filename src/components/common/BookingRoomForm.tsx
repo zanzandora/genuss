@@ -20,9 +20,11 @@ import { vi, enUS } from 'date-fns/locale';
 import { TriangleIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useBookingDataStore } from '@/stores/useBookingDataStore';
+import { useBookRoom } from '@/hooks/useBookRoom';
 import { useState } from 'react';
 import { Link, usePathname } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
+import { TRoom } from '@/types/room.type';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -30,18 +32,21 @@ type Props = {
   orientation?: Orientation;
   buttonClass?: string;
   className?: string;
+  room?: TRoom;
 };
 
 export const BookingRoomForm = ({
   orientation = 'horizontal',
   className,
   buttonClass,
+  room,
 }: Props) => {
   const tBookingRoomForm = useTranslations('common.forms.bookingForm');
   const tButtons = useTranslations('common.buttons');
   const tLabels = useTranslations('common.labels');
 
   const locale = useLocale();
+  const { bookRoom, isLoading } = useBookRoom();
 
   const dateLocale = locale === 'vi' ? vi : enUS;
 
@@ -55,6 +60,14 @@ export const BookingRoomForm = ({
   const pathname = usePathname();
 
   const isBookingDetail = pathname.endsWith('/booking-detail');
+  const isRoomDetail = pathname.includes('/room-detail/');
+
+  // Handle booking with room (using reusable hook)
+  const handleBookNowWithRoom = async () => {
+    if (room) {
+      await bookRoom(room);
+    }
+  };
 
   const containerClasses =
     orientation === 'vertical'
@@ -73,7 +86,7 @@ export const BookingRoomForm = ({
                 type='button'
                 variant='outline'
                 data-empty={!bookingData.checkIn}
-                className='w-50 justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
+                className='w-full justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
               >
                 {bookingData.checkIn
                   ? format(
@@ -85,7 +98,7 @@ export const BookingRoomForm = ({
                 <TriangleIcon fill='#111111' className='rotate-180' />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className='my-2 w-auto p-0'>
+            <PopoverContent className='my-2 w-auto p-0 px-1'>
               <Calendar
                 mode='single'
                 locale={dateLocale}
@@ -111,7 +124,7 @@ export const BookingRoomForm = ({
               <Button
                 variant='outline'
                 data-empty={!bookingData.checkOut}
-                className='w-50 justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
+                className='w-full justify-between border-none text-left font-bold shadow-none data-[empty=true]:text-muted-foreground'
               >
                 {bookingData.checkOut
                   ? format(
@@ -123,7 +136,7 @@ export const BookingRoomForm = ({
                 <TriangleIcon fill='#111111' className='rotate-180' />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className='my-2 w-auto p-0'>
+            <PopoverContent className='my-2 w-auto p-0 px-1'>
               <Calendar
                 mode='single'
                 locale={dateLocale}
@@ -154,7 +167,7 @@ export const BookingRoomForm = ({
             >
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className='my-2 w-3xs px-4'>
+            <SelectContent className='my-2 max-h-[290px] w-3xs px-4'>
               {Array.from({ length: 10 }, (_, i) => i + 1).map((value) => (
                 <SelectItem key={value} value={value.toString()}>
                   {value.toString()}
@@ -179,7 +192,7 @@ export const BookingRoomForm = ({
             >
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className='my-2 w-3xs px-4'>
+            <SelectContent className='my-2 max-h-[290px] w-3xs px-4'>
               {Array.from({ length: 10 }, (_, i) => i).map((value) => (
                 <SelectItem key={value} value={value.toString()} className=''>
                   {value.toString()}
@@ -202,6 +215,26 @@ export const BookingRoomForm = ({
             {tButtons('completeBookNow')}
           </Button>
         </Link>
+      ) : isRoomDetail && room ? (
+        <Button
+          size='lg'
+          type='button'
+          onClick={handleBookNowWithRoom}
+          disabled={isLoading}
+          className={cn(
+            'cursor-pointer rounded-xl border-4 border-border bg-transparent px-10 py-8 text-xl font-bold text-primary-foreground uppercase hover:border-primary-foreground hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50',
+            buttonClass,
+          )}
+        >
+          {isLoading ? (
+            <div className='flex items-center gap-2'>
+              <div className='h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent' />
+              {tButtons('bookNow')}
+            </div>
+          ) : (
+            tButtons('bookNow')
+          )}
+        </Button>
       ) : (
         <Link
           href={pathname.includes('/booking') ? '/booking-detail' : '/booking'}

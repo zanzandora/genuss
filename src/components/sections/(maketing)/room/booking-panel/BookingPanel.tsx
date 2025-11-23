@@ -1,8 +1,13 @@
 import { Card } from '@/components/ui/card';
 import BookingRoomForm from '../../../../common/BookingRoomForm';
 import { useTranslations } from 'next-intl';
+import { TRoom } from '@/types/room.type';
 
-export function BookingPanel() {
+interface BookingPanelProps {
+  room?: TRoom;
+}
+
+export function BookingPanel({ room }: BookingPanelProps) {
   const t = useTranslations('common.forms.bookingForm');
   return (
     <div className='lg:col-span-1'>
@@ -17,6 +22,7 @@ export function BookingPanel() {
             orientation='vertical'
             className='relative my-0 gap-3'
             buttonClass='text-muted-foreground hover:text-muted'
+            room={room}
           />
         </div>
       </Card>
