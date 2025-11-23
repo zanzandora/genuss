@@ -9,7 +9,6 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  PaginationState,
   SortingState,
   useReactTable,
   VisibilityState,
@@ -23,7 +22,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
 import { useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -37,7 +35,6 @@ export function BookingDetailsDataTable<TData, TValue>({
   data,
 }: DataTableProps<TData, TValue>) {
   const tLabels = useTranslations('common.labels');
-  const tButtons = useTranslations('common.buttons');
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);

@@ -14,6 +14,8 @@ const ContactPage = () => {
 
       <ContactInfo />
 
+      <ContactOfficerAddress />
+
       <ContactForm />
 
       <ContactOfficerAddress />

@@ -41,7 +41,7 @@ export function StreamingRoomDetails({
 
           {/* Booking Panel - High Priority */}
           <Suspense fallback={<BookingPanelSkeleton />}>
-            <BookingPanel />
+            <BookingPanel room={room} />
           </Suspense>
         </div>
 
