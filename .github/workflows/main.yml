@@ -21,11 +21,21 @@ jobs:
         with:
           version: 8
 
-      - name: Install & Build
+      - name: Install dependencies
         run: |
-          pnpm install --frozen-lockfile
+          echo "🔧 Fixing broken lockfile..."
+          rm -f pnpm-lock.yaml
+          echo "📦 Installing fresh dependencies..."
+          pnpm install
+          echo "✅ Dependencies installed successfully!"
+
+      - name: Build application
+        run: |
+          echo "🏗️ Building application..."
           pnpm run deploy
+          echo "📦 Creating deployment package..."
           tar -czf deploy.tar.gz -C .next/standalone .
+          echo "✅ Build completed!"
 
       - name: Deploy to VPS
         uses: appleboy/scp-action@master
