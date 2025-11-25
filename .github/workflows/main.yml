@@ -55,12 +55,11 @@ jobs:
           script: |
             cd /var/www/genuss
 
-            echo "🧹 Cleaning old files..."
-            rm -rf standalone deploy.tar.gz
-
             echo "📦 Extracting new package..."
             tar -xzf deploy.tar.gz
-            rm deploy.tar.gz
+
+            echo "🧹 Cleaning old files..."
+            rm -rf standalone deploy.tar.gz
 
             echo "🔧 Setting up files..."
             if [ -d "standalone" ]; then
@@ -69,6 +68,3 @@ jobs:
 
             echo "🚀 Starting application..."
             pm2 restart genuss || pm2 start server.js --name genuss
-
-            echo "📊 PM2 status:"
-            pm2 status
