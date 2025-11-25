@@ -33,42 +33,40 @@ const IntroduceSection = () => {
   ];
 
   return (
-    <section className='mb-4 rounded-4xl bg-primary-foreground sm:mb-10 md:mb-16'>
+    <section className='mb-4 rounded-4xl bg-[#F5F7FA] px-6 py-8 sm:mb-10 md:mb-16 md:p-8 md:py-12'>
       <AnimatedSection
         variant='fadeInDown'
         className='mb-2 flex items-center justify-center'
       >
         <div className='text-sm font-medium'>
           <span className='flex items-center gap-2' aria-hidden='false'>
-            <span className='text-2xl font-bold uppercase sm:text-3xl lg:text-4xl'>
+            <span className='font-playfair_display text-title'>
               {tIntroduce('title')}
             </span>
           </span>
         </div>
       </AnimatedSection>
 
-      <div className='mx-auto max-w-7xl p-6 px-6 py-8 md:p-8 md:py-12'>
-        <div className='grid gap-8 lg:grid-cols-2 lg:gap-18'>
+      <div className='mx-auto max-w-7xl py-8 md:py-12'>
+        <div className='grid gap-16 lg:grid-cols-2 lg:gap-18'>
           <AnimatedSection variant='slideInLeft' delay={0.2}>
-            <div className='mx-auto w-[350px] rounded-4xl shadow-xl md:w-[400px] lg:w-[500px]'>
-              <figure className='overflow-hidden rounded-4xl'>
-                {/* Hotel Exterior */}
-                <AspectRatio ratio={1 / 1}>
-                  <Image
-                    src='/images/introduce-image-1.jpg'
-                    alt='Hotel exterior architecture'
-                    fill
-                    sizes='(max-width: 768px) 50vw, 25vw'
-                    className='object-cover'
-                    placeholder='blur'
-                    blurDataURL={BLUR_DATA_URL}
-                  />
-                </AspectRatio>
-                <figcaption className='sr-only'>
-                  Introduc image: Why choose GENUSS ?
-                </figcaption>
-              </figure>
-            </div>
+            <figure className='mx-auto w-[300px] overflow-hidden rounded-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
+              {/* Hotel Exterior */}
+              <AspectRatio ratio={1 / 1}>
+                <Image
+                  src='/images/introduce-image-1.jpg'
+                  alt='Hotel exterior architecture'
+                  fill
+                  sizes='(max-width: 768px) 50vw, 25vw'
+                  className='object-cover'
+                  placeholder='blur'
+                  blurDataURL={BLUR_DATA_URL}
+                />
+              </AspectRatio>
+              <figcaption className='sr-only'>
+                Introduc image: Why choose GENUSS ?
+              </figcaption>
+            </figure>
           </AnimatedSection>
 
           {/* Right Column - Feature Sections */}

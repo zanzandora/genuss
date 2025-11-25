@@ -27,7 +27,7 @@ const FooterSection = () => {
               </div>
             </div>
             <div className='flex-1 text-center sm:text-left'>
-              <h4 className='mb-4 text-h4 uppercase sm:mb-6'>
+              <h4 className='font-playfair_display mb-4 text-h4 uppercase sm:mb-6'>
                 {tFooter('contactUs.title')}
               </h4>
               <div className='space-y-2 sm:space-y-4'>
@@ -48,7 +48,7 @@ const FooterSection = () => {
 
           <div className='mb-6 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12'>
             <div className='text-center lg:text-left'>
-              <h4 className='mb-4 text-h4 uppercase sm:mb-6'>
+              <h4 className='font-playfair_display mb-4 text-h4 uppercase sm:mb-6'>
                 {tFooter('hotelAddress.title')}
               </h4>
               <p className='text-paragraph-m leading-relaxed font-normal'>
@@ -78,7 +78,7 @@ const FooterSection = () => {
         </div>
 
         <div className='w-full'>
-          <h4 className='mb-6 text-center text-h4 uppercase sm:mb-8 lg:mb-10 lg:text-left'>
+          <h4 className='font-playfair_display mb-6 text-center text-h4 uppercase sm:mb-8 lg:mb-10 lg:text-left'>
             {tFooter('hotelAddress.offices.title')}
           </h4>
           <div className='grid w-full grid-cols-1 gap-8 text-paragraph-m font-normal sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 lg:gap-16'>
@@ -113,8 +113,7 @@ const FooterSection = () => {
               href='/contact#office-addresses'
               className='text-primary-foreground underline transition-colors hover:text-primary-foreground/80'
             >
-              {tFooter('hotelAddress.viewAllOffices') ||
-                'View all office addresses'}
+              {tFooter('hotelAddress.viewAllOffices')}
             </Link>
           </div>
         </div>

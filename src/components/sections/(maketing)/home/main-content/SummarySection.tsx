@@ -20,7 +20,7 @@ export function SummarySection() {
             <div className='mb-2 flex items-center justify-between'>
               <div className='text-sm font-medium'>
                 <span className='flex items-center gap-2' aria-hidden='false'>
-                  <span className='text-xl font-bold uppercase sm:text-2xl lg:text-3xl'>
+                  <span className='font-playfair_display text-title'>
                     {tSummaries('title')}
                   </span>
                 </span>
@@ -37,7 +37,7 @@ export function SummarySection() {
 
           {/* Image */}
           <AnimatedSection variant='slideInRight' delay={0.2}>
-            <figure className='xl:[450px] mx-auto w-[350px] overflow-hidden rounded-tl-4xl rounded-br-4xl drop-shadow-xl md:w-[300px] lg:w-[400px]'>
+            <figure className='mx-auto w-[300px] overflow-hidden rounded-tl-4xl rounded-br-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
               <AspectRatio ratio={1 / 1}>
                 <Image
                   src='/images/summary-1.webp'

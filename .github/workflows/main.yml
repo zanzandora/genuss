@@ -8,20 +8,44 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy using ssh
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install & Build
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run deploy
+          tar -czf deploy.tar.gz -C .next/standalone .
+
+      - name: Deploy to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          source: deploy.tar.gz
+          target: /var/www/send-email/
+
+      - name: Restart app
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          port: 22
           script: |
-            cd /var/www/send-email/genuss
-            git fetch origin
-            git checkout production || git switch -c production
-            git reset --hard origin/production
-
-            rm -rf node_modules
-            pnpm install
-            pnpm run build
-            pm2 reload genuss
+            cd /var/www/genuss
+            rm -rf standalone
+            tar -xzf deploy.tar.gz
+            rm deploy.tar.gz
+            mv standalone/* . && rmdir standalone
+            pm2 restart genuss || pm2 start server.js --name genuss

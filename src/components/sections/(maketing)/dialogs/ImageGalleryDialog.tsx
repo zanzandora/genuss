@@ -20,12 +20,16 @@ import {
 import { getOptimizedImageProps } from '@/lib/utils/imageOptimization';
 import { X } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { RoomImage } from '@/lib/seo';
+import { TRoom } from '@/types/room.type';
+import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 
 interface ImageGalleryDialogProps {
   isOpen: boolean;
   onClose: () => void;
   images: string[];
   initialIndex?: number;
+  room?: TRoom;
 }
 
 export function ImageGalleryDialog({
@@ -33,9 +37,13 @@ export function ImageGalleryDialog({
   onClose,
   images,
   initialIndex = 0,
+  room,
 }: ImageGalleryDialogProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+
+  const { translateRoom } = useRoomTranslations();
+  const translatedRoom = room ? translateRoom(room) : null;
 
   // Update current state when initialIndex changes
   useEffect(() => {
@@ -97,14 +105,27 @@ export function ImageGalleryDialog({
                   <CarouselItem key={idx}>
                     <div className='relative w-full'>
                       <AspectRatio ratio={3 / 2}>
-                        <Image
-                          {...getOptimizedImageProps(image, idx)}
-                          alt={`Room image ${idx + 1}`}
-                          fill
-                          className={`${getOptimizedImageProps(image, idx).className} object-contain`}
-                          sizes='(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 70vw'
-                          priority={idx === 0}
-                        />
+                        {translatedRoom ? (
+                          <RoomImage
+                            {...getOptimizedImageProps(image, idx)}
+                            roomName={translatedRoom.name}
+                            roomBed={translatedRoom.bed}
+                            view={translatedRoom.view}
+                            fill
+                            className={`${getOptimizedImageProps(image, idx).className} object-contain`}
+                            sizes='(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 70vw'
+                            priority={idx === 0}
+                          />
+                        ) : (
+                          <Image
+                            {...getOptimizedImageProps(image, idx)}
+                            alt={`Room image ${idx + 1}`}
+                            fill
+                            className={`${getOptimizedImageProps(image, idx).className} object-contain`}
+                            sizes='(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 70vw'
+                            priority={idx === 0}
+                          />
+                        )}
                       </AspectRatio>
                     </div>
                   </CarouselItem>
@@ -129,12 +150,24 @@ export function ImageGalleryDialog({
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <Image
-                      {...getOptimizedImageProps(image, idx)}
-                      alt={`Thumbnail ${idx + 1}`}
-                      fill
-                      className={`${getOptimizedImageProps(image, idx).className} object-cover`}
-                    />
+                    {translatedRoom ? (
+                      <RoomImage
+                        {...getOptimizedImageProps(image, idx)}
+                        roomName={translatedRoom.name}
+                        roomBed={translatedRoom.bed}
+                        view={translatedRoom.view}
+                        fill
+                        className={`${getOptimizedImageProps(image, idx).className} object-cover`}
+                        sizes='(max-width: 768px) 16vw, (max-width: 1024px) 12vw, 10vw'
+                      />
+                    ) : (
+                      <Image
+                        {...getOptimizedImageProps(image, idx)}
+                        alt={`Thumbnail ${idx + 1}`}
+                        fill
+                        className={`${getOptimizedImageProps(image, idx).className} object-cover`}
+                      />
+                    )}
                   </button>
                 ))}
               </div>

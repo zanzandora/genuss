@@ -9,7 +9,7 @@ const bannerImages = [
 ];
 const heroSlides = bannerImages.map((filename, idx) => ({
   src: `/images/banner/${filename}`,
-  alt: `Banner ${idx + 1}`,
+  alt: `Genuss Hotel Tam Dao Banner ${idx + 1}`,
 }));
 
 export default function HeaderSection() {

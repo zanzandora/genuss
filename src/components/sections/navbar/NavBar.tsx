@@ -102,6 +102,8 @@ const NavBar = () => {
             <Button
               variant='ghost'
               size='icon'
+              id='Toggle Menu'
+              aria-controls='Toggle Hamburger Menu'
               className='text-primary-foreground'
             >
               <Menu className='size-6 md:w-full' />

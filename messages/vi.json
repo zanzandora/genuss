@@ -4,7 +4,7 @@
       "bookNow": "Đặt Ngay",
       "bookRooms": "Đặt Phòng",
       "contactUs": "Liên hệ",
-      "learnMore": "Tìm hiểu thêm",
+      "learnMore": "Tìm hiểu thêm chi tiết",
       "completeBookNow": "Hoàn tất đặt ngay",
       "send": "Gửi",
       "previous": "Trước",
@@ -78,7 +78,7 @@
 
   "home": {
     "title": "Chào mừng đến với Genuss Hotel",
-    "description": "nghỉ dưỡng hiện đại giữa thị trấn trên mây",
+    "description": "Nghỉ dưỡng hiện đại giữa thị trấn trên mây",
     "introduce": {
       "title": "VÌ SAO CHỌN GENUSS TAM ĐẢO ?",
       "features": {
@@ -178,21 +178,30 @@
 
   "services": {
     "title": "Khám phá các tiện nghi nổi bật",
+    "ortherService": "Các dịch vụ khác",
     "dinning": {
       "title": "Dịch vụ Nhà hàng & Ẩm thực",
-      "descriptions": "Trải nghiệm ẩm thực phong phú với bữa sáng tự chọn và thực đơn Á - Âu hấp dẫn. Không gian ấm cúng, phục vụ chuyên nghiệp mang đến cho bạn những bữa ăn trọn vị và đáng nhớ."
+      "subTitle": "Một không gian ẩm thực tinh tế giữa tầng mây Tam Đảo.",
+      "details": "Nhà hàng của GENUSS, tọa lạc tại tầng 11, mang đến trải nghiệm ẩm thực hài hòa giữa tinh thần hiện đại và hương vị đặc sản núi rừng. Tại đây, du khách bắt đầu ngày mới với bữa sáng buffet phong phú (7h00 - 9h00), kết hợp trà, cà phê và nước suối tiêu chuẩn phục vụ tại phòng.\nThực đơn trưa và tối được phục vụ theo yêu cầu, với ưu tiên các nguyên liệu tươi theo mùa của Tam Đảo: ngọn su su, gà núi, lợn đồi, cá tầm - cá hồi, cá bống suối, chạch chiên, cùng nhiều đặc sản bản địa như chuối ngự, sâm sữa, lê rừng, cây thuốc, cơm lam, dúi đồi.\nĐội ngũ bếp của GENUSS chọn lọc nguyên liệu kỹ lưỡng, giữ trọn vị tự nhiên và nâng tầm bằng kỹ thuật chế biến nhẹ nhàng, tinh tế.\nNhà hàng cũng nhận đặt tiệc, đặt bàn gia đình, tiệc cưới - hội nghị với không gian rộng, có thể tùy biến theo nhu cầu, phù hợp cho cả những sự kiện trang trọng lẫn bữa ăn ấm cúng.",
+      "descriptions": "Trải nghiệm hành trình ẩm thực phong phú với bữa sáng buffet hấp dẫn và lựa chọn món Á - Âu cuốn hút. Không gian ấm cúng, mời gọi, kết hợp cùng dịch vụ chuyên nghiệp đảm bảo mọi bữa ăn đều đáng nhớ và trọn vẹn."
     },
     "event": {
       "title": "Dịch vụ Hội nghị & Sự kiện",
-      "descriptions": "Không gian sang trọng, phù hợp cho các cuộc họp, tiệc cưới và sự kiện chuyên nghiệp. Trang thiết bị đầy đủ cùng dịch vụ chu đáo đảm bảo đáp ứng linh hoạt mọi nhu cầu tổ chức của bạn."
+      "subTitle": "Không gian sự kiện hiện đại giữa khung cảnh núi sương mờ Tam Đảo.",
+      "details": "Genuss Hotel Tam Đảo mang tới khu vực hội nghị và sự kiện đẳng cấp ngay tại trung tâm thị trấn, với diện tích hơn 150 m² linh hoạt bố trí nhằm đáp ứng nhu cầu từ hội thảo doanh nghiệp tới tiệc cưới sang trọng. Mỗi sự kiện được chăm chút từ hệ thống âm thanh-ánh sáng hiện đại, bàn tiệc thiết kế tinh tế đến thực đơn được chế biến cho từng chủ đề riêng biệt. Không gian được bao quanh bởi cảnh quan núi non và làn sương Tam Đảo, tạo nên một trải nghiệm vừa chuyên nghiệp vừa thoải mái—thích hợp cho cả công việc và kỷ niệm đáng nhớ",
+      "descriptions": "Cung cấp không gian sang trọng lý tưởng cho các cuộc họp, đám cưới và sự kiện chuyên nghiệp, địa điểm của chúng tôi được trang bị đầy đủ tiện nghi hiện đại và dịch vụ tận tâm. Chúng tôi cung cấp giải pháp linh hoạt được điều chỉnh để đáp ứng mọi nhu cầu sự kiện của bạn với sự tinh tế và chính xác."
     },
     "recreation": {
       "title": "Dịch vụ Giải trí & Chăm sóc sức khỏe",
-      "descriptions": "Tận hưởng những phút giây thư thái tuyệt đối tại hồ bơi ngoài trời, trung tâm thể dục hiện đại và các tiện ích giải trí cao cấp. Không gian yên bình, riêng tư mang đến trải nghiệm hoàn hảo cho gia đình, cặp đôi và những du khách tìm kiếm sự nghỉ dưỡng đẳng cấp."
+      "subTitle": "Một không gian tái tạo năng lượng ngay giữa nhịp sống Tam Đảo.",
+      "details": "Tại tầng 2 của GENUSS, khu Fitness & Gym được thiết kế như một góc thư giãn riêng, nơi du khách có thể khởi động ngày mới hoặc giải tỏa năng lượng sau hành trình khám phá thị trấn. Không gian được trang bị đầy đủ máy móc hiện đại, ánh sáng dịu và bố cục thoáng đãng, tạo cảm giác dễ chịu và tập trung khi luyện tập.\nĐể mang đến trải nghiệm tốt nhất, GENUSS áp dụng các khung giờ vận hành: 5h00-7h00 và 18h00-20h00 mỗi ngày.\nKhách được khuyến khích chuẩn bị nhẹ nhàng trước buổi tập — khởi động kỹ 10-15 phút, uống đủ nước và nạp năng lượng phù hợp để cơ thể sẵn sàng vận động. Trong quá trình tập, sự tập trung vào kỹ thuật, lắng nghe cơ thể và tôn trọng không gian chung giúp việc rèn luyện an toàn và hiệu quả hơn. Kết thúc buổi tập, du khách có thể dành vài phút giãn cơ để phục hồi trước khi sắp xếp lại thiết bị đã sử dụng.\nKhu giải trí & chăm sóc sức khỏe của GENUSS được thiết kế với tinh thần “wellbeing” - cân bằng, nhẹ nhàng và mang lại cảm giác tái tạo năng lượng giữa núi mây Tam Đảo. Đây là nơi bạn kết nối lại với cơ thể, thư giãn tâm trí và tìm lại nhịp thở bình yên trong chuyến nghỉ dưỡng của mình.",
+      "descriptions": "Trải nghiệm sự thư thái tuyệt đối tại hồ bơi ngoài trời quanh năm, trung tâm thể dục hiện đại và các tiện nghi giải trí cao cấp. Môi trường yên tĩnh và riêng tư mang đến nơi nghỉ dưỡng hoàn hảo cho gia đình, cặp đôi và những du khách tìm kiếm sự nghỉ dưỡng nâng cao và yên bình."
     },
     "swimming": {
-      "title": "Hồ bơi ngoài trời quanh năm",
-      "descriptions": "Tận hưởng khoảnh khắc thư thái tại hồ bơi ngoài trời, nơi làn nước trong xanh hòa cùng sắc sương đặc trưng của Tam Đảo. Không gian thoáng đãng với tầm nhìn hướng núi mang đến trải nghiệm nghỉ dưỡng tinh tế và yên bình cho mọi du khách."
+      "title": "Hồ bơi Ngoài trời Quanh năm",
+      "subTitle": "Không gian thư giãn trong làn sương dịu của Tam Đảo.",
+      "details": "Hồ bơi ngoài trời tại tầng 12 của GENUSS là không gian lý tưởng để du khách đắm mình trong làn sương đặc trưng Tam Đảo và ngắm trọn tầm nhìn núi mây thoáng đãng. Hồ bơi hoạt động trong hai khung giờ 7h00-9h00 và 16h00-18h00, nhằm đảm bảo sự thoải mái và chất lượng nước tốt nhất. Khi sử dụng hồ bơi, du khách vui lòng tuân thủ các quy định an toàn: luôn giám sát trẻ nhỏ ở mọi mức nước, không đưa vật nuôi vào khu vực hồ, tránh nhảy hoặc trượt xuống hồ khi mực nước thấp hoặc hồ chưa được vận hành, và hạn chế sử dụng rượu bia hoặc chất kích thích trước khi bơi. Đây là nơi hoàn hảo để thư giãn, thả lỏng và tận hưởng trọn vẹn khoảnh khắc yên bình giữa tầng mây Tam Đảo.",
+      "descriptions": "Thư giãn bên hồ bơi ngoài trời, nơi làn nước trong xanh hòa quyện hài hòa với không khí sương mờ đặc trưng của Tam Đảo. Không gian mở, sảng khoái với tầm nhìn núi tạo nên nơi ẩn dút tinh tế và yên bình cho mọi khách."
     }
   },
 

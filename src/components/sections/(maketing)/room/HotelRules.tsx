@@ -14,7 +14,7 @@ export function HotelRules({ rules }: HotelRulesProps) {
 
   return (
     <div>
-      <h3 className='py-4 text-h3'>{t('title')}</h3>
+      <h3 className='font-playfair_display py-4 text-h3'>{t('title')}</h3>
       <ul className='list-inside list-disc space-y-2 text-paragraph-m'>
         {rules.map((rule, idx) => (
           <li key={idx}>{t(rule.key)}</li>

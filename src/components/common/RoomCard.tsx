@@ -1,5 +1,4 @@
 import { cn, formatCurrency } from '@/lib/utils';
-import Image from 'next/image';
 import { ArrowRightIcon, BedDoubleIcon, Users2Icon } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { getOptimizedImageProps } from '@/lib/utils/imageOptimization';
@@ -9,6 +8,7 @@ import { Link } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
+import { RoomImage } from '@/lib/seo';
 
 type SizeCard = 'normal' | 'medium' | 'large';
 
@@ -53,12 +53,13 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
       {/* Image Section */}
       <CardHeader className='relative p-0'>
         <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden'>
-          <Image
+          <RoomImage
             {...getOptimizedImageProps(
               room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg',
               0,
             )}
-            alt={room.slug}
+            roomName={translatedRoom.name}
+            view={translatedRoom.view}
             fill
             className={cn(
               getOptimizedImageProps(
@@ -81,7 +82,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
       {/* Content Section */}
       <CardContent className='p-0 px-6'>
         <div className='flex items-start justify-between gap-4'>
-          <p className='text-sm font-semibold uppercase'>
+          <p className='font-playfair_display text-sm font-semibold uppercase'>
             {tRooms('room.title', { name: translatedRoom.name })}
           </p>
         </div>

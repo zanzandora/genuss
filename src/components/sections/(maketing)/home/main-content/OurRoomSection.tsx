@@ -17,11 +17,11 @@ const OurRoomSection = ({ rooms }: { rooms: TRoom[] }) => {
         height={1000}
         src='/rectangles/Rectangle_8.svg'
         alt=''
-        className='absolute top-0 left-0 z-0 -mx-4 h-full w-auto opacity-50'
+        className='absolute top-0 left-0 z-0 -mx-4 h-full w-auto text-gray-500 opacity-50'
       />
       <div className='relative mx-auto max-w-6xl'>
         <AnimatedSection variant='fadeInDown' className='mb-12 text-center'>
-          <h2 className='mb-4 text-xl font-bold uppercase sm:text-2xl lg:text-5xl'>
+          <h2 className='font-playfair_display mb-4 text-title'>
             {tRooms('title')}
           </h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>

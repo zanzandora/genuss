@@ -18,7 +18,7 @@ export function AmenitiesGrid({ amenities, title }: AmenitiesGridProps) {
 
   return (
     <div className='space-y-4'>
-      <h3 className='py-4 text-h3'>{title}</h3>
+      <h3 className='font-playfair_display py-4 text-h3'>{title}</h3>
       <div className='grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3'>
         {amenities.map((amenity) => (
           <Item

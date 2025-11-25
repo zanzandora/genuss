@@ -9,7 +9,7 @@ const RoomCards = async () => {
   const rooms = await getRoomDatas();
 
   return (
-    <div className='relative'>
+    <div className='relative mb-4 py-8 sm:mb-10 md:mb-16 md:py-16'>
       <Image
         width={1000}
         height={1000}
@@ -20,7 +20,9 @@ const RoomCards = async () => {
 
       <section className='mx-auto mb-4 max-w-6xl sm:mb-16 md:mb-24'>
         <div className='mb-12 text-center'>
-          <h2 className='mb-4 text-h1 capitalize'>{tRooms('title')}</h2>
+          <h2 className='font-playfair_display mb-4 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl'>
+            {tRooms('title')}
+          </h2>
           <p className='mx-auto max-w-2xl text-paragraph-m'>
             {tRooms('descriptions')}
           </p>
