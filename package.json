@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NODE_ENV=production next build && xcopy \".next\\static\" \".next\\standalone\\.next\\static\" /E /I /H /Y && xcopy \"public\" \".next\\standalone\\public\" /E /I /H /Y",
+    "build:standalone": "cross-env NODE_ENV=production next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
+    "deploy": "npm run build:standalone",
     "start": "node .next/standalone/server.js",
     "analyze": "cross-env ANALYZE=true next build --webpack",
     "lint": "eslint",
@@ -59,6 +61,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^16.0.1",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
