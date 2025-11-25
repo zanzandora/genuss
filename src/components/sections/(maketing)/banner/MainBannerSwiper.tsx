@@ -25,17 +25,17 @@ export default function MainBannerSwiper({
   return (
     <div className='relative'>
       {/* Booking Title */}
-      <div className='absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/12 md:-translate-y-1/2'>
-        <div className='size-26 max-w-fit perspective-dramatic sm:mx-20 sm:w-40 md:w-full'>
-          <div className='font-playfair_display_sc flex translate-z-16 flex-col items-center text-center text-xs text-white sm:text-sm md:text-base xl:text-lg'>
-            <span className='font-playfair_display_sc text-shadow-lg'>
+      <div className='absolute top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 text-center md:-translate-y-4/5'>
+        <div className='mx-auto max-w-fit px-20 md:w-full'>
+          <div className='font-playfair_display flex flex-col items-center text-center text-white'>
+            <span className='font-playfair_display py-1 text-4xl text-nowrap uppercase sm:text-5xl lg:text-6xl'>
               genuss hotel
             </span>
 
             <AnimatedTyppingText
               text={t('description')}
-              className='text-shadow-lg'
-              fontText='font-playfair_display_sc'
+              className='py-1 text-2xl tracking-wide italic sm:text-3xl lg:text-4xl'
+              fontText='font-playfair_display'
               typingSpeed={0.03}
             />
           </div>
@@ -69,6 +69,7 @@ export default function MainBannerSwiper({
                   // priority={idx === 0}
                 />
                 <div className='absolute inset-0 rounded-4xl bg-black/50' />
+                {/* <div className='absolute inset-0 rounded-4xl bg-black/40 mask-y-from-70% mask-y-to-80% mask-x-from-60% mask-x-to-90%' /> */}
               </div>
             </CarouselItem>
           ))}

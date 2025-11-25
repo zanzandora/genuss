@@ -169,14 +169,27 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    font-family: var(--font-montserrat), sans-serif;
+    font-family:
+      var(--font-montserrat),
+      sans-serif,
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      'Noto Sans',
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol';
   }
   body {
     @apply bg-background text-foreground;
   }
 
   .font-playfair_display {
-    font-family: var(--font-playfair_display), sans-serif;
+    font-family:
+      var(--font-playfair_display), Georgia, 'Times New Roman', serif;
   }
 }
 

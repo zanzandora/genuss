@@ -17,7 +17,11 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+
   output: 'standalone',
+  outputFileTracingIncludes: {
+    '*': ['public/**/*'],
+  },
   /* config options here */
 };
 
