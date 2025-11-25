@@ -15,6 +15,8 @@ import { getOptimizedImageProps } from '@/lib/utils/imageOptimization';
 import { TRoom } from '@/types/room.type';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ImageGalleryDialog } from '../dialogs/ImageGalleryDialog';
+import { RoomImage } from '@/lib/seo';
+import { useRoomTranslations } from '@/lib/utils/roomTranslations';
 
 interface RoomGalleryProps {
   room: TRoom;
@@ -25,6 +27,9 @@ export function RoomGallery({ room }: RoomGalleryProps) {
   const [current, setCurrent] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogInitialIndex, setDialogInitialIndex] = useState(0);
+
+  const { translateRoom } = useRoomTranslations();
+  const translatedRoom = translateRoom(room);
 
   const plugin = useRef(Autoplay({ delay: 3000 }));
 
@@ -89,9 +94,11 @@ export function RoomGallery({ room }: RoomGalleryProps) {
                 className='relative w-full overflow-hidden rounded-lg shadow-lg'
               >
                 <AspectRatio ratio={16 / 10}>
-                  <Image
+                  <RoomImage
                     {...getOptimizedImageProps(image, idx)}
-                    alt='Room Image'
+                    roomName={translatedRoom.name}
+                    roomBed={translatedRoom.bed}
+                    view={translatedRoom.view}
                     fill
                     className={`${getOptimizedImageProps(image, idx).className} cursor-pointer object-cover`}
                     sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw'
@@ -119,11 +126,14 @@ export function RoomGallery({ room }: RoomGalleryProps) {
                   : 'border-gray-200 hover:border-gray-300'
               }`}
             >
-              <Image
+              <RoomImage
                 {...getOptimizedImageProps(image, idx)}
-                alt={`Room thumbnail ${idx + 1}`}
+                roomName={translatedRoom.name}
+                roomBed={translatedRoom.bed}
+                view={translatedRoom.view}
                 fill
                 className={`${getOptimizedImageProps(image, idx).className} object-cover`}
+                sizes='(max-width: 768px) 25vw, (max-width: 1024px) 15vw, 10vw'
               />
             </button>
           ))}
@@ -138,11 +148,14 @@ export function RoomGallery({ room }: RoomGalleryProps) {
                   : 'border-gray-200 hover:border-gray-300'
               }`}
             >
-              <Image
+              <RoomImage
                 {...getOptimizedImageProps(images[3], 3)}
-                alt={`Room thumbnail 4`}
+                roomName={translatedRoom.name}
+                roomBed={translatedRoom.bed}
+                view={translatedRoom.view}
                 fill
                 className={`${getOptimizedImageProps(images[3], 3).className} object-cover`}
+                sizes='(max-width: 768px) 25vw, (max-width: 1024px) 15vw, 10vw'
               />
               <div className='absolute inset-0 flex items-center justify-center bg-black/50 text-lg font-semibold text-white'>
                 +{remainingImages}
@@ -158,6 +171,7 @@ export function RoomGallery({ room }: RoomGalleryProps) {
         onClose={() => setIsDialogOpen(false)}
         images={images}
         initialIndex={dialogInitialIndex}
+        room={room}
       />
     </div>
   );

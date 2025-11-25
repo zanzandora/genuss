@@ -22,8 +22,10 @@ const TestimonialsSection = () => {
   return (
     <section className='-mx-4 py-20'>
       <div className='h-full'>
-        <AnimatedSection variant='fadeInDown' className='mb-16 text-center'>
-          <h1 className='text-h1 uppercase'>{tTestimonials('title')}</h1>
+        <AnimatedSection variant='fadeInDown'>
+          <h1 className='font-playfair_display mb-8 text-center text-title md:mb-16'>
+            {tTestimonials('title')}
+          </h1>
         </AnimatedSection>
 
         <div className='h-full w-full bg-accent py-8 pb-6'>

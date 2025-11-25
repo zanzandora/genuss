@@ -6,7 +6,7 @@ const ContactOfficerAddress = () => {
 
   return (
     <div id='office-addresses' className='mx-auto my-20 max-w-6xl'>
-      <h1 className='mb-6 text-center text-h2 uppercase sm:mb-8 lg:mb-10'>
+      <h1 className='font-playfair_display mb-6 text-center text-h2 uppercase sm:mb-8 lg:mb-10'>
         {tFooter('title')}
       </h1>
       <div className='grid w-full grid-cols-1 gap-8 text-paragraph-m font-normal sm:grid-cols-2 sm:gap-16'>

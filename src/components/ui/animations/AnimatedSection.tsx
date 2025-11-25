@@ -6,7 +6,6 @@
 'use client';
 
 import { motion, MotionProps } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { ANIMATION_CONFIG } from '@/lib/animations/config';
 import { ANIMATION_VARIANTS } from '@/lib/animations/variants';
 import { AnimationPreset } from '@/lib/animations/config';
@@ -44,42 +43,12 @@ export function AnimatedSection({
   variant = 'fadeInUp',
   delay = 0,
   className = '',
-  disabled = false,
   viewportOnce = ANIMATION_CONFIG.viewport.once,
   ...motionProps
 }: AnimatedSectionProps) {
-  const [shouldAnimate, setShouldAnimate] = useState(true);
-  const [isClient, setIsClient] = useState(false);
-
-  // Initialize client-side state and check animation preferences
-  useEffect(() => {
-    // Use requestAnimationFrame to avoid cascading renders
-    requestAnimationFrame(() => {
-      setIsClient(true);
-
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-      ).matches;
-
-      // Check for mobile breakpoint
-      const isMobile = window.innerWidth < ANIMATION_CONFIG.breakpoints.mobile;
-
-      // Disable animations if user prefers reduced motion or on mobile for performance
-      if (disabled || prefersReducedMotion || isMobile) {
-        setShouldAnimate(false);
-      }
-    });
-  }, [disabled]);
-
   // Get the appropriate variant
   const animationVariant =
     ANIMATION_VARIANTS[variant as keyof typeof ANIMATION_VARIANTS];
-
-  // Don't render anything special on server-side or if animations are disabled
-  if (!isClient || !shouldAnimate) {
-    return <div className={className}>{children}</div>;
-  }
 
   // Type-safe transition handling
   const visibleVariant = animationVariant.visible as {

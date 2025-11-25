@@ -6,7 +6,6 @@
 'use client';
 
 import { motion, MotionProps } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { ANIMATION_CONFIG } from '@/lib/animations/config';
 import { ANIMATION_VARIANTS } from '@/lib/animations/variants';
 import { AnimationPreset } from '@/lib/animations/config';
@@ -55,31 +54,10 @@ export function AnimatedContainer({
   itemVariant = 'fadeInUp',
   staggerDelay,
   className = '',
-  disabled = false,
   viewportOnce = ANIMATION_CONFIG.viewport.once,
   alternatingPattern = 'none',
   ...motionProps
 }: AnimatedContainerProps) {
-  const [shouldAnimate, setShouldAnimate] = useState(true);
-  const [isClient, setIsClient] = useState(false);
-
-  // Check for reduced motion preference and mobile breakpoint
-  useEffect(() => {
-    requestAnimationFrame(() => {
-      setIsClient(true);
-
-      const prefersReducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-      ).matches;
-
-      const isMobile = window.innerWidth < ANIMATION_CONFIG.breakpoints.mobile;
-
-      if (disabled || prefersReducedMotion || isMobile) {
-        setShouldAnimate(false);
-      }
-    });
-  }, [disabled]);
-
   // Get appropriate container variant
   const containerVariant =
     variant === 'fastContainer'
@@ -89,11 +67,6 @@ export function AnimatedContainer({
   // Get appropriate item variant
   const itemAnimationVariant =
     ANIMATION_VARIANTS[itemVariant as keyof typeof ANIMATION_VARIANTS];
-
-  // Don't render anything special on server-side or if animations are disabled
-  if (!isClient || !shouldAnimate) {
-    return <div className={className}>{children}</div>;
-  }
 
   // Create custom container variant with custom stagger delay if provided
   const customContainerVariant = staggerDelay
