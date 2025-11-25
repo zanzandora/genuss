@@ -1,3 +1,4 @@
+import AnimatedContainer from '@/components/ui/animations/AnimatedContainer';
 import AnimatedSection from '@/components/ui/animations/AnimatedSection';
 import { BLUR_DATA_URL } from '@/constants';
 import { Link } from '@/i18n/routing';
