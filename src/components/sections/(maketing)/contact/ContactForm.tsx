@@ -37,13 +37,9 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 type Props = {
   requireBookingData?: boolean;
-  hotelEmail?: string;
 };
 
-const ContactForm = ({
-  requireBookingData = false,
-  hotelEmail = 'maiminhtu130803@gmail.com',
-}: Props) => {
+const ContactForm = ({ requireBookingData = false }: Props) => {
   const tContactForm = useTranslations('common.forms.contact');
   const tBookingForm = useTranslations('common.forms.bookingForm');
   const tLabel = useTranslations('common.labels');
@@ -107,6 +103,9 @@ const ContactForm = ({
       // Generate idempotency key
       const idempotencyKey = uuidv4();
       localStorage.setItem('bookingIdempotencyKey', idempotencyKey);
+
+      const hotelEmail =
+        process.env.NEXT_PUBLIC_HOTEL_EMAIL || 'example@gmail.com';
 
       // Prepare payload
       const payload = {
