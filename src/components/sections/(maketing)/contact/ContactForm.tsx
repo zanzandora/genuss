@@ -221,6 +221,7 @@ const ContactForm = ({
               <Input
                 {...register('fullName')}
                 type='text'
+                disabled={isSubmitting}
                 placeholder={tContactForm('form.fullName')}
                 className='w-full rounded-none border-0 bg-muted placeholder:text-paragraph-m'
               />
@@ -236,6 +237,7 @@ const ContactForm = ({
             <Input
               {...register('email')}
               type='email'
+              disabled={isSubmitting}
               placeholder={tContactForm('form.email')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
@@ -250,6 +252,7 @@ const ContactForm = ({
             <Input
               {...register('country')}
               type='text'
+              disabled={isSubmitting}
               placeholder={tContactForm('form.country')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
@@ -264,6 +267,7 @@ const ContactForm = ({
             <Input
               {...register('phone')}
               type='text'
+              disabled={isSubmitting}
               placeholder={tContactForm('form.phone')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
@@ -277,6 +281,7 @@ const ContactForm = ({
           <div>
             <Textarea
               {...register('message')}
+              disabled={isSubmitting}
               placeholder={tContactForm('form.message')}
               className='min-h-32 rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
