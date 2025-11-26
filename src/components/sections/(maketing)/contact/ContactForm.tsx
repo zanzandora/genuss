@@ -37,13 +37,9 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 type Props = {
   requireBookingData?: boolean;
-  hotelEmail?: string;
 };
 
-const ContactForm = ({
-  requireBookingData = false,
-  hotelEmail = 'maiminhtu130803@gmail.com',
-}: Props) => {
+const ContactForm = ({ requireBookingData = false }: Props) => {
   const tContactForm = useTranslations('common.forms.contact');
   const tBookingForm = useTranslations('common.forms.bookingForm');
   const tLabel = useTranslations('common.labels');
@@ -107,6 +103,9 @@ const ContactForm = ({
       // Generate idempotency key
       const idempotencyKey = uuidv4();
       localStorage.setItem('bookingIdempotencyKey', idempotencyKey);
+
+      const hotelEmail =
+        process.env.NEXT_PUBLIC_HOTEL_EMAIL || 'example@gmail.com';
 
       // Prepare payload
       const payload = {
@@ -221,6 +220,7 @@ const ContactForm = ({
               <Input
                 {...register('fullName')}
                 type='text'
+                disabled={isSubmitting}
                 placeholder={tContactForm('form.fullName')}
                 className='w-full rounded-none border-0 bg-muted placeholder:text-paragraph-m'
               />
@@ -236,6 +236,7 @@ const ContactForm = ({
             <Input
               {...register('email')}
               type='email'
+              disabled={isSubmitting}
               placeholder={tContactForm('form.email')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
@@ -250,6 +251,7 @@ const ContactForm = ({
             <Input
               {...register('country')}
               type='text'
+              disabled={isSubmitting}
               placeholder={tContactForm('form.country')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
@@ -264,6 +266,7 @@ const ContactForm = ({
             <Input
               {...register('phone')}
               type='text'
+              disabled={isSubmitting}
               placeholder={tContactForm('form.phone')}
               className='rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />
@@ -277,6 +280,7 @@ const ContactForm = ({
           <div>
             <Textarea
               {...register('message')}
+              disabled={isSubmitting}
               placeholder={tContactForm('form.message')}
               className='min-h-32 rounded-none border-0 bg-muted placeholder:text-paragraph-m'
             />

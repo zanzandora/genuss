@@ -2,25 +2,34 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    // Simple health check response
+    // Secure health check response - minimal information only
     return NextResponse.json(
       {
         status: 'healthy',
         timestamp: new Date().toISOString(),
-        uptime: process.uptime(),
-        environment: process.env.NODE_ENV,
-        version: process.env.npm_package_version || '0.1.0',
       },
-      { status: 200 },
+      {
+        status: 200,
+        headers: {
+          // Enable caching for health check (short TTL)
+          'Cache-Control': 'public, max-age=30, stale-while-revalidate=10',
+          Vary: 'Accept-Encoding',
+        },
+      },
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       {
         status: 'unhealthy',
         timestamp: new Date().toISOString(),
-        error: 'Health check failed',
       },
-      { status: 503 },
+      {
+        status: 503,
+        headers: {
+          // Don't cache error responses
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+        },
+      },
     );
   }
 }

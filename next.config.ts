@@ -68,9 +68,44 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // * HTTP Headers for Caching
+  // * HTTP Headers for Caching & Security
   async headers() {
     return [
+      // Security + Performance headers cho tất cả routes
+      {
+        source: '/(.*)',
+        headers: [
+          // Security headers (giữ nguyên)
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'geolocation=(), microphone=(), camera=(), unload=()',
+          },
+
+          // Performance headers - Enable back/forward cache
+          {
+            key: 'Cache-Control',
+            value:
+              'public, max-age=0, must-revalidate, stale-while-revalidate=60',
+          },
+          {
+            key: 'Vary',
+            value: 'Accept-Encoding',
+          },
+        ],
+      },
+
       // Images có thể thay đổi
       {
         source: '/images/:path*',
