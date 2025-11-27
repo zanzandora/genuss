@@ -43,6 +43,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           source: deploy.tar.gz
           target: /var/www/genuss-hotel/genuss/
 
@@ -52,6 +53,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: |
             cd /var/www/genuss-hotel/genuss
 
