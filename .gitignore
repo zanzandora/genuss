@@ -40,3 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 messages/*.d.json.ts
+
+# nginx
+nginx.conf
+
+# maintaince
+maintenance.html
