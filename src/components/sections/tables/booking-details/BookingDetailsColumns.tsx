@@ -63,9 +63,16 @@ export const BookingDetailsColumns: () => ColumnDef<RoomStoreItem>[] = () => {
       accessorKey: 'pricePerNight',
       header: () => <div className=''>{t('priceNight')}</div>,
       cell: ({ row }) => {
-        const pricePerNight = parseFloat(row.getValue('pricePerNight'));
+        const item = row.original;
 
-        const formatted = formatCurrency(pricePerNight);
+        if (item.quantity === 0) {
+          return <div className='font-medium text-muted-foreground'>-</div>;
+        }
+
+        const pricePerNight = parseFloat(row.getValue('pricePerNight'));
+        const totalPrice = pricePerNight * item.quantity;
+
+        const formatted = formatCurrency(totalPrice);
 
         return <div className='font-medium'>{formatted}</div>;
       },

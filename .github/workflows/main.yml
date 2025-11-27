@@ -21,11 +21,21 @@ jobs:
         with:
           version: 8
 
-      - name: Install & Build
+      - name: Install dependencies
         run: |
-          pnpm install --frozen-lockfile
+          echo "🔧 Fixing broken lockfile..."
+          rm -f pnpm-lock.yaml
+          echo "📦 Installing fresh dependencies..."
+          pnpm install
+          echo "✅ Dependencies installed successfully!"
+
+      - name: Build application
+        run: |
+          echo "🏗️ Building application..."
           pnpm run deploy
+          echo "📦 Creating deployment package..."
           tar -czf deploy.tar.gz -C .next/standalone .
+          echo "✅ Build completed!"
 
       - name: Deploy to VPS
         uses: appleboy/scp-action@master
@@ -33,8 +43,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           source: deploy.tar.gz
-          target: /var/www/send-email/
+          target: /var/www/genuss-hotel/genuss/
 
       - name: Restart app
         uses: appleboy/ssh-action@master
@@ -42,10 +53,20 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: |
-            cd /var/www/genuss
-            rm -rf standalone
+            cd /var/www/genuss-hotel/genuss
+
+            echo "📦 Extracting new package..."
             tar -xzf deploy.tar.gz
-            rm deploy.tar.gz
-            mv standalone/* . && rmdir standalone
+
+            echo "🧹 Cleaning old files..."
+            rm -rf standalone deploy.tar.gz
+
+            echo "🔧 Setting up files..."
+            if [ -d "standalone" ]; then
+              mv standalone/* . && rmdir standalone
+            fi
+
+            echo "🚀 Starting application..."
             pm2 restart genuss || pm2 start server.js --name genuss

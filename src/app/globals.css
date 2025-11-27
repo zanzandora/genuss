@@ -191,6 +191,22 @@
     font-family:
       var(--font-playfair_display), Georgia, 'Times New Roman', serif;
   }
+
+  .font-playfair_display_sc {
+    font-family: var(--font-playfair_display_sc), sans-serif;
+  }
+}
+
+@utility text-title {
+  @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
+}
+
+@utility text-title {
+  @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
+}
+
+@utility text-title {
+  @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
 }
 
 @utility text-title {
