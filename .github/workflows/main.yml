@@ -43,8 +43,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           source: deploy.tar.gz
-          target: /var/www/send-email/
+          target: /var/www/genuss-hotel/genuss/
 
       - name: Restart app
         uses: appleboy/ssh-action@master
@@ -52,10 +53,20 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: |
-            cd /var/www/genuss
-            rm -rf standalone
+            cd /var/www/genuss-hotel/genuss
+
+            echo "📦 Extracting new package..."
             tar -xzf deploy.tar.gz
-            rm deploy.tar.gz
-            mv standalone/* . && rmdir standalone
+
+            echo "🧹 Cleaning old files..."
+            rm -rf standalone deploy.tar.gz
+
+            echo "🔧 Setting up files..."
+            if [ -d "standalone" ]; then
+              mv standalone/* . && rmdir standalone
+            fi
+
+            echo "🚀 Starting application..."
             pm2 restart genuss || pm2 start server.js --name genuss
