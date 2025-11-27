@@ -59,11 +59,7 @@ const FamousFacilitiesSection = () => {
           </h1>
         </AnimatedSection>
 
-        <AnimatedContainer
-          variant='fastContainer'
-          alternatingPattern='left-right'
-          className='space-y-16'
-        >
+        <div className='space-y-16'>
           {services.map((service, index) => (
             <div
               key={index}
@@ -105,7 +101,7 @@ const FamousFacilitiesSection = () => {
               </div>
             </div>
           ))}
-        </AnimatedContainer>
+        </div>
       </div>
     </section>
   );

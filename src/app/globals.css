@@ -201,6 +201,18 @@
   @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
 }
 
+@utility text-title {
+  @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
+}
+
+@utility text-title {
+  @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
+}
+
+@utility text-title {
+  @apply text-2xl leading-relaxed font-bold text-balance uppercase sm:text-3xl lg:text-4xl;
+}
+
 @utility text-h1 {
   font-size: var(--font-h1-size);
   font-weight: 700;

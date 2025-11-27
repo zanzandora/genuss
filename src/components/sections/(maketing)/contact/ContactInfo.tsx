@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 const ContactInfo = () => {
   const tContact = useTranslations('contact');
   return (
-    <section className='-mx-4 mb-4 bg-primary py-8 sm:my-12 sm:py-12 md:my-16 md:py-16 lg:my-24 lg:py-20'>
+    <section className='-mx-4 my-20 mb-4 bg-primary py-8 sm:py-12 md:py-16 lg:py-20'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-3 md:gap-12'>
           {/* Phone */}

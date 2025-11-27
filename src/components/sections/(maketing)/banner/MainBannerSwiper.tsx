@@ -62,11 +62,13 @@ export default function MainBannerSwiper({
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  sizes='(min-width: 1580px) 100vw, (min-width: 1040px) calc(15.58vw + 1317px), (min-width: 780px) 1236px, 995px'
+                  sizes='100vw'
                   className='h-full w-full rounded-4xl object-cover'
                   placeholder='blur'
                   blurDataURL={BLUR_DATA_URL}
-                  // priority={idx === 0}
+                  priority={idx === 0}
+                  fetchPriority={idx === 0 ? 'high' : 'auto'}
+                  decoding='async'
                 />
                 <div className='absolute inset-0 rounded-4xl bg-black/50' />
                 {/* <div className='absolute inset-0 rounded-4xl bg-black/40 mask-y-from-70% mask-y-to-80% mask-x-from-60% mask-x-to-90%' /> */}
