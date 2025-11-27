@@ -9,6 +9,7 @@ import { motion, MotionProps } from 'framer-motion';
 import { ANIMATION_CONFIG } from '@/lib/animations/config';
 import { ANIMATION_VARIANTS } from '@/lib/animations/variants';
 import { AnimationPreset } from '@/lib/animations/config';
+import { useEffect, useState } from 'react';
 
 interface AnimatedContainerProps
   extends Omit<
@@ -56,8 +57,29 @@ export function AnimatedContainer({
   className = '',
   viewportOnce = ANIMATION_CONFIG.viewport.once,
   alternatingPattern = 'none',
+  disabled = false,
   ...motionProps
 }: AnimatedContainerProps) {
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+
+  // Check for reduced motion preference and mobile breakpoint
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setIsClient(true);
+
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches;
+
+      const isMobile = window.innerWidth < ANIMATION_CONFIG.breakpoints.mobile;
+
+      if (disabled || prefersReducedMotion || isMobile) {
+        setShouldAnimate(false);
+      }
+    });
+  }, [disabled]);
+
   // Get appropriate container variant
   const containerVariant =
     variant === 'fastContainer'
@@ -82,9 +104,15 @@ export function AnimatedContainer({
       }
     : containerVariant;
 
+  // Don't render anything special on server-side or if animations are disabled
+  if (!isClient || !shouldAnimate) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
+      layout
       initial='hidden'
       whileInView='visible'
       viewport={{
@@ -132,7 +160,7 @@ export function AnimatedContainer({
             }
 
             return (
-              <motion.div key={index} variants={variantToUse}>
+              <motion.div key={index} variants={variantToUse} layout>
                 {child}
               </motion.div>
             );

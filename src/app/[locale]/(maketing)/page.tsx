@@ -44,6 +44,32 @@ export default async function Home({
 
   return (
     <>
+      {/* Preload critical banner images for faster loading */}
+      <link
+        rel='preload'
+        as='image'
+        href='/images/banner/slide-banner-10.webp'
+        type='image/webp'
+      />
+      <link
+        rel='preload'
+        as='image'
+        href='/images/banner/slide-banner-11.webp'
+        type='image/webp'
+      />
+      <link
+        rel='preload'
+        as='image'
+        href='/images/banner/slide-banner-12.webp'
+        type='image/webp'
+      />
+      <link
+        rel='preload'
+        as='image'
+        href='/images/banner/slide-banner-4.webp'
+        type='image/webp'
+      />
+
       {/* Home page specific structured data */}
       <script
         type='application/ld+json'
