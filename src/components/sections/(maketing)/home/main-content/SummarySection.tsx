@@ -37,7 +37,7 @@ export function SummarySection() {
 
           {/* Image */}
           <AnimatedSection variant='slideInRight' delay={0.2}>
-            <figure className='mx-auto w-[300px] overflow-hidden rounded-tl-4xl rounded-br-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
+            <figure className='mx-auto w-[300px] max-w-full overflow-hidden rounded-tl-4xl rounded-br-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
               <AspectRatio ratio={1 / 1}>
                 <Image
                   src='/images/summary-1.webp'

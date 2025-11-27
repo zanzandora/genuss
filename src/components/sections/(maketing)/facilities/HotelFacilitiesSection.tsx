@@ -1,4 +1,4 @@
-import AnimatedContainer from '@/components/ui/animations/AnimatedContainer';
+import { AnimatedContainer } from '@/components/ui/animations/AnimatedContainer';
 import { FacilityKey } from '@/types/FacilityKey.type';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -36,11 +36,13 @@ const HotelFacilitiesSection = () => {
             >
               <div className='flex h-20 w-20 items-center justify-center'>
                 <Image
-                  width={80}
-                  height={80}
                   src={facility.icon}
                   alt={tFacilities(facility.nameKey)}
-                  className='h-auto max-h-full w-auto max-w-full object-contain'
+                  className='h-auto w-auto object-contain'
+                  style={{ maxHeight: '100%', maxWidth: '100%' }}
+                  width={0}
+                  height={0}
+                  sizes='80px'
                 />
               </div>
               <p className='text-center font-medium text-wrap text-primary capitalize'>

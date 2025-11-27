@@ -9,6 +9,7 @@ import { motion, MotionProps } from 'framer-motion';
 import { ANIMATION_CONFIG } from '@/lib/animations/config';
 import { ANIMATION_VARIANTS } from '@/lib/animations/variants';
 import { AnimationPreset } from '@/lib/animations/config';
+import { useEffect, useState } from 'react';
 
 interface AnimatedSectionProps
   extends Omit<
@@ -44,8 +45,29 @@ export function AnimatedSection({
   delay = 0,
   className = '',
   viewportOnce = ANIMATION_CONFIG.viewport.once,
+  disabled = false,
   ...motionProps
 }: AnimatedSectionProps) {
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+
+  // Check for reduced motion preference and mobile breakpoint
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setIsClient(true);
+
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches;
+
+      const isMobile = window.innerWidth < ANIMATION_CONFIG.breakpoints.mobile;
+
+      if (disabled || prefersReducedMotion || isMobile) {
+        setShouldAnimate(false);
+      }
+    });
+  }, [disabled]);
+
   // Get the appropriate variant
   const animationVariant =
     ANIMATION_VARIANTS[variant as keyof typeof ANIMATION_VARIANTS];
@@ -56,9 +78,15 @@ export function AnimatedSection({
     transition?: { delay?: number; [key: string]: unknown };
   };
 
+  // Don't render anything special on server-side or if animations are disabled
+  if (!isClient || !shouldAnimate) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
+      layout
       initial='hidden'
       whileInView='visible'
       viewport={{
@@ -73,6 +101,10 @@ export function AnimatedSection({
           transition: {
             ...visibleVariant.transition,
             delay: (visibleVariant.transition?.delay || 0) + delay,
+            layout: {
+              duration: ANIMATION_CONFIG.durations.fast,
+              ease: ANIMATION_CONFIG.easing.smooth,
+            },
           },
         },
       }}

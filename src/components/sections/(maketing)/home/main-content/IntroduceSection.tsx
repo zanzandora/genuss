@@ -40,7 +40,7 @@ const IntroduceSection = () => {
       >
         <div className='text-sm font-medium'>
           <span className='flex items-center gap-2' aria-hidden='false'>
-            <span className='font-playfair_display text-title'>
+            <span className='font-playfair_display text-center text-title'>
               {tIntroduce('title')}
             </span>
           </span>
@@ -50,7 +50,7 @@ const IntroduceSection = () => {
       <div className='mx-auto max-w-7xl py-8 md:py-12'>
         <div className='grid gap-16 lg:grid-cols-2 lg:gap-18'>
           <AnimatedSection variant='slideInLeft' delay={0.2}>
-            <figure className='mx-auto w-[300px] overflow-hidden rounded-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
+            <figure className='mx-auto w-[300px] max-w-full overflow-hidden rounded-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
               {/* Hotel Exterior */}
               <AspectRatio ratio={1 / 1}>
                 <Image
@@ -73,7 +73,7 @@ const IntroduceSection = () => {
           <AnimatedContainer
             variant='container'
             itemVariant='slideInRight'
-            className='ml-2 flex flex-col justify-center space-y-12'
+            className='flex flex-col justify-center space-y-12 lg:ml-2'
           >
             {features.map((feature, index) => {
               const Icon = feature.icon;
