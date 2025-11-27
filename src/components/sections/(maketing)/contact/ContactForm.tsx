@@ -147,8 +147,8 @@ const ContactForm = ({
       // Send to API using axios
       const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
       const apiUrl = requireBookingData
-        ? `${apiBaseUrl}/api/bookings/send-email`
-        : `${apiBaseUrl}/api/contact`;
+        ? `${apiBaseUrl}/bookings/send-email`
+        : `${apiBaseUrl}/contact`;
 
       await axios.post(apiUrl, payload, {
         headers: {
