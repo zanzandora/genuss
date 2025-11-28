@@ -17,7 +17,12 @@ export async function generateMetadata({
 
   const room = await getRoomBySlugWithImages(slug);
 
+  // ✅ Server-side translation
+  const tRoom = await getTranslations('rooms.room');
+  const translatedRoomName = tRoom(`name.${room?.slug}` as never);
+
   return generateSEOMetadata('room-detail', locale, {
+    roomName: translatedRoomName,
     canonical: `/rooms/${slug}`,
     imagePath: room?.mainImage,
   });
@@ -31,13 +36,16 @@ const RoomDetailsPage = async ({
     locale: string;
   }>;
 }) => {
-  const tMenu = await getTranslations('menu');
-
   const { slug } = await params;
+
+  const room = await getRoomBySlugWithImages(slug);
+
+  const tRoom = await getTranslations('rooms.room');
+  const translatedRoomName = tRoom(`name.${room?.slug}` as never);
 
   return (
     <section>
-      <NormalBanner title={tMenu('roomDetails')} />
+      <NormalBanner title={translatedRoomName} />
 
       <RoomDetailsContent slug={slug} />
     </section>

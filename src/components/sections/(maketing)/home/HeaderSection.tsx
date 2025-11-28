@@ -2,7 +2,7 @@ import MainBannerSwiper from '../banner/MainBannerSwiper';
 import BookingRoomForm from '../../../common/BookingRoomForm';
 
 const bannerImages = [
-  'slide-banner-10.webp',
+  'slide-banner-13.webp',
   'slide-banner-11.webp',
   'slide-banner-12.webp',
   'slide-banner-4.webp',
@@ -14,13 +14,23 @@ const heroSlides = bannerImages.map((filename, idx) => ({
 
 export default function HeaderSection() {
   return (
-    <header
-      className='relative mb-4 w-full rounded-4xl bg-secondary sm:mb-16 md:mb-24'
-      style={{ minHeight: 400 }}
-    >
-      <MainBannerSwiper heroSlides={heroSlides} />
+    <>
+      {/* Preload critical banner images for faster loading */}
+      <link
+        rel='preload'
+        as='image'
+        href='/images/banner/slide-banner-10.webp'
+        type='image/webp'
+      />
 
-      <BookingRoomForm className='hidden flex-wrap px-2 lg:flex' />
-    </header>
+      <header
+        className='relative mb-4 w-full rounded-4xl bg-secondary sm:mb-16 md:mb-24'
+        style={{ minHeight: 400 }}
+      >
+        <MainBannerSwiper heroSlides={heroSlides} />
+
+        <BookingRoomForm className='hidden flex-wrap px-2 lg:flex' />
+      </header>
+    </>
   );
 }

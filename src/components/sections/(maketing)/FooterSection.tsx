@@ -1,6 +1,6 @@
 import { BLUR_DATA_URL } from '@/constants';
 import { Link } from '@/i18n/routing';
-import { PinIcon } from 'lucide-react';
+import { FacebookIcon, PinIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -35,13 +35,19 @@ const FooterSection = () => {
                   <p className='text-paragraph-m font-normal'>
                     {tFooter('contactUs.Tel')}:{' '}
                     <span className='text-paragraph-m font-normal'>
-                      0978 552 968
+                      0978 352 968 * 0978 452 968 * 0978 552 968
                     </span>
                   </p>
                 </div>
                 <p className='text-paragraph-m font-normal'>
                   Email: genusstamdao2968@gmail.com
                 </p>
+                <Link
+                  href={'https://www.facebook.com/genusshotelV5.552'}
+                  target='_blank'
+                >
+                  <FacebookIcon className='mr-2 size-8' />
+                </Link>
               </div>
             </div>
           </div>

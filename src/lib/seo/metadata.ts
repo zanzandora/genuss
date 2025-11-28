@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
 import type { PageType } from '@/types/seo.type';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+// Prioritize production URL if available, fallback to development URL
+const SITE_URL =
+  process.env.NODE_ENV === 'production'
+    ? process.env.NEXT_PUBLIC_SITE_URL || 'https://genuss-hotel.vn'
+    : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 const HOTEL_NAME = 'Genuss Hotel Tam Dao';
 const HOTEL_LOCATION = 'Tam Dao, Phu Tho, Vietnam';
 const DEFAULT_LOCALE = 'vi';
-const DEFAULT_LOGO = '/logo/genuss-logo.svg';
+const DEFAULT_LOGO = '/favicon.ico';
 
 // Fallback constants to avoid empty strings
-const FALLBACK_TITLE = HOTEL_NAME;
+const FALLBACK_TITLE = 'Luxury Hotel in Tam Dao | Genuss Hotel Tam Dao';
 const FALLBACK_DESCRIPTION = {
   en: `${HOTEL_NAME} - Luxury hotel in ${HOTEL_LOCATION} offering premium accommodation and services.`,
   vi: `${HOTEL_NAME} - Khách sạn sang trọng tại ${HOTEL_LOCATION} cung cấp lưu trú và dịch vụ cao cấp.`,
@@ -20,7 +24,7 @@ const FALLBACK_KEYWORDS = [
   'luxury hotel Phu Tho',
   'resort Tam Dao',
 ];
-const FALLBACK_IMAGE_PATH = '/logo/genuss-logo.svg';
+const FALLBACK_IMAGE_PATH = '/images/summary-1.webp';
 
 // SEO keywords cho different pages
 const SEO_KEYWORDS = {
@@ -88,31 +92,31 @@ const SEO_KEYWORDS = {
   ],
 };
 
-// SEO descriptions templates
+// SEO descriptions templates (optimized for 110-160 characters)
 const SEO_DESCRIPTIONS = {
   home: {
-    en: `${HOTEL_NAME} - Modern mountain retreat in the heart of Tam Dao. Experience luxury accommodation with stunning views, outdoor pool, conference facilities, and exceptional service in Phu Tho, Vietnam.`,
-    vi: `${HOTEL_NAME} - Nơi nghỉ dưỡng hiện đại giữa lòng Tam Đảo. Trải nghiệm lưu trú sang trọng với tầm nhìn tuyệt đẹp, hồ bơi ngoài trời, tiện ích hội nghị và dịch vụ đẳng cấp tại Phú Thọ.`,
+    en: `${HOTEL_NAME} - Luxury mountain retreat in Tam Dao. Enjoy stunning views, pool, conference facilities & premium service in Phu Tho, Vietnam.`,
+    vi: `${HOTEL_NAME} - Khách sạn sang trọng trên núi Tam Đảo. Tận hưởng tầm nhìn tuyệt đẹp, hồ bơi, hội nghị & dịch vụ cao cấp tại Phú Thọ.`,
   },
   rooms: {
-    en: `Discover our 94 elegant rooms and suites at ${HOTEL_NAME}. From deluxe rooms to royal suites, each accommodation offers modern amenities and breathtaking views of Tam Dao mountains.`,
-    vi: `Khám phá 94 phòng và suite sang trọng tại ${HOTEL_NAME}. Từ phòng deluxe đến suite hoàng gia, mỗi chỗ ở đều trang bị tiện nghi hiện đại và tầm nhìn ngoạn mục ra núi Tam Đảo.`,
+    en: `94 elegant rooms & suites at ${HOTEL_NAME}. Modern amenities, breathtaking mountain views. Luxury accommodation in Tam Dao, Phu Tho.`,
+    vi: `94 phòng và suite sang trọng tại ${HOTEL_NAME}. Tiện nghi hiện đại, tầm nhìn núi ngoạn mục. Lưu trú cao cấp tại Tam Đảo, Phú Thọ.`,
   },
   services: {
-    en: `Experience world-class services at ${HOTEL_NAME}. Enjoy fine dining, conference facilities, outdoor swimming pool, fitness center, and wellness services in the beautiful Tam Dao setting.`,
-    vi: `Trải nghiệm dịch vụ đẳng cấp thế giới tại ${HOTEL_NAME}. Thưởng thức ẩm thực tinh tế, tiện ích hội nghị, hồ bơi ngoài trời, trung tâm thể hình và dịch vụ wellness trong khung cảnh Tam Đảo tuyệt đẹp.`,
+    en: `World-class services at ${HOTEL_NAME}. Fine dining, conference facilities, pool, fitness & wellness in beautiful Tam Dao setting.`,
+    vi: `Dịch vụ đẳng cấp tại ${HOTEL_NAME}. ẩm thực tinh tế, hội nghị, hồ bơi, thể hình & wellness trong khung cảnh Tam Đảo tuyệt đẹp.`,
   },
   booking: {
-    en: `Book your perfect stay at ${HOTEL_NAME} online. Easy reservation system for our luxury rooms and suites in Tam Dao. Best rates guaranteed for your mountain retreat experience.`,
-    vi: `Đặt phòng lý tưởng tại ${HOTEL_NAME} trực tuyến. Hệ thống đặt phòng dễ dàng cho các phòng và suite sang trọng tại Tam Đảo. Cam kết giá tốt nhất cho trải nghiệm nghỉ dưỡng trên núi.`,
+    en: `Book your stay at ${HOTEL_NAME} online. Easy reservation for luxury rooms & suites in Tam Dao. Best rates guaranteed.`,
+    vi: `Đặt phòng tại ${HOTEL_NAME} trực tuyến. Đặt phòng dễ dàng cho phòng & suite sang trọng tại Tam Đảo. Cam kết giá tốt nhất.`,
   },
   contact: {
-    en: `Contact ${HOTEL_NAME} for inquiries, reservations, and event planning. Located in the heart of Tam Dao, Phu Tho. Call us or visit our hotel for exceptional hospitality.`,
-    vi: `Liên hệ ${HOTEL_NAME} để được tư vấn, đặt phòng và lên kế hoạch sự kiện. Tọa lạc tại trung tâm Tam Đảo, Phú Thọ. Gọi cho chúng tôi hoặc ghé thăm khách sạn để trải nghiệm dịch vụ đẳng cấp.`,
+    en: `Contact ${HOTEL_NAME} for inquiries, reservations & events. Located in Tam Dao, Phu Tho. Call or visit for exceptional hospitality.`,
+    vi: `Liên hệ ${HOTEL_NAME} để tư vấn, đặt phòng & sự kiện. Tọa lạc tại Tam Đảo, Phú Thọ. Gọi hoặc ghé thăm để trải nghiệm dịch vụ đẳng cấp.`,
   },
   'booking-detail': {
-    en: `Booking confirmation for ${HOTEL_NAME}. View your reservation details, room information, and booking confirmation for your stay in Tam Dao, Phu Tho.`,
-    vi: `Xác nhận đặt phòng tại ${HOTEL_NAME}. Xem chi tiết đặt phòng, thông tin phòng và xác nhận đặt chỗ cho kỳ nghỉ của bạn tại Tam Đảo, Phú Thọ.`,
+    en: `Booking confirmation for ${HOTEL_NAME}. View reservation details & room information for your stay in Tam Dao, Phu Tho.`,
+    vi: `Xác nhận đặt phòng tại ${HOTEL_NAME}. Xem chi tiết đặt phòng & thông tin phòng cho kỳ nghỉ của bạn tại Tam Đảo, Phú Thọ.`,
   },
 };
 
@@ -135,13 +139,23 @@ export function generateSEOMetadata(
   let title = options?.title?.trim() || FALLBACK_TITLE;
   if (pageType !== 'home') {
     const pageTitles = {
-      rooms: isEnglish ? 'Our Rooms' : 'Phòng của chúng tôi',
+      rooms: isEnglish
+        ? 'Luxury Rooms & Suites in Tam Dao'
+        : 'Phòng & Suite Sang trọng tại Tam Đảo',
       'room-detail': options?.roomName?.trim() || 'Room Details',
-      services: isEnglish ? 'Our Services' : 'Dịch vụ của chúng tôi',
+      services: isEnglish
+        ? 'Premium Hotel Services & Facilities'
+        : 'Dịch vụ & Tiện ích Khách sạn Cao cấp',
       'service-detail': options?.serviceName?.trim() || 'Service Details',
-      booking: isEnglish ? 'Book Your Stay' : 'Đặt phòng của bạn',
-      contact: isEnglish ? 'Contact Us' : 'Liên hệ chúng tôi',
-      'booking-detail': isEnglish ? 'Booking Details' : 'Chi tiết đặt phòng',
+      booking: isEnglish
+        ? 'Book Your Luxury Stay Online'
+        : 'Đặt Phòng Sang Trọng Trực Tuyến',
+      contact: isEnglish
+        ? 'Contact Us for Reservations & Events'
+        : 'Liên hệ Đặt phòng & Tổ chức Sự kiện',
+      'booking-detail': isEnglish
+        ? 'Your Booking Confirmation'
+        : 'Xác nhận Đặt phòng của Bạn',
     };
     title = `${pageTitles[pageType]} | ${HOTEL_NAME}`;
   }
@@ -203,6 +217,7 @@ export function generateSEOMetadata(
       type: pageType === 'home' ? 'website' : 'website',
       locale: locale === 'en' ? 'en_US' : 'vi_VN',
       siteName: HOTEL_NAME,
+      url: canonical,
       images: [
         {
           url: imageUrl,
@@ -214,7 +229,7 @@ export function generateSEOMetadata(
           url: DEFAULT_LOGO,
           width: 800,
           height: 600,
-          alt: `Genuss Logo`,
+          alt: `${HOTEL_NAME} Logo`,
         },
       ],
     },
@@ -234,6 +249,9 @@ export function generateSEOMetadata(
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
+    },
+    other: {
+      'og:logo': `${SITE_URL}${DEFAULT_LOGO}`,
     },
   };
 

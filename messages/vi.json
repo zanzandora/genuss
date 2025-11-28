@@ -272,7 +272,7 @@
             "offices": {
               "office1": "Văn phòng 1 - Số 16&18/33 Đỗ Nhuận - Hải An - Hải Phòng (Hotline: 0978 500 968)",
               "office2": "Văn phòng 2 - Số 326&328 Trường Chinh - Kiến An - Hải Phòng (Hotline: 0978 044 968)",
-              "office3": "Văn phòng 3 - Số 41 Bạch Đằng, P Hải Dương, TP Hải Dương (Hotline: 0978 156 968)"
+              "office3": "Văn phòng 3 - Số 41 Bạch Đằng, P. Hải Dương, TP Hải Phòng (Hotline: 0978 156 968)"
             }
           },
           "ninhbinh": {
@@ -280,7 +280,7 @@
             "offices": {
               "office1": "Văn phòng 1 - Số 2/38 Đinh Tiên Hoàng - Hoa Lư - Ninh Bình (Hotline: 0978 609 968)",
               "office2": "Văn phòng 2 - Số 6 Trần Phú, Phủ Lý, Hà Nam (Hotline: 0978 704 968)",
-              "office3": "Văn phòng 3 - HVKT Building, Số 553 Đường Trường Chinh - P Nam Định, tỉnh Ninh Bình (Hotline: 0978 605 968)"
+              "office3": "Văn phòng 3 - HVKT Building, Số 553 Đường Trường Chinh - P. Nam Định, tỉnh Ninh Bình (Hotline: 0978 605 968)"
             }
           },
           "quangninh": {
@@ -292,15 +292,14 @@
           "bacninh": {
             "name": "Bắc Ninh",
             "offices": {
-              "office1": "Văn phòng 1 - Số 293 Lê Lợi, P Bắc Giang, Tỉnh Bắc Giang (Hotline: 0978 053 968)"
+              "office1": "Văn phòng 1 - Số 293 Lê Lợi, P. Bắc Giang, Tỉnh Bắc Ninh (Hotline: 0978 053 968)"
             }
           },
           "hungyen": {
             "name": "Hưng Yên",
             "offices": {
               "office1": "Văn phòng 1 - Số 148 Chu Mạnh Trinh - Hiến Nam - Hưng Yên (Hotline: 0978 430 968)",
-              "office2": "Văn phòng 2 - Số 604&608 Lê Thánh Tông (Hotline: 0978 420 968) & Khách sạn Thụy Điển, số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên (Hotline: 0978 752 968)",
-              "office3": "Văn phòng 3 - Số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên (Hotline: 0978 752 968)"
+              "office2": "Văn phòng 2 - Số 285 Trần Thái Tông - Trần Hưng Đạo - Hưng Yên (Hotline: 0978 752 968)"
             }
           },
           "hochiminh": {

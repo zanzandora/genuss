@@ -1,13 +1,44 @@
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { BLUR_DATA_URL } from '@/constants';
 import { BinocularsIcon, DumbbellIcon, MapPin, SunIcon } from 'lucide-react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { AnimatedSection } from '@/components/ui/animations/AnimatedSection';
 import { AnimatedContainer } from '@/components/ui/animations/AnimatedContainer';
+import Stack from '@/components/ui/stack';
 
 const IntroduceSection = () => {
   const tIntroduce = useTranslations('home.introduce');
+
+  const introducesImage = [
+    {
+      id: 1,
+      image: '/images/introduces/introduce-1.jpg',
+      alt: tIntroduce('title'),
+    },
+    {
+      id: 2,
+      image: '/images/introduces/introduce-2.jpg',
+      alt: tIntroduce('title'),
+    },
+    {
+      id: 3,
+      image: '/images/introduces/introduce-3.jpg',
+      alt: tIntroduce('title'),
+    },
+    {
+      id: 4,
+      image: '/images/introduces/introduce-4.jpg',
+      alt: tIntroduce('title'),
+    },
+    {
+      id: 5,
+      image: '/images/introduces/introduce-5.jpg',
+      alt: tIntroduce('title'),
+    },
+    {
+      id: 6,
+      image: '/images/introduces/introduce-6.jpg',
+      alt: tIntroduce('title'),
+    },
+  ];
 
   const features = [
     {
@@ -48,25 +79,28 @@ const IntroduceSection = () => {
       </AnimatedSection>
 
       <div className='mx-auto max-w-7xl py-8 md:py-12'>
-        <div className='grid gap-16 lg:grid-cols-2 lg:gap-18'>
+        <div className='grid gap-16 md:grid-cols-2 md:gap-18'>
           <AnimatedSection variant='slideInLeft' delay={0.2}>
-            <figure className='mx-auto w-[300px] max-w-full overflow-hidden rounded-4xl drop-shadow-xl md:w-[350px] lg:w-[400px] xl:w-[450px]'>
+            <div className='mx-auto w-full max-w-md overflow-hidden rounded-4xl sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl'>
               {/* Hotel Exterior */}
-              <AspectRatio ratio={1 / 1}>
-                <Image
-                  src='/images/introduce-image-1.jpg'
-                  alt='Hotel exterior architecture'
-                  fill
-                  sizes='(max-width: 768px) 50vw, 25vw'
-                  className='object-cover'
-                  placeholder='blur'
-                  blurDataURL={BLUR_DATA_URL}
-                />
-              </AspectRatio>
-              <figcaption className='sr-only'>
-                Introduc image: Why choose GENUSS ?
-              </figcaption>
-            </figure>
+
+              <Stack
+                className='mx-auto'
+                sendToBackOnClick={true}
+                cardDimensions={{
+                  xs: { width: '220px', height: '220px' },
+                  sm: { width: '260px', height: '260px' },
+                  md: { width: '300px', height: '300px' },
+                  lg: { width: '340px', height: '340px' },
+                  xl: { width: '380px', height: '380px' },
+                }}
+                cardsData={introducesImage.map((imageObj) => ({
+                  id: imageObj.id,
+                  img: imageObj.image,
+                  alt: imageObj.alt,
+                }))}
+              />
+            </div>
           </AnimatedSection>
 
           {/* Right Column - Feature Sections */}
@@ -81,10 +115,10 @@ const IntroduceSection = () => {
                 <div key={index} className='flex items-start gap-4'>
                   <Icon />
                   <div>
-                    <h3 className='text-xl font-bold text-gray-900 uppercase'>
+                    <h3 className='text-base font-bold text-gray-900 uppercase md:text-lg lg:text-xl'>
                       {tIntroduce(feature.titleKey)}
                     </h3>
-                    <p className='text-mu mt-1 text-sm'>
+                    <p className='mt-1 text-sm text-primary'>
                       {tIntroduce(feature.descriptionKey)}
                     </p>
                   </div>

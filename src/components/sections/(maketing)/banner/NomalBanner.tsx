@@ -7,7 +7,7 @@ const NormalBanner = ({
   imageSrc = '/images/normal-banner-2.webp',
   className,
 }: {
-  title: string;
+  title?: string;
   imageSrc?: string;
   className?: string;
 }) => {
@@ -21,7 +21,7 @@ const NormalBanner = ({
               className,
             )}
           >
-            {title}
+            {title || ''}
           </div>
         </div>
       </div>
