@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
 import type { PageType } from '@/types/seo.type';
 
-// Prioritize production URL if available, fallback to development URL
-const SITE_URL =
-  process.env.NODE_ENV === 'production'
-    ? process.env.NEXT_PUBLIC_SITE_URL || 'https://genuss-hotel.vn'
-    : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+// Always use NEXT_PUBLIC_SITE_URL if available, fallback to localhost for development
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://genuss-hotel.vn';
 const HOTEL_NAME = 'Genuss Hotel Tam Dao';
 const HOTEL_LOCATION = 'Tam Dao, Phu Tho, Vietnam';
 const DEFAULT_LOCALE = 'vi';

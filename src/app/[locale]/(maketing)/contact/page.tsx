@@ -17,7 +17,6 @@ export async function generateMetadata({
 
   return generateSEOMetadata('contact', locale, {
     imagePath: '/logo/og-image.jpg',
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${locale === 'vi' ? '' : '/en'}/contact`,
   });
 }
 
