@@ -18,11 +18,11 @@ export async function generateMetadata({
 }
 
 const BookingDetailsPage = () => {
-  const tMenu = useTranslations('menu');
+  // const tMenu = useTranslations('menu');
 
   return (
     <div>
-      <NormalBanner title={tMenu('bookingDetails')} />
+      <NormalBanner />
 
       <BookingDetailsContent />
 

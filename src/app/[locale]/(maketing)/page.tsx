@@ -23,7 +23,7 @@ export async function generateMetadata({
   const { locale } = await params;
 
   return generateSEOMetadata('home', locale, {
-    imagePath: '/images/genuss-logo.png',
+    imagePath: '/favicon.ico',
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${locale === 'vi' ? '' : '/en'}`,
   });
 }

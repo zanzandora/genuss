@@ -22,6 +22,7 @@ const ServiceContent = ({ service, otherServices }: ServiceContentProps) => {
           <div className='relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-2xl md:h-[400px] lg:h-[500px]'>
             <Stack
               className='mx-auto'
+              sendToBackOnClick={true}
               cardDimensions={{
                 xs: { width: '300px', height: '250px' },
                 sm: { width: '350px', height: '300px' },

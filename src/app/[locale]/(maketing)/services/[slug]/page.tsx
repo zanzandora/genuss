@@ -28,9 +28,15 @@ export async function generateMetadata({
 
   const service = await getServiceBySlugWithImages(slug);
 
+  const tServices = await getTranslations('services');
+  const serviceName = tServices(service?.titleKey as never);
+  const serviceSubName = tServices(service?.subTitleKey as never);
+
   return generateSEOMetadata('service-detail', locale, {
+    serviceName,
+    title: serviceSubName,
     canonical: `/services/${slug}`,
-    imagePath: service?.imageSrc || '/images/genuss-logo.png',
+    imagePath: service?.imageSrc || '/favicon.ico',
   });
 }
 

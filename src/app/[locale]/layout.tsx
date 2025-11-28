@@ -29,7 +29,7 @@ export async function generateMetadata({
   const { locale } = await params;
 
   return generateSEOMetadata('home', locale, {
-    imagePath: '/images/genuss-logo.png',
+    imagePath: '/favicon.ico',
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${locale === 'vi' ? '' : '/en'}`,
   });
 }
@@ -60,8 +60,10 @@ export default async function RootLayout({
           }
         />
 
+        {/* traditional favicon  for browsers */}
+        <link rel='icon' href='/favicon.ico' />
+
         {/* Web Logo and Icons */}
-        <link rel='icon' type='image/svg+xml' href='/logo/genuss-logo-v2.svg' />
         <link rel='apple-touch-icon' href='/logo/genuss-logo-v2.svg' />
         <meta name='theme-color' content='#000000' />
 

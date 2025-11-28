@@ -110,9 +110,6 @@ const ContactOfficerAddress = () => {
               <div className='tracking-normal'>
                 {tFooter('cities.hungyen.offices.office2')}
               </div>
-              <div className='tracking-normal'>
-                {tFooter('cities.hungyen.offices.office3')}
-              </div>
             </div>
           </div>
         </div>
