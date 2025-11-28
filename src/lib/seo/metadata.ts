@@ -9,7 +9,7 @@ const SITE_URL =
 const HOTEL_NAME = 'Genuss Hotel Tam Dao';
 const HOTEL_LOCATION = 'Tam Dao, Phu Tho, Vietnam';
 const DEFAULT_LOCALE = 'vi';
-const DEFAULT_LOGO = '/favicon.ico';
+const DEFAULT_LOGO = '/logo/og-image.jpg';
 
 // Fallback constants to avoid empty strings
 const FALLBACK_TITLE = 'Luxury Hotel in Tam Dao | Genuss Hotel Tam Dao';
@@ -24,7 +24,7 @@ const FALLBACK_KEYWORDS = [
   'luxury hotel Phu Tho',
   'resort Tam Dao',
 ];
-const FALLBACK_IMAGE_PATH = '/images/summary-1.webp';
+const FALLBACK_IMAGE_PATH = '/logo/og-image.jpg';
 
 // SEO keywords cho different pages
 const SEO_KEYWORDS = {
