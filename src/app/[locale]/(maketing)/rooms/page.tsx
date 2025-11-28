@@ -3,7 +3,6 @@ import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import RoomCards from '@/components/sections/(maketing)/rooms/RoomCards';
 import { generateSEOMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 
 export async function generateMetadata({
   params,
@@ -18,8 +17,6 @@ export async function generateMetadata({
 }
 
 const RoomsPage = () => {
-  // const tMenu = useTranslations('menu');
-
   return (
     <div>
       <NormalBanner />
