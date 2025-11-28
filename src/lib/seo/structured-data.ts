@@ -7,8 +7,8 @@ import type {
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://genuss-hotel.vn';
 const HOTEL_NAME = 'Genuss Hotel Tam Dao';
-const HOTEL_PHONE = '+84-XXX-XXX-XXXX'; // Update with actual phone
-const HOTEL_EMAIL = 'info@genuss-hotel.vn'; // Update with actual email
+const HOTEL_PHONE = '0978 352 968 - 0978 452 968 - 0978 525 968';
+const HOTEL_EMAIL = 'genusstamdao2968@gmail.com';
 
 export function generateHotelStructuredData(
   locale: string = 'vi',
@@ -47,7 +47,7 @@ export function generateHotelStructuredData(
       'Parking',
     ],
     image: [
-      `${SITE_URL}/images/genuss-logo.png`,
+      `${SITE_URL}/favicon.ico`,
       `${SITE_URL}/images/banner/slide-banner-4.webp`,
       `${SITE_URL}/images/facilities/swimming-pool-service.webp`,
     ],
@@ -220,7 +220,7 @@ export function generateLocalBusinessStructuredData(locale: string = 'vi') {
       'Mo-Su 00:00-24:00', // 24/7 operation
     ],
     priceRange: isEnglish ? '$$ - $$$' : '1.500.000 - 8.000.000 VND',
-    image: `${SITE_URL}/images/genuss-logo.png`,
+    image: `${SITE_URL}/favicon.ico`,
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 21.4744, // Update with actual coordinates

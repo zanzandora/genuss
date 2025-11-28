@@ -16,7 +16,7 @@ export async function generateMetadata({
   const { locale } = await params;
 
   return generateSEOMetadata('contact', locale, {
-    imagePath: '/images/genuss-logo.png',
+    imagePath: '/favicon.ico',
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${locale === 'vi' ? '' : '/en'}/contact`,
   });
 }
@@ -44,7 +44,7 @@ const ContactPage = () => {
       />
 
       <div>
-        <NormalBanner title={tMenu('contact')} />
+        <NormalBanner />
 
         <ContactOfficerAddress />
 

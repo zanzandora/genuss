@@ -272,7 +272,7 @@
             "offices": {
               "office1": "Office 1 - No. 16&18/33 Do Nhuan - Hai An - Hai Phong - 0978 500 968",
               "office2": "Office 2 - No. 326&328 Truong Chinh - Kien An - Hai Phong - 0978 044 968",
-              "office3": "Office 3 - No. 41 Bach Dang, P Hai Duong, Hai Duong City - 0978 156 968"
+              "office3": "Office 3 - No. 41 Bach Dang, Ward Hai Duong, Hai Phong City - 0978 156 968"
             }
           },
           "ninhbinh": {
@@ -280,7 +280,7 @@
             "offices": {
               "office1": "Office 1 - No. 2/38 Dinh Tien Hoang - Hoa Lu - Ninh Binh - 0978 609 968",
               "office2": "Office 2 - No. 6 Tran Phu, Phu Ly, Ha Nam - 0978 704 968",
-              "office3": "Office 3 - HVKT Building, No. 553 Truong Chinh Street - P Nam Dinh, Ninh Binh Province - 0978 605 968"
+              "office3": "Office 3 - HVKT Building, No. 553 Truong Chinh Street - Ward Nam Dinh, Ninh Binh Province - 0978 605 968"
             }
           },
           "quangninh": {
@@ -292,15 +292,14 @@
           "bacninh": {
             "name": "Bac Ninh",
             "offices": {
-              "office1": "Office 1 - No. 293 Le Loi, P Bac Giang, Bac Giang Province - 0978 053 968"
+              "office1": "Office 1 - No. 293 Le Loi, Ward Bac Giang, Bac Ninh Province - 0978 053 968"
             }
           },
           "hungyen": {
             "name": "Hung Yen",
             "offices": {
               "office1": "Office 1 - No. 148 Chu Manh Trinh - Hien Nam - Hung Yen - 0978 430 968",
-              "office2": "Office 2 - No. 604&608 Le Thanh Tong - 0978 420 968 & Thuy Dien Hotel, No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen - 0978 752 968",
-              "office3": "Office 3 - No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen - 0978 752 968"
+              "office2": "Office 3 - No. 285 Tran Thai Tong - Tran Hung Dao - Hung Yen - 0978 752 968"
             }
           },
           "hochiminh": {

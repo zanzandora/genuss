@@ -1,4 +1,4 @@
-import { AnimatedContainer } from '@/components/ui/animations/AnimatedContainer';
+import AnimatedContainer from '@/components/ui/animations/AnimatedContainer';
 import { FacilityKey } from '@/types/FacilityKey.type';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';

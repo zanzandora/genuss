@@ -10,10 +10,10 @@ export default async function MarketingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='min-h-screen bg-secondary'>
+    <div className='min-h-dvh bg-secondary'>
       <NavBar />
 
-      <main className='min-h-screen p-4'>
+      <main className='min-h-dvh p-4'>
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </main>
 
