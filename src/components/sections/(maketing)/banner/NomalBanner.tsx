@@ -36,7 +36,7 @@ const NormalBanner = ({
           placeholder='blur'
           blurDataURL={BLUR_DATA_URL}
         />
-        <div className='absolute inset-0 rounded-4xl bg-black/50' />
+        <div className='absolute inset-0 rounded-4xl bg-black/40' />
       </div>
     </div>
   );

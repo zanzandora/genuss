@@ -43,7 +43,7 @@ const ContactPage = () => {
       />
 
       <div>
-        <NormalBanner />
+        <NormalBanner imageSrc='/images/normal-banner-5.webp' />
 
         <ContactOfficerAddress />
 

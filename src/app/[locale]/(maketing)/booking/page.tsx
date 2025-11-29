@@ -20,13 +20,11 @@ export async function generateMetadata({
 }
 
 const BookingPage = async () => {
-  const tMenu = await getTranslations('menu');
-
   const rooms = await getRoomDatas();
 
   return (
     <section>
-      <NormalBanner title={tMenu('booking')} />
+      <NormalBanner />
 
       <div className='mx-auto mb-16 max-w-4xl'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>

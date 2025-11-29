@@ -75,7 +75,7 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: [
-          // Security headers (giữ nguyên)
+          // Security headers
           {
             key: 'X-Frame-Options',
             value: 'DENY',

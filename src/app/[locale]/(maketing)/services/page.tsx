@@ -18,14 +18,9 @@ export async function generateMetadata({
 }
 
 const ServicesPage = () => {
-  const tMenu = useTranslations('menu');
-
   return (
     <div>
-      <NormalBanner
-        title={tMenu('services')}
-        imageSrc='/images/normal-banner-4.webp'
-      />
+      <NormalBanner imageSrc='/images/normal-banner-6.webp' />
 
       <FamousFacilitiesSection />
 
