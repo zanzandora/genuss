@@ -5,7 +5,6 @@ import { BookingPanel } from '@/components/sections/(maketing)/room/booking-pane
 import { getRoomDatas } from '@/lib/action/getRooms';
 import { generateSEOMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -24,7 +23,7 @@ const BookingPage = async () => {
 
   return (
     <section>
-      <NormalBanner />
+      <NormalBanner imageSrc='/images/normal-banner-6.webp' />
 
       <div className='mx-auto mb-16 max-w-4xl'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>

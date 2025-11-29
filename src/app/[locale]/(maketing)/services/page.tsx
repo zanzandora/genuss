@@ -3,7 +3,6 @@ import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import FamousFacilitiesSection from '@/components/sections/(maketing)/facilities/FamousFacilitiesSection';
 import { generateSEOMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 
 export async function generateMetadata({
   params,
@@ -20,7 +19,7 @@ export async function generateMetadata({
 const ServicesPage = () => {
   return (
     <div>
-      <NormalBanner imageSrc='/images/normal-banner-6.webp' />
+      <NormalBanner imageSrc='/images/normal-banner-4.webp' />
 
       <FamousFacilitiesSection />
 

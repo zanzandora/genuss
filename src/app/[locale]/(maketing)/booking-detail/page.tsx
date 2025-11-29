@@ -3,7 +3,6 @@ import NormalBanner from '@/components/sections/(maketing)/banner/NomalBanner';
 import BookingDetailsContent from '@/components/sections/(maketing)/booking-detail/content/BookingDetailsContent';
 import { generateSEOMetadata } from '@/lib/seo';
 import { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 
 export async function generateMetadata({
   params,
@@ -22,7 +21,7 @@ const BookingDetailsPage = () => {
 
   return (
     <div>
-      <NormalBanner />
+      <NormalBanner imageSrc='/images/normal-banner-6.webp' />
 
       <BookingDetailsContent />
 
