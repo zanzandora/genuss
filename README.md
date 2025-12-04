@@ -82,6 +82,8 @@ genuss/
 │   │   │   ├── (maketing)/    # Marketing pages
 │   │   │   └── layout.tsx     # Root layout
 │   │   └── globals.css        # Global styles
+│   │   └── robots.ts          # Robots.txt generation
+│   │   └── sitemap.ts         # Global styles
 │   ├── components/            # Reusable components
 │   │   ├── common/            # Shared components
 │   │   ├── sections/          # Page sections
@@ -91,6 +93,7 @@ genuss/
 │   │   ├── action/            # Server actions
 │   │   ├── animations/        # Animation configs
 │   │   ├── data/              # Static data
+│   │   ├── seo/               # Seo data
 │   │   └── utils/             # Helper functions
 │   ├── stores/                # State management (Zustand)
 │   ├── types/                 # TypeScript type definitions

@@ -9,10 +9,15 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { generateSEOMetadata } from '@/lib/seo';
+import {
+  generateServiceStructuredData,
+  generateBreadcrumbStructuredData,
+} from '@/lib/seo/structured-data';
 
 interface ServicePageProps {
   params: Promise<{
     slug: string;
+    locale: string;
   }>;
 }
 
@@ -41,7 +46,7 @@ export async function generateMetadata({
 }
 
 const ServicePage = async ({ params }: ServicePageProps) => {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const service = await getServiceBySlugWithImages(slug);
 
   if (!service) {
@@ -50,16 +55,59 @@ const ServicePage = async ({ params }: ServicePageProps) => {
 
   const otherServices = await getOtherServicesWithImages(slug);
   const tServices = await getTranslations('services');
+  const tMenu = await getTranslations('menu');
   const title = tServices(service.titleKey);
 
+  // Generate service structured data
+  const serviceStructuredData = generateServiceStructuredData(
+    {
+      name: title,
+      slug: service.slug,
+      description: service.descriptionKey,
+      type: service.slug,
+      image: service.imageSrc,
+    },
+    locale,
+  );
+
+  // Generate breadcrumb structured data
+  const breadcrumbs = [
+    { name: tMenu('home'), url: '/' },
+    { name: tMenu('services'), url: '/services' },
+    { name: title, url: `/services/${slug}` },
+  ];
+
+  const breadcrumbStructuredData = generateBreadcrumbStructuredData(
+    breadcrumbs,
+    locale,
+  );
+
   return (
-    <div>
-      <NormalBanner title={title} imageSrc={service.imageSrc} />
+    <>
+      {/* Service structured data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceStructuredData, null, 2),
+        }}
+      />
 
-      <ServiceContent service={service} otherServices={otherServices} />
+      {/* Breadcrumb structured data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData, null, 2),
+        }}
+      />
 
-      <BackToTopButton />
-    </div>
+      <div>
+        <NormalBanner title={title} imageSrc={service.imageSrc} />
+
+        <ServiceContent service={service} otherServices={otherServices} />
+
+        <BackToTopButton />
+      </div>
+    </>
   );
 };
 
