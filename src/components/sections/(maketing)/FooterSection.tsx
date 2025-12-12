@@ -71,7 +71,7 @@ const FooterSection = () => {
             </div>
             <div className='relative h-48 min-h-[200px] w-full sm:h-56 sm:min-h-[240px] lg:h-60 lg:min-h-[241px]'>
               <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0969447657!2d105.6403567!3d21.4572571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134e7650ddc749f:0x9fde527b2b8fb0ca!2sKh%C3%A1ch+s%E1%BA%A1n+Genuss+Tam+%C4%90%E1%BA%A3o!5e0!3m2!1sen!2s!4v1234567890!5m2!1sen!2s'
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3360.3310529989835!2d105.64525979999999!3d21.4572649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134e9bdeb16c57f%3A0x2a259a389b9a5cec!2sGenuss%20Hotel%20Tam%20Dao!5e1!3m2!1svi!2s!4v1765557635399!5m2!1svi!2s'
                 className='absolute inset-0 h-full w-full rounded border-2 border-gray-700'
                 style={{ border: 0 }}
                 allowFullScreen
