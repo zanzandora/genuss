@@ -9,12 +9,14 @@ export function AnimatedTyppingText({
   className,
   fontText,
   typingSpeed,
+  delay = 0,
 }: {
   text: string;
   className?: string;
   fontText?: string;
   disabled?: boolean;
-  typingSpeed?: number; // Custom delay between each character (in seconds)
+  typingSpeed?: number;
+  delay?: number;
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: ANIMATION_CONFIG.viewport.once });
@@ -28,7 +30,8 @@ export function AnimatedTyppingText({
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{
             duration: ANIMATION_CONFIG.durations.fast - 0.1,
-            delay: index * (typingSpeed || ANIMATION_CONFIG.stagger.fast),
+            delay:
+              delay + index * (typingSpeed || ANIMATION_CONFIG.stagger.fast),
           }}
           className={fontText}
         >

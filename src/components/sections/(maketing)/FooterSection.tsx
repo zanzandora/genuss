@@ -61,7 +61,7 @@ const FooterSection = () => {
                 {tFooter('hotelAddress.address')}
               </p>
               <Link
-                href='https://www.google.com/maps/place/Kh%C3%A1ch+s%E1%BA%A1n+Genuss+Tam+%C4%90%E1%BA%A3o/@21.4572571,105.6403567,772m/data=!3m2!1e3!4b1!4m10!3m9!1s0x3134e7650ddc749f:0x9fde527b2b8fb0ca!5m3!1s2025-11-23!4m1!1i2!8m2!3d21.4572522!4d105.6452276!16s%2Fg%2F11t99qzv_x?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D'
+                href='https://www.google.com/maps?q=Genuss+Hotel+Tam+Dao,+Khu+1,+Tam+%C4%90%E1%BA%A3o,+V%C4%A9nh+Ph%C3%BAc&ftid=0x3134e9bdeb16c57f:0x2a259a389b9a5cec&entry=gps&lucs=,94297695,94275415,94231188,94280568,47071704,94218641,94282134,94298694,94203019,94286869&g_ep=CAISEjI1LjQ3LjAuODMzNTQyOTMwMBgAIIgnKlosOTQyOTc2OTUsOTQyNzU0MTUsOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsOTQyMTg2NDEsOTQyODIxMzQsOTQyOTg2OTQsOTQyMDMwMTksOTQyODY4NjlCAlZO&skid=00a9e171-098f-4d69-be44-92ca4d0fe00e&g_st=ipc'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-sm text-primary-foreground underline transition hover:text-blue-400'

@@ -43,7 +43,7 @@ const FamousFacilitiesSection = () => {
   ];
 
   return (
-    <section className='relative mb-4 py-8 sm:mb-10 md:mb-16 md:py-16'>
+    <section className='relative my-4 sm:my-10 md:my-20'>
       <Image
         width={500}
         height={500}

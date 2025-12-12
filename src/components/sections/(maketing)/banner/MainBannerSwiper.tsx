@@ -10,6 +10,7 @@ import { BLUR_DATA_URL } from '@/constants';
 import Autoplay from 'embla-carousel-autoplay';
 import { useTranslations } from 'next-intl';
 import { AnimatedTyppingText } from '@/components/ui/animations/AnimatedTyppingText';
+import { AnimatedWordsPullUp } from '@/components/ui/animations/AnimatedWordsPullUp';
 
 type HeroSlide = {
   src: string;
@@ -28,15 +29,17 @@ export default function MainBannerSwiper({
       <div className='absolute top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 text-center md:-translate-y-4/5'>
         <div className='mx-auto max-w-fit px-20 md:w-full'>
           <div className='font-playfair_display flex flex-col items-center text-center text-white'>
-            <span className='font-playfair_display py-1 text-4xl text-nowrap uppercase sm:text-5xl lg:text-6xl'>
-              genuss hotel
-            </span>
+            <AnimatedWordsPullUp
+              text='genuss hotel'
+              className='font-playfair_display py-1 text-4xl text-nowrap uppercase sm:text-5xl lg:text-6xl'
+            />
 
             <AnimatedTyppingText
               text={t('description')}
               className='py-1 text-2xl tracking-wide italic sm:text-3xl lg:text-4xl'
               fontText='font-playfair_display'
               typingSpeed={0.03}
+              delay={1.05}
             />
           </div>
         </div>
