@@ -43,7 +43,9 @@ const FooterSection = () => {
                   Email: genusstamdao2968@gmail.com
                 </p>
                 <Link
-                  href={'https://www.facebook.com/genusshotelV5.552'}
+                  href={
+                    'https://www.facebook.com/profile.php?id=61585317602789'
+                  }
                   target='_blank'
                 >
                   <FacebookIcon className='mr-2 size-8' />
