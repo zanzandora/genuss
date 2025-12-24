@@ -80,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     rooms.forEach((room: TRoom) => {
       // Vietnamese room pages
       roomPages.push({
-        url: generateCanonicalUrl(DEFAULT_LOCALE, `/rooms/${room.slug}`),
+        url: generateCanonicalUrl(DEFAULT_LOCALE, `/room-detail/${room.slug}`),
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
@@ -88,7 +88,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       // English room pages
       roomPages.push({
-        url: generateCanonicalUrl('en', `/rooms/${room.slug}`),
+        url: generateCanonicalUrl('en', `/room-detail/${room.slug}`),
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,

@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import type { PageType } from '@/types/seo.type';
 
 // Always use NEXT_PUBLIC_SITE_URL if available, fallback to localhost for development
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://genuss-hotel.vn';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.genuss-hotel.vn/';
 const HOTEL_NAME = 'Genuss Hotel Tam Dao';
 const HOTEL_LOCATION = 'Tam Dao, Phu Tho, Vietnam';
 const DEFAULT_LOCALE = 'vi';

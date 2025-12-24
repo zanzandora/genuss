@@ -5,7 +5,8 @@ import type {
   BreadcrumbStructuredData,
 } from '@/types/seo.type';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://genuss-hotel.vn';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.genuss-hotel.vn/';
 const HOTEL_NAME = 'Genuss Hotel Tam Dao';
 const HOTEL_PHONE = '0978 352 968 - 0978 452 968 - 0978 525 968';
 const HOTEL_EMAIL = 'genusstamdao2968@gmail.com';
