@@ -8,7 +8,6 @@ export interface TranslatedRoom {
   quantity: number;
   price: string;
   images?: string[];
-  mainImage?: string;
   area: number;
   bed: string[];
   maxOccupancy: number;

@@ -28,7 +28,7 @@ export async function generateMetadata({
   return generateSEOMetadata('room-detail', locale, {
     roomName: translatedRoomName,
     canonical: `/rooms/${slug}`,
-    imagePath: room?.mainImage,
+    imagePath: room?.images?.[0],
   });
 }
 

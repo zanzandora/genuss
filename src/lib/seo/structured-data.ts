@@ -44,7 +44,6 @@ export function generateHotelStructuredData(
       'Air Conditioning',
       '24/7 Service',
       'Mountain View',
-      'Sauna',
       'Parking',
     ],
     image: [
@@ -114,9 +113,7 @@ export function generateRoomStructuredData(
       availability: 'https://schema.org/InStock',
       validFrom: new Date().toISOString(),
     },
-    photo: room.images || [
-      `${SITE_URL}/images/main-rooms/${room.slug}/${room.slug}_1.png`,
-    ],
+    photo: room.images,
   };
 }
 

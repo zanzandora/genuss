@@ -18,12 +18,6 @@ function publicImagesPathForSlug(slug: string) {
   return (file: string) => `/${path.posix.join('images', 'rooms', slug, file)}`;
 }
 
-function publicMainImagePathForSlug(slug: string) {
-  // returns '/images/main-rooms/<slug>/<file>'
-  return (file: string) =>
-    `/${path.posix.join('images', 'main-rooms', slug, file)}`;
-}
-
 async function readImagesForSlug(slug: string) {
   const folder = path.join(process.cwd(), 'public', 'images', 'rooms', slug);
   try {
@@ -52,27 +46,6 @@ async function readImagesForSlug(slug: string) {
   }
 }
 
-async function readMainImageForSlug(slug: string) {
-  const folder = path.join(
-    process.cwd(),
-    'public',
-    'images',
-    'main-rooms',
-    slug,
-  );
-  try {
-    const entries = await fs.readdir(folder, { withFileTypes: true });
-    const files = entries
-      .filter((e) => e.isFile() && IMAGE_EXT_RE.test(e.name))
-      .map((e) => e.name)
-      .sort();
-    // Return the first image as main image, or empty array if no images found
-    return files.length > 0 ? [publicMainImagePathForSlug(slug)(files[0])] : [];
-  } catch {
-    return [];
-  }
-}
-
 /**
  * Trả về mảng rooms kèm images: string[]
  * Chạy server-side (Server Component). Có cache in-memory TTL.
@@ -88,11 +61,9 @@ export async function getRoomDatas(forceRefresh = false) {
     await Promise.all(
       baseRooms.map(async (r) => {
         const imgs = await readImagesForSlug(r.slug);
-        const mainImgs = await readMainImageForSlug(r.slug);
         return {
           ...r,
           images: imgs,
-          mainImage: mainImgs.length > 0 ? mainImgs[0] : undefined,
         };
       }),
     )

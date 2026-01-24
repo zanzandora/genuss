@@ -3,8 +3,8 @@ import { TRoom } from '../../types/room.type';
 export const rooms: TRoom[] = [
   {
     id: 1,
-    name: 'Executive Suite City View',
-    slug: 'executive-suite-city-view',
+    name: 'Luxury Suite Center View',
+    slug: 'luxury-suite-center-view',
     quantity: 6,
     price: '2900000',
     area: 38,
@@ -16,8 +16,8 @@ export const rooms: TRoom[] = [
   },
   {
     id: 2,
-    name: 'Royal Suite',
-    slug: 'royal-suite',
+    name: 'Premium Suite Boulevard View',
+    slug: 'premium-suite-boulevard-view',
     quantity: 1,
     price: '8000000',
     area: 52,
@@ -29,8 +29,8 @@ export const rooms: TRoom[] = [
   },
   {
     id: 3,
-    name: 'Royal Honeymoon',
-    slug: 'royal-honeymoon',
+    name: 'Romantic Signature Suite',
+    slug: 'romantic-signature-suite',
     quantity: 1,
     price: '5400000',
     area: 48,
@@ -42,8 +42,8 @@ export const rooms: TRoom[] = [
   },
   {
     id: 4,
-    name: 'Junior Deluxe Mountain View',
-    slug: 'junior-deluxe-mountain-view',
+    name: 'Deluxe Double Mountain View',
+    slug: 'deluxe-double-mountain-view',
     quantity: 16,
     price: '1550000',
     area: 28,
@@ -54,8 +54,8 @@ export const rooms: TRoom[] = [
   },
   {
     id: 5,
-    name: 'Premium Deluxe City View',
-    slug: 'premium-deluxe-city-view',
+    name: 'Deluxe Executive City View',
+    slug: 'deluxe-executive-city-view',
     quantity: 6,
     price: '2750000',
     area: 35,

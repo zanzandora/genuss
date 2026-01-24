@@ -55,7 +55,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
         <div className='relative aspect-[3/2] max-h-[300px] min-w-full overflow-hidden'>
           <RoomImage
             {...getOptimizedImageProps(
-              room.mainImage || room.images?.[0] || '/images/rooms/room-1.jpg',
+              room.images?.[0] || '/images/rooms/room-1.jpg',
               0,
             )}
             roomName={translatedRoom.name}
@@ -63,9 +63,7 @@ const RoomCard = ({ className, room, sizeCard = 'normal', action }: Props) => {
             fill
             className={cn(
               getOptimizedImageProps(
-                room.mainImage ||
-                  room.images?.[0] ||
-                  '/images/rooms/room-1.jpg',
+                room.images?.[0] || '/images/rooms/room-1.jpg',
                 0,
               ).className,
               'object-cover transition-transform duration-500 ease-out',

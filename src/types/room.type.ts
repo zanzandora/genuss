@@ -11,7 +11,6 @@ export interface TRoom {
   quantity: number;
   price: string;
   images?: string[];
-  mainImage?: string;
   area: number; // diện tích phòng (m2)
   bed: BedType[];
   maxOccupancy: number;
